@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsApplicationsDataAccess.cs" />
     <Compile Include="clsApplicationTypeDataAccess.cs" />
     <Compile Include="clsCountriesDataAccess.cs" />
     <Compile Include="clsLicenseClassDataAccess.cs" />
+    <Compile Include="clsLocalDrivingLicenseApplicationDA.cs" />
     <Compile Include="clsPersonDataAccess.cs" />
     <Compile Include="clsSettingsConnectoinStrinng.cs" />
     <Compile Include="clsTestTypeDataAccess.cs" />

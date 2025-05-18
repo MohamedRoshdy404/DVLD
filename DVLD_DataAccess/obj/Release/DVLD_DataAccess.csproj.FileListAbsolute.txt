@@ -4,3 +4,9 @@ C:\Users\Programming\source\repos\ProjectDVLD\DVLD_DataAccess\obj\Release\DVLD_D
 C:\Users\Programming\source\repos\ProjectDVLD\DVLD_DataAccess\obj\Release\DVLD_DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\Programming\source\repos\ProjectDVLD\DVLD_DataAccess\obj\Release\DVLD_DataAccess.dll
 C:\Users\Programming\source\repos\ProjectDVLD\DVLD_DataAccess\obj\Release\DVLD_DataAccess.pdb
+C:\Users\Mohamed\source\repos\ProjectDVLD\DVLD_DataAccess\bin\Release\DVLD_DataAccess.dll
+C:\Users\Mohamed\source\repos\ProjectDVLD\DVLD_DataAccess\bin\Release\DVLD_DataAccess.pdb
+C:\Users\Mohamed\source\repos\ProjectDVLD\DVLD_DataAccess\obj\Release\DVLD_DataAccess.csproj.AssemblyReference.cache
+C:\Users\Mohamed\source\repos\ProjectDVLD\DVLD_DataAccess\obj\Release\DVLD_DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Mohamed\source\repos\ProjectDVLD\DVLD_DataAccess\obj\Release\DVLD_DataAccess.dll
+C:\Users\Mohamed\source\repos\ProjectDVLD\DVLD_DataAccess\obj\Release\DVLD_DataAccess.pdb

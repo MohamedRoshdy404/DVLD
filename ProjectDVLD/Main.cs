@@ -30,7 +30,7 @@ namespace ProjectDVLD
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lbtxtUserName.Text =  clsUserInfo.UserName.ToUpper();
+            //lbtxtUserName.Text =  clsUserInfo.UserName.ToUpper();
         }
 
         private void peopalToolStripMenuItem_Click(object sender, EventArgs e)
