@@ -104,5 +104,97 @@ namespace DVLD_Buisness
 
 
 
+
+
+
+
+        //private bool _AddNewLicenseClass()
+        //{
+        //    //call DataAccess Layer 
+
+        //    this.LicenseClassID = clsLicenseClassData.AddNewLicenseClass(this.ClassName, this.ClassDescription,
+        //        this.MinimumAllowedAge, this.DefaultValidityLength, this.ClassFees);
+
+
+        //    return (this.LicenseClassID != -1);
+        //}
+
+        //private bool _UpdateLicenseClass()
+        //{
+        //    //call DataAccess Layer 
+
+        //    return clsLicenseClassDataAccess.UpdateLicenseClass(this.LicenseClassID, this.ClassName, this.ClassDescription,
+        //        this.MinimumAllowedAge, this.DefaultValidityLength, this.ClassFees);
+        //}
+
+        //public static clsLicenseClass Find(int LicenseClassID)
+        //{
+        //    string ClassName = ""; string ClassDescription = "";
+        //    byte MinimumAllowedAge = 18; byte DefaultValidityLength = 10; float ClassFees = 0;
+
+        //    if (clsLicenseClassData.GetLicenseClassInfoByID(LicenseClassID, ref ClassName, ref ClassDescription,
+        //            ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
+
+        //        return new clsLicenseClass(LicenseClassID, ClassName, ClassDescription,
+        //            MinimumAllowedAge, DefaultValidityLength, ClassFees);
+        //    else
+        //        return null;
+
+        //}
+
+        //public static clsLicenseClass Find(string ClassName)
+        //{
+        //    int LicenseClassID = -1; string ClassDescription = "";
+        //    byte MinimumAllowedAge = 18; byte DefaultValidityLength = 10; float ClassFees = 0;
+
+        //    if (clsLicenseClassData.GetLicenseClassInfoByClassName(ClassName, ref LicenseClassID, ref ClassDescription,
+        //            ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
+
+        //        return new clsLicenseClass(LicenseClassID, ClassName, ClassDescription,
+        //            MinimumAllowedAge, DefaultValidityLength, ClassFees);
+        //    else
+        //        return null;
+
+        //}
+
+        //public static DataTable GetAllLicenseClasses()
+        //{
+        //    return clsLicenseClassData.GetAllLicenseClasses();
+
+        //}
+
+        //public bool Save()
+        //{
+        //    switch (Mode)
+        //    {
+        //        case enMode.AddNew:
+        //            if (_AddNewLicenseClass())
+        //            {
+
+        //                Mode = enMode.Update;
+        //                return true;
+        //            }
+        //            else
+        //            {
+        //                return false;
+        //            }
+
+        //        case enMode.Update:
+
+        //            return _UpdateLicenseClass();
+
+        //    }
+
+        //    return false;
+        //}
+
+
+
+
+
+
+
+
+
     }
 }
