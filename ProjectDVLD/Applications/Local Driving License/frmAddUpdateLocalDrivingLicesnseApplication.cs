@@ -56,15 +56,16 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         private void cbLicenseClass_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            clsLicenseClassBuisnessLayer leicense = clsLicenseClassBuisnessLayer.FindLicenseClassesByClassName(cbLicenseClass.SelectedItem.ToString());
+           // clsLicenseClassBuisnessLayer leicense = clsLicenseClassBuisnessLayer.FindLicenseClassesByClassName(cbLicenseClass.SelectedItem.ToString());
 
-            if (leicense == null)
-            {
-                MessageBox.Show("Sorry, the license type was not found. Please try again correctly.", "ERROR" , MessageBoxButtons.OK , MessageBoxIcon.Error);
-                return;
-            }
+            //if (leicense == null)
+            //{
+            //    MessageBox.Show("Sorry, the license type was not found. Please try again correctly.", "ERROR" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+            //    return;
+            //}
 
-            lblFees.Text = leicense.ClassFees.ToString();
+            //lblFees.Text = leicense.ClassFees.ToString();
+            //lblFees.Text = clsApplicationTypeBuisnessLayer.FindApplicationType((int)clsApplicationsBuisnessLayer.enApplicationType.NewDrivingLicense).ApplicationFees.ToString();
         }
     }
 }

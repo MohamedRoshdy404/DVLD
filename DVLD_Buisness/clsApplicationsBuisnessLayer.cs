@@ -84,7 +84,7 @@ namespace DVLD_Buisness
             this.ApplicantPersonID = ApplicantPersonID;
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = ApplicationTypeID;
-            //this.ApplicationTypeInfo = clsApplicationTypeBuisnessLayer.Find(ApplicationTypeID);
+            this.ApplicationTypeInfo = clsApplicationTypeBuisnessLayer.FindApplicationType(ApplicationTypeID);
             this.ApplicationStatus = ApplicationStatus;
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;

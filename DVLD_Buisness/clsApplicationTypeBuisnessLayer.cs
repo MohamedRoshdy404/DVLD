@@ -26,9 +26,6 @@ namespace DVLD_Buisness
             this.ApplicationFees = 0;
 
         }
-
-
-
         
         private clsApplicationTypeBuisnessLayer(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
         {
@@ -38,18 +35,10 @@ namespace DVLD_Buisness
 
         }
 
-
-
-
-
         public static DataTable GetAllApplicationType()
         {
             return clsApplicationTypeDataAccess.GetAllApplicationType();
         }
-
-
-
-
 
         public static clsApplicationTypeBuisnessLayer FindApplicationType(int ApplicationTypeID)
         {
