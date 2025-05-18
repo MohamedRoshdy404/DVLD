@@ -139,35 +139,35 @@ namespace ProjectDVLD.Applications.Local_Driving_License
 
 
             //check if user already have issued license of the same driving  class.
-            if (clsLicenseClassBuisnessLayer.IsLicenseExistByPersonID(ctrlPersonCardWithFilter1.PersonID, LicenseClassID))
-            {
+            //if (clsLicenseClassBuisnessLayer.IsLicenseExistByPersonID(ctrlPersonCardWithFilter1.PersonID, LicenseClassID))
+            //{
 
-                MessageBox.Show("Person already have a license with the same applied driving class, Choose diffrent driving class", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //    MessageBox.Show("Person already have a license with the same applied driving class, Choose diffrent driving class", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
-            _LocalDrivingLicenseApplication.ApplicantPersonID = ctrlPersonCardWithFilter1.PersonID; ;
-            _LocalDrivingLicenseApplication.ApplicationDate = DateTime.Now;
-            _LocalDrivingLicenseApplication.ApplicationTypeID = 1;
-            _LocalDrivingLicenseApplication.ApplicationStatus = clsApplication.enApplicationStatus.New;
-            _LocalDrivingLicenseApplication.LastStatusDate = DateTime.Now;
-            _LocalDrivingLicenseApplication.PaidFees = Convert.ToSingle(lblFees.Text);
-            _LocalDrivingLicenseApplication.CreatedByUserID = clsGlobal.CurrentUser.UserID;
-            _LocalDrivingLicenseApplication.LicenseClassID = LicenseClassID;
+            //_LocalDrivingLicenseApplication.ApplicantPersonID = ctrlPersonCardWithFilter1.PersonID; ;
+            //_LocalDrivingLicenseApplication.ApplicationDate = DateTime.Now;
+            //_LocalDrivingLicenseApplication.ApplicationTypeID = 1;
+            //_LocalDrivingLicenseApplication.ApplicationStatus = clsApplication.enApplicationStatus.New;
+            //_LocalDrivingLicenseApplication.LastStatusDate = DateTime.Now;
+            //_LocalDrivingLicenseApplication.PaidFees = Convert.ToSingle(lblFees.Text);
+            //_LocalDrivingLicenseApplication.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+            //_LocalDrivingLicenseApplication.LicenseClassID = LicenseClassID;
 
 
-            if (_LocalDrivingLicenseApplication.Save())
-            {
-                lblLocalDrivingLicebseApplicationID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
-                //change form mode to update.
-                _Mode = enMode.Update;
-                lblTitle.Text = "Update Local Driving License Application";
+            //if (_LocalDrivingLicenseApplication.Save())
+            //{
+            //    lblLocalDrivingLicebseApplicationID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
+            //    //change form mode to update.
+            //    _Mode = enMode.Update;
+            //    lblTitle.Text = "Update Local Driving License Application";
 
-                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
-            else
-                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //else
+            //    MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
