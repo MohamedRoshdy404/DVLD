@@ -55,7 +55,7 @@ namespace DVLD_Buisness
             this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
             this.LicenseClassID = LicenseClassID;
-            this.LicenseClassInfo = clsLicenseClassBuisnessLayer.FindLicenseClassesByID(LicenseClassID);
+            this.LicenseClassInfo = clsLicenseClassBuisnessLayer.Find(LicenseClassID);
             Mode = enMode.Update;
         }
 

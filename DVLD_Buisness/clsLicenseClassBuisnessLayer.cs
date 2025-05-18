@@ -90,24 +90,24 @@ namespace DVLD_Buisness
 
 
 
-        public static clsLicenseClassBuisnessLayer FindLicenseClassesByID(int LicenseClassID)
-        {
+        //public static clsLicenseClassBuisnessLayer FindLicenseClassesByID(int LicenseClassID)
+        //{
 
-            string className = string.Empty , ClassDescription = string.Empty;
-            byte MinimumAllowedAge = 0,  DefaultValidityLength = 0;
-            decimal ClassFees = 0;
+        //    string className = string.Empty , ClassDescription = string.Empty;
+        //    byte MinimumAllowedAge = 0,  DefaultValidityLength = 0;
+        //    decimal ClassFees = 0;
 
-            if (clsLicenseClassDataAccess.GetLicenseClassInfoByID(LicenseClassID, ref className, ref  ClassDescription, ref   MinimumAllowedAge, ref  DefaultValidityLength, ref  ClassFees))
-            {
-                return new clsLicenseClassBuisnessLayer(className, LicenseClassID , ClassDescription , MinimumAllowedAge, DefaultValidityLength,  ClassFees);
-            }
-            else
-            {
-                return null;
-            }
+        //    if (clsLicenseClassDataAccess.GetLicenseClassInfoByID(LicenseClassID, ref className, ref  ClassDescription, ref   MinimumAllowedAge, ref  DefaultValidityLength, ref  ClassFees))
+        //    {
+        //        return new clsLicenseClassBuisnessLayer(className, LicenseClassID , ClassDescription , MinimumAllowedAge, DefaultValidityLength,  ClassFees);
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
 
 
-        }
+        //}
 
 
 
