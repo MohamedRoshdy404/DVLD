@@ -98,5 +98,11 @@ namespace ProjectDVLD
             NewLocalDrivingLicesnseApplication.ShowDialog();
 
         }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frmListLocalDrivingLicesnseApplications = new frmListLocalDrivingLicesnseApplications();
+            frmListLocalDrivingLicesnseApplications.ShowDialog();
+        }
     }
 }
