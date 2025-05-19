@@ -64,11 +64,11 @@ namespace ProjectDVLD.Applications.Local_Driving_License
                 ctrlPersonCardWithFilter1.FilterFocus();
                 tpApplicationInfo.Enabled = false;
                 cbLicenseClass.SelectedIndex = 2;
-
+                
                 lblFees.Text = clsApplicationTypeBuisnessLayer.FindApplicationType((int)clsApplicationsBuisnessLayer.enApplicationType.NewDrivingLicense).ApplicationFees.ToString();
-
+                
                 lblApplicationDate.Text = DateTime.Now.ToShortDateString();
-                lblCreatedByUser.Text = clsUserInfo.CurrentUser.UserName;
+                lblCreatedByUser.Text = "Admin"; //clsUserInfo.CurrentUser.UserName;
             }
             else
             {
@@ -111,15 +111,28 @@ namespace ProjectDVLD.Applications.Local_Driving_License
 
             clsPersonBuisnessLayer Person = clsPersonBuisnessLayer.FindByPersonID(ctrlPersonCardWithFilter1.PersonID);
 
-            if (Person != null)
+            _SelectedPersonID = Person.PersonID;
+            if (ctrlPersonCardWithFilter1.PersonID != -1)
             {
-                //lblLocalDrivingLicebseApplicationID.Text = Person.PersonID.ToString();
-                lblCreatedByUser.Text = clsUserInfo.UserName;
+                btnSave.Enabled = true;
                 tcApplicationInfo.SelectedTab = tpApplicationInfo;
                 tcApplicationInfo.TabPages["tpApplicationInfo"].Enabled = true;
                 lblApplicationDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
+                lblCreatedByUser.Text = "Admin";
                 _FillLicenseClassesInComoboBox();
             }
+
+            //if (Person != null)
+            //{
+            //    //lblLocalDrivingLicebseApplicationID.Text = Person.PersonID.ToString();
+            //    tcApplicationInfo.SelectedTab = tpApplicationInfo;
+            //    tcApplicationInfo.TabPages["tpApplicationInfo"].Enabled = true;
+            //    lblApplicationDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            //    _FillLicenseClassesInComoboBox();
+            //}
+
+
+            //_ResetDefualtValues();
 
         }
 
