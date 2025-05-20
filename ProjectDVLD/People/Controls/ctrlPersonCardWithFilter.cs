@@ -183,6 +183,12 @@ namespace ProjectDVLD.People.Controls
             txtFilterValue.Select();
         }
 
-
+        private void txtFilterValue_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnFind.PerformClick();
+            }
+        }
     }
 }

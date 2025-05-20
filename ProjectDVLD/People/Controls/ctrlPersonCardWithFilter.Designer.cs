@@ -117,6 +117,7 @@
             this.txtFilterValue.Size = new System.Drawing.Size(214, 26);
             this.txtFilterValue.TabIndex = 21;
             this.txtFilterValue.Text = "n1";
+            this.txtFilterValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterValue_KeyDown);
             // 
             // ctrlPersonCard1
             // 
