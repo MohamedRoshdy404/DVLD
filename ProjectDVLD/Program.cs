@@ -23,8 +23,8 @@ namespace ProjectDVLD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
-            //Application.Run(new frmAddUpdateLocalDrivingLicesnseApplication());
+          //Application.Run(new frmListLocalDrivingLicesnseApplications());
+           Application.Run(new frmLogin());
 
            
         }
