@@ -18,12 +18,10 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             InitializeComponent();
         }
 
-
-        private int _LocalDrivingLicenseApplicationsID = -1;
         public frmLocalDrivingLicenseApplicationInfo(int LocalDrivingLicenseApplicationsID)
         {
             InitializeComponent();
-            _LocalDrivingLicenseApplicationsID = LocalDrivingLicenseApplicationsID;
+            ctrlDrivingLicenseApplicationInfo1._LoadData(LocalDrivingLicenseApplicationsID);
         }
 
         private void frmLocalDrivingLicenseApplicationInfo_Load(object sender, EventArgs e)

@@ -12,19 +12,6 @@ namespace DVLD_DataAccess
     {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         public static bool GetApplicationInfoByID(int ApplicationID,
            ref int ApplicantPersonID, ref DateTime ApplicationDate, ref int ApplicationTypeID,
            ref byte ApplicationStatus, ref DateTime LastStatusDate,
