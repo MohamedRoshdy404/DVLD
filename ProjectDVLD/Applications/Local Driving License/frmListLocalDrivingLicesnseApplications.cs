@@ -22,6 +22,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         {
             Form frmAddUpdateLocalDrivingLicesnseApplication = new frmAddUpdateLocalDrivingLicesnseApplication();
             frmAddUpdateLocalDrivingLicesnseApplication.ShowDialog();
+            dgvLocalDrivingLicenseApplications.DataSource = clsLocalDrivingLicenseApplicationBL.GetAllLocalDrivingLicenseApplications();
         }
 
         private static DataTable _dtAllLocalDrivingLicenseApplications = clsLocalDrivingLicenseApplicationBL.GetAllLocalDrivingLicenseApplications();

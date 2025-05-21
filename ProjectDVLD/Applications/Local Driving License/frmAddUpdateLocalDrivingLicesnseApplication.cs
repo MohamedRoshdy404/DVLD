@@ -118,21 +118,9 @@ namespace ProjectDVLD.Applications.Local_Driving_License
                 tcApplicationInfo.SelectedTab = tpApplicationInfo;
                 tcApplicationInfo.TabPages["tpApplicationInfo"].Enabled = true;
                 lblApplicationDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
-                lblCreatedByUser.Text = "Admin";
-                _FillLicenseClassesInComoboBox();
+                lblCreatedByUser.Text = clsUserInfo.UserName;
             }
 
-            //if (Person != null)
-            //{
-            //    //lblLocalDrivingLicebseApplicationID.Text = Person.PersonID.ToString();
-            //    tcApplicationInfo.SelectedTab = tpApplicationInfo;
-            //    tcApplicationInfo.TabPages["tpApplicationInfo"].Enabled = true;
-            //    lblApplicationDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
-            //    _FillLicenseClassesInComoboBox();
-            //}
-
-
-            //_ResetDefualtValues();
 
         }
 
@@ -186,16 +174,6 @@ namespace ProjectDVLD.Applications.Local_Driving_License
 
         private void cbLicenseClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            // clsLicenseClassBuisnessLayer leicense = clsLicenseClassBuisnessLayer.FindLicenseClassesByClassName(cbLicenseClass.SelectedItem.ToString());
-
-            //if (leicense == null)
-            //{
-            //    MessageBox.Show("Sorry, the license type was not found. Please try again correctly.", "ERROR" , MessageBoxButtons.OK , MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            //lblFees.Text = leicense.ClassFees.ToString();
             lblFees.Text = clsApplicationTypeBuisnessLayer.FindApplicationType((int)clsApplicationsBuisnessLayer.enApplicationType.NewDrivingLicense).ApplicationFees.ToString();
         }
 
