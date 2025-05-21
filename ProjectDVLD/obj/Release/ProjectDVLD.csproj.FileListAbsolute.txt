@@ -72,3 +72,6 @@ C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Release\ProjectDVLD.cs
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Release\ProjectDVLD.exe
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Release\ProjectDVLD.pdb
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Release\ProjectDVLD.Applications.Local_Driving_License.frmListLocalDrivingLicesnseApplications.resources
+C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Release\ProjectDVLD.Applications.Application_Types.Controls.ctrlApplicationBasicInfo.resources
+C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Release\ProjectDVLD.Applications.Local_Driving_License.Controls.ctrlDrivingLicenseApplicationInfo.resources
+C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Release\ProjectDVLD.Applications.Local_Driving_License.frmLocalDrivingLicenseApplicationInfo.resources

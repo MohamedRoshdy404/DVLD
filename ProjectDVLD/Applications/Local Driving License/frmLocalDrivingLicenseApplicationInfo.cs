@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DVLD_Buisness;
+using System.Windows.Forms;
+
+namespace ProjectDVLD.Applications.Local_Driving_License
+{
+    public partial class frmLocalDrivingLicenseApplicationInfo : Form
+    {
+        public frmLocalDrivingLicenseApplicationInfo()
+        {
+            InitializeComponent();
+        }
+
+
+        private int _LocalDrivingLicenseApplicationsID = -1;
+        public frmLocalDrivingLicenseApplicationInfo(int LocalDrivingLicenseApplicationsID)
+        {
+            InitializeComponent();
+            _LocalDrivingLicenseApplicationsID = LocalDrivingLicenseApplicationsID;
+        }
+
+        private void frmLocalDrivingLicenseApplicationInfo_Load(object sender, EventArgs e)
+        {
+
+
+
+        }
+    }
+}

@@ -22,7 +22,13 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         {
             Form frmAddUpdateLocalDrivingLicesnseApplication = new frmAddUpdateLocalDrivingLicesnseApplication();
             frmAddUpdateLocalDrivingLicesnseApplication.ShowDialog();
+            GetLocalDrivingLicesnseApplications();
+        }
+
+        private void GetLocalDrivingLicesnseApplications()
+        {
             dgvLocalDrivingLicenseApplications.DataSource = clsLocalDrivingLicenseApplicationBL.GetAllLocalDrivingLicenseApplications();
+            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
         }
 
         private static DataTable _dtAllLocalDrivingLicenseApplications = clsLocalDrivingLicenseApplicationBL.GetAllLocalDrivingLicenseApplications();
@@ -127,6 +133,12 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         {
             if (cbFilterBy.Text == "L.D.L.AppID")
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frmLocalDrivingLicenseApplicationInfo = new frmLocalDrivingLicenseApplicationInfo((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            frmLocalDrivingLicenseApplicationInfo.ShowDialog();
         }
     }
 }
