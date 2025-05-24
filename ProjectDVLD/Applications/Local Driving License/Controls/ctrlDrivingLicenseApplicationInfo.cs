@@ -18,30 +18,24 @@ namespace ProjectDVLD.Applications.Local_Driving_License.Controls
             InitializeComponent();
         }
                 
-        //public ctrlDrivingLicenseApplicationInfo()
-        //{
-        //    InitializeComponent();
-        //    //_LocalDrivingLicenseApplicationsID = LocalDrivingLicenseApplicationsID;
-        //}
-
         private int _LocalDrivingLicenseApplicationsID = -1;
+        private clsLocalDrivingLicenseApplicationBL _LocalDrivingLicenseApplications;
 
 
 
         public void _LoadData(int LocalDrivingLicenseApplicationsID)
         {
-            clsLocalDrivingLicenseApplicationBL Applications = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationsID);
+            _LocalDrivingLicenseApplications = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationsID);
 
-            if (Applications == null)
+            if (_LocalDrivingLicenseApplications == null)
             {
                 MessageBox.Show("Error: A problem occurred while fetching the data. Please make sure all operations are correct.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             
-            ctrlApplicationBasicInfo1.LoadDataApp(Applications.ApplicationID);
-            lblLocalDrivingLicenseApplicationID.Text = Applications.ApplicationID.ToString();
-            lblAppliedFor.Text = Applications.LicenseClassInfo.ClassName;
-
+            lblLocalDrivingLicenseApplicationID.Text = _LocalDrivingLicenseApplications.ApplicationID.ToString();
+            lblAppliedFor.Text = _LocalDrivingLicenseApplications.LicenseClassInfo.ClassName;
+            ctrlApplicationBasicInfo1.LoadDataApp(_LocalDrivingLicenseApplications.ApplicationID);
 
         }
 

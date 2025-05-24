@@ -27,8 +27,6 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         private void frmLocalDrivingLicenseApplicationInfo_Load(object sender, EventArgs e)
         {
 
-
-
         }
     }
 }
