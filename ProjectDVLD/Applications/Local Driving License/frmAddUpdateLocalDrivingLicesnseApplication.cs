@@ -32,6 +32,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         public frmAddUpdateLocalDrivingLicesnseApplication(int LocalDrivingLicesnseApplicationID)
         {
             InitializeComponent();
+            _LocalDrivingLicenseApplicationID = LocalDrivingLicesnseApplicationID;
             _Mode = enMode.Update;
         }
 

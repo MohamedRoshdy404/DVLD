@@ -247,6 +247,7 @@
             this.CancelApplicaitonToolStripMenuItem.Name = "CancelApplicaitonToolStripMenuItem";
             this.CancelApplicaitonToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
             this.CancelApplicaitonToolStripMenuItem.Text = "&Cancel Application";
+            this.CancelApplicaitonToolStripMenuItem.Click += new System.EventHandler(this.CancelApplicaitonToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -260,6 +261,7 @@
             this.DeleteApplicationToolStripMenuItem.Name = "DeleteApplicationToolStripMenuItem";
             this.DeleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
             this.DeleteApplicationToolStripMenuItem.Text = "&Delete Application";
+            this.DeleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.DeleteApplicationToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -268,6 +270,7 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
             this.editToolStripMenuItem.Text = "&Edit Application";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 

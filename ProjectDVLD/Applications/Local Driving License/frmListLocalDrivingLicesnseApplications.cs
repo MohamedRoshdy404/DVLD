@@ -140,5 +140,65 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             Form frmLocalDrivingLicenseApplicationInfo = new frmLocalDrivingLicenseApplicationInfo((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
             frmLocalDrivingLicenseApplicationInfo.ShowDialog();
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frmAddUpdateLocalDrivingLicesnseApplication = new frmAddUpdateLocalDrivingLicesnseApplication((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            frmAddUpdateLocalDrivingLicesnseApplication.ShowDialog();
+            GetLocalDrivingLicesnseApplications();
+        }
+
+        private void DeleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Are you sure do want to delete this application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplicationBL LocalDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+
+            if (LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Delete())
+                {
+                    MessageBox.Show("Application Deleted Successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //refresh the form again.
+                    GetLocalDrivingLicesnseApplications();
+                }
+                else
+                {
+                    MessageBox.Show("Could not delete applicatoin, other data depends on it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
+        }
+
+        private void CancelApplicaitonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure do want to cancel this application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplicationBL LocalDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+
+            if (LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Cancel())
+                {
+                    MessageBox.Show("Application Cancelled Successfully.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //refresh the form again.
+                    GetLocalDrivingLicesnseApplications();
+                }
+                else
+                {
+                    MessageBox.Show("Could not cancel applicatoin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
