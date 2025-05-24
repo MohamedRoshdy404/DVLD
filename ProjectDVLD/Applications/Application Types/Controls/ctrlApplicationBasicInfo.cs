@@ -40,7 +40,7 @@ namespace ProjectDVLD.Applications.Application_Types.Controls
             lblApplicationID.Text = Application.ApplicationID.ToString();
             lblStatus.Text = Application.ApplicationStatus.ToString();
             lblFees.Text = Application.PaidFees.ToString();
-            lblType.Text = Application.ApplicationTypeID.ToString();
+            lblType.Text = Application.ApplicationTypeInfo.ApplicationTypeTitle.ToString();
             lblApplicant.Text = Application.ApplicantFullName;
             lblDate.Text = clsFormat.DateToShort(Application.ApplicationDate);
             lblStatusDate.Text = clsFormat.DateToShort( Application.LastStatusDate);

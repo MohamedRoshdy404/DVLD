@@ -46,7 +46,6 @@ C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.cspr
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.csproj.SuggestedBindingRedirects.cache
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.Application_Types.frmEditApplicationType.resources
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.Application_Types.frmListApplicationTypes.resources
-C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.frmApps.resources
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.Local_Driving_License.frmAddUpdateLocalDrivingLicesnseApplication.resources
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Login.frmLogin.resources
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Main.resources
