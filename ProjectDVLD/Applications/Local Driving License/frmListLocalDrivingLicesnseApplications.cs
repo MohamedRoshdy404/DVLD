@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DVLD_Buisness;
+using ProjectDVLD.Tests;
 using System.Windows.Forms;
 
 namespace ProjectDVLD.Applications.Local_Driving_License
@@ -199,6 +200,12 @@ namespace ProjectDVLD.Applications.Local_Driving_License
                     MessageBox.Show("Could not cancel applicatoin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frmListTestAppointments = new frmListTestAppointments((int) dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            frmListTestAppointments.ShowDialog();
         }
     }
 }

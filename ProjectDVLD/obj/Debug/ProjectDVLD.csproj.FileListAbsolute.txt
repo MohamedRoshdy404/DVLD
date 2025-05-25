@@ -74,3 +74,5 @@ C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Appl
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.Application_Types.Controls.ctrlApplicationBasicInfo.resources
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.Local_Driving_License.Controls.ctrlDrivingLicenseApplicationInfo.resources
 C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.Local_Driving_License.frmLocalDrivingLicenseApplicationInfo.resources
+C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Tests.frmListTestAppointments.resources
+C:\Users\Mohamed\source\repos\ProjectDVLD\ProjectDVLD\obj\Debug\ProjectDVLD.Tests.frmScheduleTest.resources
