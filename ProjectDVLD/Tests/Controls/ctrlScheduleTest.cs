@@ -41,18 +41,18 @@ namespace ProjectDVLD.Tests.Controls
                 {
                     case clsTestTypeBuisnessLayer.enTestType.VisionTest:
                         gbTestType.Text = "Vision Test";
-                       // pbTestTypeImage.Image = Resources.Written_Test_512;
+                       pbTestTypeImage.Image = Properties.Resources.Vision_512;
                         break;
 
                     case clsTestTypeBuisnessLayer.enTestType.WrittenTest:
                         gbTestType.Text = "Written Test";
-                        //pbTestTypeImage.Image = Resources.Written_Test_512;
+                        pbTestTypeImage.Image = Properties.Resources.Written_Test_512;
                         break;
 
 
                     case clsTestTypeBuisnessLayer.enTestType.StreetTest:
                         gbTestType.Text = "Street Test";
-                        //pbTestTypeImage.Image = Resources.driving_test_512;
+                        pbTestTypeImage.Image = Properties.Resources.driving_test_512;
                         break;
                 }
             }
