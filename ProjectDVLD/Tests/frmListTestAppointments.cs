@@ -39,7 +39,7 @@ namespace ProjectDVLD.Tests
                     {
                         lblTitle.Text = "Vision Test Appointments";
                         this.Text = lblTitle.Text;
-                        //pbTestTypeImage.Image = Icons.Vision_512;
+                        pbTestTypeImage.Image = Properties.Resources.Vision_512;
                         break;
                     }
 
@@ -47,14 +47,14 @@ namespace ProjectDVLD.Tests
                     {
                         lblTitle.Text = "Written Test Appointments";
                         this.Text = lblTitle.Text;
-                        //pbTestTypeImage.Image = Resources.Written_Test_512;
+                        pbTestTypeImage.Image = Properties.Resources.Written_Test_512;
                         break;
                     }
                 case clsTestTypeBuisnessLayer.enTestType.StreetTest:
                     {
                         lblTitle.Text = "Street Test Appointments";
                         this.Text = lblTitle.Text;
-                        //pbTestTypeImage.Image = Resources.driving_test_512;
+                        pbTestTypeImage.Image = Properties.Resources.driving_test_512;
                         break;
                     }
             }
@@ -64,6 +64,11 @@ namespace ProjectDVLD.Tests
         {
             Form frmScheduleTest = new frmScheduleTest(_LocalDrivingLicenseApplicationID , _TestType);
             frmScheduleTest.ShowDialog();
+        }
+
+        private void frmListTestAppointments_Load(object sender, EventArgs e)
+        {
+            _LoadTestTypeImageAndTitle();
         }
     }
 }

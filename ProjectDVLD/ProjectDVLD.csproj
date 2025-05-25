@@ -340,6 +340,9 @@
   <ItemGroup>
     <Content Include="Cars 48.ico" />
     <Content Include="Driver Main.ico" />
+    <None Include="Icons\driving-test 512.png" />
+    <None Include="Icons\Vision 512.png" />
+    <None Include="Icons\Written Test 512.png" />
     <Content Include="Sounds\mixkit-fantasy-game-success-notification-270.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
