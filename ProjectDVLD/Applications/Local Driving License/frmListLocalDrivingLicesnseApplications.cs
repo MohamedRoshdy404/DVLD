@@ -202,10 +202,28 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             }
         }
 
+
+
+        private void _ScheduleTest(clsTestTypeBuisnessLayer.enTestType TestType)
+        {
+
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+            frmListTestAppointments frm = new frmListTestAppointments(LocalDrivingLicenseApplicationID, TestType);
+            frm.ShowDialog();
+            //refresh
+            GetLocalDrivingLicesnseApplications();
+
+        }
+
+
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frmListTestAppointments = new frmListTestAppointments((int) dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
-            frmListTestAppointments.ShowDialog();
+            _ScheduleTest(clsTestTypeBuisnessLayer.enTestType.VisionTest);
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestTypeBuisnessLayer.enTestType.WrittenTest);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace DVLD_Buisness
 
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
+        public enum enTestType { VisionTest = 1, WrittenTest = 2, StreetTest = 3 };
 
         public clsTestTypeBuisnessLayer()
         {
