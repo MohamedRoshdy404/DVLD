@@ -26,6 +26,7 @@ namespace ProjectDVLD.Tests.Controls
         //private clsTestAppointment _TestAppointment;
         private int _TestAppointmentID = -1;
         private clsLocalDrivingLicenseApplicationBL _Application;
+        clsTestTypeBuisnessLayer _Test;
         public clsTestTypeBuisnessLayer.enTestType TestTypeID
         {
             get
@@ -64,13 +65,15 @@ namespace ProjectDVLD.Tests.Controls
             lblDrivingClass.Text = _Application.LicenseClassID.ToString();
             lblFullName.Text = _Application.PersonFullName.ToString();
             //lblTrial.Text = _Application.t
-            clsTestTypeBuisnessLayer test = clsTestTypeBuisnessLayer.Find((int)_TestTypeID);
-            lblFees.Text = test.TestTypeFees.ToString();
+            _Test = clsTestTypeBuisnessLayer.Find((int)_TestTypeID);
+            dtpTestDate.Value = DateTime.Now;
+            lblFees.Text = _Test.TestTypeFees.ToString();
 
         }
         public void LoadData(int LocalDrivingLicenseApplicationID)
         {
-             _Application = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+             _Application = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationID);
 
             if (_Application == null)
             {
@@ -92,6 +95,27 @@ namespace ProjectDVLD.Tests.Controls
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            clsTestAppointmentBL TestAppointment = new clsTestAppointmentBL();
+
+
+            TestAppointment.TestTypeID = (int)_TestTypeID;
+            TestAppointment.LocalDrivingLicenseApplicationID = _Application.LocalDrivingLicenseApplicationID;
+            TestAppointment.AppointmentDate = DateTime.Now;
+            TestAppointment.PaidFees = _Test.TestTypeFees;
+            TestAppointment.CreatedByUserID = _Application.CreatedByUserID;
+            TestAppointment.IsLocked = false;
+            TestAppointment.RetakeTestApplicationID = -1;
+
+
+
+            if (TestAppointment.Save())
+            {
+                MessageBox.Show("The operation was successful, and a test appointment has been scheduled for the applicant.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Failed to schedule a test appointment for the applicant.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
