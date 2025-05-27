@@ -25,7 +25,7 @@ namespace ProjectDVLD.Tests.Controls
         private int _LocalDrivingLicenseApplicationID = -1;
         //private clsTestAppointment _TestAppointment;
         private int _TestAppointmentID = -1;
-
+        private clsLocalDrivingLicenseApplicationBL _Application;
         public clsTestTypeBuisnessLayer.enTestType TestTypeID
         {
             get
@@ -58,15 +58,41 @@ namespace ProjectDVLD.Tests.Controls
             }
         }
 
+        private void _FillVisionTestData()
+        {
+            lblLocalDrivingLicenseAppID.Text = _Application.LocalDrivingLicenseApplicationID.ToString();
+            lblDrivingClass.Text = _Application.LicenseClassID.ToString();
+            lblFullName.Text = _Application.PersonFullName.ToString();
+            //lblTrial.Text = _Application.t
+            clsTestTypeBuisnessLayer test = clsTestTypeBuisnessLayer.Find((int)_TestTypeID);
+            lblFees.Text = test.TestTypeFees.ToString();
+
+        }
+        public void LoadData(int LocalDrivingLicenseApplicationID)
+        {
+             _Application = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+
+            if (_Application == null)
+            {
+                MessageBox.Show("Failed to retrieve license data. Please try again." , "ERROR" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+                return;
+            }
+
+            _FillVisionTestData();
+
+
+
+
+        }
 
         public ctrlScheduleTest()
         {
             InitializeComponent();
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
 
-
-
-
+        }
     }
 }

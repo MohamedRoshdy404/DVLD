@@ -27,6 +27,7 @@ namespace ProjectDVLD.Tests
         {
             InitializeComponent();
             _TestType = TestType;
+            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID ;
             ctrlDrivingLicenseApplicationInfo1._LoadData(LocalDrivingLicenseApplicationID);
         }
 
