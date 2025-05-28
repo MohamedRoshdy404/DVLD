@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace DVLD_DataAccess
 {
@@ -13,16 +14,77 @@ namespace DVLD_DataAccess
 
 
 
-        public static bool GetTestAppointmentInfoByID(int TestAppointmentID , ref int TestTypeID , ref int LocalDrivingLicenseApplicationID, ref DateTime AppointmentDate , ref decimal PaidFees , ref int CreatedByUserID , ref bool IsLocked , ref int RetakeTestApplicationID)
+        //public static bool GetTestAppointmentInfoByID(int TestAppointmentID , ref int TestTypeID , ref int LocalDrivingLicenseApplicationID, ref DateTime AppointmentDate , ref decimal PaidFees , ref int CreatedByUserID , ref bool IsLocked , ref int RetakeTestApplicationID)
+        //{
+        //    bool isFound = false;
+
+
+
+
+
+        //    return isFound;
+        //}       
+
+
+        public static DataTable GetTestAppointmentInfoByID(int TestAppointmentID , int TestTypeID)
         {
-            bool isFound = false;
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsSettingsConnectoinStrinng.connectionString);
+
+
+            string query = @"SELECT TestAppointments.TestAppointmentID, TestAppointments.AppointmentDate, TestAppointments.PaidFees , TestAppointments.IsLocked
+                         FROM Applications INNER JOIN
+                         LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID INNER JOIN
+                         People ON Applications.ApplicantPersonID = People.PersonID INNER JOIN
+                         TestAppointments 
+						 ON TestAppointments.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+						 where TestAppointments.LocalDrivingLicenseApplicationID = 54 AND TestAppointments.TestTypeID = @TestTypeID
+						 ";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+
+
+            return dt;
+        }
 
 
 
 
 
-            return isFound;
-        }       
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,8 +52,11 @@ namespace DVLD_Buisness
             Mode = enMode.Update;
         }
 
-
-
+                
+        public static DataTable GetTestAppointmentInfoByID(int TestAppointmentID , int TestTypeID)
+        {
+            return clsTestAppointmentDA.GetTestAppointmentInfoByID(TestAppointmentID , TestTypeID);
+        }
 
 
         private bool _AddNewTestAppointment()

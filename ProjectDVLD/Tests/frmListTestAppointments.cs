@@ -70,6 +70,7 @@ namespace ProjectDVLD.Tests
         private void frmListTestAppointments_Load(object sender, EventArgs e)
         {
             _LoadTestTypeImageAndTitle();
+            dgvLicenseTestAppointments.DataSource = clsTestAppointmentBL.GetTestAppointmentInfoByID(_LocalDrivingLicenseApplicationID ,(int) _TestType);
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="clsPersonBuisnessLayer.cs" />
     <Compile Include="clsTestAppointmentBL.cs" />
     <Compile Include="clsTestTypeBuisnessLayer.cs" />
+    <Compile Include="dateTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="clsUsersBuisnessLayer.cs" />
   </ItemGroup>
