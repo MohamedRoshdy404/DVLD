@@ -62,8 +62,22 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             }
 
             cbFilterBy.SelectedIndex = 0;
+            //_TestTakingLogic();
+        }
 
 
+        private void _TestTakingLogic()
+        {
+
+            if (dgvLocalDrivingLicenseApplications.CurrentRow.Cells[6].Value.ToString() == "New")
+            {
+                scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("ERROR");
+            }
 
         }
 
@@ -224,6 +238,31 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _ScheduleTest(clsTestTypeBuisnessLayer.enTestType.WrittenTest);
+        }
+
+        private void dgvLocalDrivingLicenseApplications_MouseUp(object sender, MouseEventArgs e)
+        {
+
+            int ColumnsPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
+
+            if (ColumnsPassedTests == 0)
+            {
+                scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
+            }
+            else if (ColumnsPassedTests == 1 || ColumnsPassedTests == 2)
+            {
+                scheduleVisionTestToolStripMenuItem.Enabled = false;
+                scheduleWrittenTestToolStripMenuItem.Enabled = true;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                scheduleVisionTestToolStripMenuItem.Enabled = false;
+                scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                scheduleStreetTestToolStripMenuItem.Enabled = true;
+            }
+
         }
     }
 }

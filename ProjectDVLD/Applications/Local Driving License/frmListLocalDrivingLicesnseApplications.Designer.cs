@@ -306,7 +306,7 @@
             this.toolStripSeparator6,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsApplications.Name = "contextMenuStrip1";
-            this.cmsApplications.Size = new System.Drawing.Size(262, 366);
+            this.cmsApplications.Size = new System.Drawing.Size(262, 344);
             // 
             // lblRecordsCount
             // 
@@ -363,6 +363,7 @@
             this.dgvLocalDrivingLicenseApplications.Size = new System.Drawing.Size(1405, 353);
             this.dgvLocalDrivingLicenseApplications.TabIndex = 132;
             this.dgvLocalDrivingLicenseApplications.TabStop = false;
+            this.dgvLocalDrivingLicenseApplications.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvLocalDrivingLicenseApplications_MouseUp);
             // 
             // lblTitle
             // 
