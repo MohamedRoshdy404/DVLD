@@ -243,15 +243,41 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         private void dgvLocalDrivingLicenseApplications_MouseUp(object sender, MouseEventArgs e)
         {
 
-            int ColumnsPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
+            string ColumnStutas = dgvLocalDrivingLicenseApplications.CurrentRow.Cells[6].Value.ToString();
+            int ColumnPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
 
-            if (ColumnsPassedTests == 0)
+
+            if (ColumnStutas == "Cancelled" || ColumnStutas == "Completed")
             {
+                ScheduleTestsMenue.Enabled = false;
+
+
+                editToolStripMenuItem.Enabled = false;
+                DeleteApplicationToolStripMenuItem.Enabled = false;
+                CancelApplicaitonToolStripMenuItem.Enabled = false;
+
+
+                showDetailsToolStripMenuItem.Enabled = true;
+                showLicenseToolStripMenuItem.Enabled = true;
+                showPersonLicenseHistoryToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                editToolStripMenuItem.Enabled = true;
+                DeleteApplicationToolStripMenuItem.Enabled = true;
+                CancelApplicaitonToolStripMenuItem.Enabled = true;
+            }
+
+
+            if (ColumnPassedTests == 0 && ColumnStutas == "New")
+            {
+                ScheduleTestsMenue.Enabled = true;
                 scheduleWrittenTestToolStripMenuItem.Enabled = false;
                 scheduleStreetTestToolStripMenuItem.Enabled = false;
             }
-            else if (ColumnsPassedTests == 1 || ColumnsPassedTests == 2)
+            else if (ColumnPassedTests == 1 || ColumnPassedTests == 2 && ColumnStutas == "New")
             {
+                ScheduleTestsMenue.Enabled = true;
                 scheduleVisionTestToolStripMenuItem.Enabled = false;
                 scheduleWrittenTestToolStripMenuItem.Enabled = true;
                 scheduleStreetTestToolStripMenuItem.Enabled = false;
@@ -260,7 +286,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             {
                 scheduleVisionTestToolStripMenuItem.Enabled = false;
                 scheduleWrittenTestToolStripMenuItem.Enabled = false;
-                scheduleStreetTestToolStripMenuItem.Enabled = true;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
             }
 
         }
