@@ -274,6 +274,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             if (ColumnPassedTests == 0 && ColumnStutas == "New")
             {
                 ScheduleTestsMenue.Enabled = true;
+                scheduleVisionTestToolStripMenuItem.Enabled = true;
                 scheduleWrittenTestToolStripMenuItem.Enabled = false;
                 scheduleStreetTestToolStripMenuItem.Enabled = false;
             }
