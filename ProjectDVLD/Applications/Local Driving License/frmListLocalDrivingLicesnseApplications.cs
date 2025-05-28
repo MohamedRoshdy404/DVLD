@@ -266,6 +266,8 @@ namespace ProjectDVLD.Applications.Local_Driving_License
                 editToolStripMenuItem.Enabled = true;
                 DeleteApplicationToolStripMenuItem.Enabled = true;
                 CancelApplicaitonToolStripMenuItem.Enabled = true;
+                showLicenseToolStripMenuItem.Enabled = false;
+                showPersonLicenseHistoryToolStripMenuItem.Enabled = false;
             }
 
 
@@ -282,11 +284,15 @@ namespace ProjectDVLD.Applications.Local_Driving_License
                 scheduleWrittenTestToolStripMenuItem.Enabled = true;
                 scheduleStreetTestToolStripMenuItem.Enabled = false;
             }
-            else
+            else if (ColumnPassedTests == 3 && ColumnStutas == "New")
             {
                 scheduleVisionTestToolStripMenuItem.Enabled = false;
                 scheduleWrittenTestToolStripMenuItem.Enabled = false;
                 scheduleStreetTestToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                ScheduleTestsMenue.Enabled = false;
             }
 
         }
