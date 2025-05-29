@@ -40,5 +40,10 @@ namespace ProjectDVLD.Tests
             ctrlScheduleTest1.TestTypeID = _TestTypeID;
             ctrlScheduleTest1.LoadData(_LocalDrivingLicenseApplicationID);
         }
+
+        private void ctrlScheduleTest1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

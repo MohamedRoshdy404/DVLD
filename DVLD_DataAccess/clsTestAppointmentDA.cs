@@ -26,7 +26,7 @@ namespace DVLD_DataAccess
         //}       
 
 
-        public static DataTable GetTestAppointmentInfoByID(int TestAppointmentID , int TestTypeID)
+        public static DataTable GetTestAppointmentInfoByID(int LocalDrivingLicenseApplicationID, int TestTypeID)
         {
             DataTable dt = new DataTable();
 
@@ -39,12 +39,12 @@ namespace DVLD_DataAccess
                          People ON Applications.ApplicantPersonID = People.PersonID INNER JOIN
                          TestAppointments 
 						 ON TestAppointments.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
-						 where TestAppointments.LocalDrivingLicenseApplicationID = 54 AND TestAppointments.TestTypeID = @TestTypeID
+						 where TestAppointments.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID AND TestAppointments.TestTypeID = @TestTypeID
 						 ";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
             command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
 
 

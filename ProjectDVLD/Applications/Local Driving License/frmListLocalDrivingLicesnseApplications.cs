@@ -249,8 +249,6 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         private void dgvLocalDrivingLicenseApplications_MouseUp(object sender, MouseEventArgs e)
         {
 
-
-
             string ColumnStatus = dgvLocalDrivingLicenseApplications.CurrentRow.Cells[6].Value.ToString();
             int ColumnPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
 

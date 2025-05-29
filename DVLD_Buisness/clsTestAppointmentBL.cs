@@ -53,9 +53,9 @@ namespace DVLD_Buisness
         }
 
                 
-        public static DataTable GetTestAppointmentInfoByID(int TestAppointmentID , int TestTypeID)
+        public static DataTable GetTestAppointmentInfoByID(int LocalDrivingLicenseApplicationID, int TestTypeID)
         {
-            return clsTestAppointmentDA.GetTestAppointmentInfoByID(TestAppointmentID , TestTypeID);
+            return clsTestAppointmentDA.GetTestAppointmentInfoByID(LocalDrivingLicenseApplicationID, TestTypeID);
         }
 
 
