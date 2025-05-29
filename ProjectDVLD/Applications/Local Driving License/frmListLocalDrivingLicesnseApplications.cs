@@ -240,22 +240,26 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             _ScheduleTest(clsTestTypeBuisnessLayer.enTestType.WrittenTest);
         }
 
+        private void _EnableEditingOptions(bool enabled)
+        {
+            editToolStripMenuItem.Enabled = enabled;
+            DeleteApplicationToolStripMenuItem.Enabled = enabled;
+            CancelApplicaitonToolStripMenuItem.Enabled = enabled;
+        }
         private void dgvLocalDrivingLicenseApplications_MouseUp(object sender, MouseEventArgs e)
         {
 
-            string ColumnStutas = dgvLocalDrivingLicenseApplications.CurrentRow.Cells[6].Value.ToString();
+
+
+            string ColumnStatus = dgvLocalDrivingLicenseApplications.CurrentRow.Cells[6].Value.ToString();
             int ColumnPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
 
 
-            if (ColumnStutas == "Cancelled" || ColumnStutas == "Completed")
+            if (ColumnStatus == "Cancelled" || ColumnStatus == "Completed")
             {
                 ScheduleTestsMenue.Enabled = false;
 
-
-                editToolStripMenuItem.Enabled = false;
-                DeleteApplicationToolStripMenuItem.Enabled = false;
-                CancelApplicaitonToolStripMenuItem.Enabled = false;
-
+                _EnableEditingOptions(false);
 
                 showDetailsToolStripMenuItem.Enabled = true;
                 showLicenseToolStripMenuItem.Enabled = true;
@@ -263,33 +267,41 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             }
             else
             {
-                editToolStripMenuItem.Enabled = true;
-                DeleteApplicationToolStripMenuItem.Enabled = true;
-                CancelApplicaitonToolStripMenuItem.Enabled = true;
+                _EnableEditingOptions(true);
                 showLicenseToolStripMenuItem.Enabled = false;
                 showPersonLicenseHistoryToolStripMenuItem.Enabled = false;
             }
 
 
-            if (ColumnPassedTests == 0 && ColumnStutas == "New")
+            if (ColumnStatus == "New")
             {
                 ScheduleTestsMenue.Enabled = true;
-                scheduleVisionTestToolStripMenuItem.Enabled = true;
-                scheduleWrittenTestToolStripMenuItem.Enabled = false;
-                scheduleStreetTestToolStripMenuItem.Enabled = false;
-            }
-            else if (ColumnPassedTests == 1 || ColumnPassedTests == 2 && ColumnStutas == "New")
-            {
-                ScheduleTestsMenue.Enabled = true;
-                scheduleVisionTestToolStripMenuItem.Enabled = false;
-                scheduleWrittenTestToolStripMenuItem.Enabled = true;
-                scheduleStreetTestToolStripMenuItem.Enabled = false;
-            }
-            else if (ColumnPassedTests == 3 && ColumnStutas == "New")
-            {
-                scheduleVisionTestToolStripMenuItem.Enabled = false;
-                scheduleWrittenTestToolStripMenuItem.Enabled = false;
-                scheduleStreetTestToolStripMenuItem.Enabled = false;
+
+                switch (ColumnPassedTests)
+                {
+                    case 0:
+                        scheduleVisionTestToolStripMenuItem.Enabled = true;
+                        scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                        scheduleStreetTestToolStripMenuItem.Enabled = false;
+                        break;
+
+                    case 1:
+                    case 2:
+                        scheduleVisionTestToolStripMenuItem.Enabled = false;
+                        scheduleWrittenTestToolStripMenuItem.Enabled = true;
+                        scheduleStreetTestToolStripMenuItem.Enabled = false;
+                        break;
+
+                    case 3:
+                        scheduleVisionTestToolStripMenuItem.Enabled = false;
+                        scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                        scheduleStreetTestToolStripMenuItem.Enabled = false;
+                        break;
+
+                    default:
+                        ScheduleTestsMenue.Enabled = false;
+                        break;
+                }
             }
             else
             {
