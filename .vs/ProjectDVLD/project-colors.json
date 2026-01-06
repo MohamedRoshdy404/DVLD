@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ec79b98f-1580-45ab-af8e-0f46c6a20bda": {
+      "ProjectGuid": "ec79b98f-1580-45ab-af8e-0f46c6a20bda",
+      "DisplayName": "DVLD_Buisness",
+      "ColorIndex": 0
+    },
+    "02b0a080-da76-4a5c-b6bd-9c28fbf91936": {
+      "ProjectGuid": "02b0a080-da76-4a5c-b6bd-9c28fbf91936",
+      "DisplayName": "DVLD_DataAccess",
+      "ColorIndex": 1
+    },
+    "507dacb0-9fe2-45be-b358-7d481d2fe870": {
+      "ProjectGuid": "507dacb0-9fe2-45be-b358-7d481d2fe870",
+      "DisplayName": "ProjectDVLD",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "dc6256fd-95b0-43ce-838b-530cfec1d036": {
+      "ProjectGuid": "dc6256fd-95b0-43ce-838b-530cfec1d036",
+      "DisplayName": "DVLD_Models",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
