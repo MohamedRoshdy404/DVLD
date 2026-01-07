@@ -71,11 +71,23 @@ namespace ProjectDVLD.Tests
 
             clsTestBL LastTest = localDrivingLicenseApplication.GetLastTestPerTestType(_TestType);
 
-            //frmScheduleTest.ShowDialog();
+            if (LastTest == null)
+            {
+                frmScheduleTest frmScheduleTest = new frmScheduleTest(_LocalDrivingLicenseApplicationID , _TestType);
+                frmScheduleTest.ShowDialog();
+                frmListTestAppointments_Load(null , null );
+                return;
+            }
 
-            frmListTestAppointments_Load(null , null );
+            if (LastTest.TestResult == true)
+            {
+                MessageBox.Show("This person already passed this test before, you can only retake faild test", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-
+            frmScheduleTest frm2 = new frmScheduleTest(LastTest.TestAppointmentInfo.LocalDrivingLicenseApplicationID, _TestType);
+            frm2.ShowDialog();
+            frmListTestAppointments_Load(null, null);
 
 
         }
@@ -104,6 +116,14 @@ namespace ProjectDVLD.Tests
                 dgvLicenseTestAppointments.Columns[3].HeaderText = "Is Locked";
                 dgvLicenseTestAppointments.Columns[3].Width = 100;
             }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int AppointmentID = (int) dgvLicenseTestAppointments.CurrentRow.Cells[0].Value;
+            frmScheduleTest frmScheduleTest = new frmScheduleTest(_LocalDrivingLicenseApplicationID, _TestType ,AppointmentID );
+            frmScheduleTest.ShowDialog();
+            frmListTestAppointments_Load(null, null);
         }
     }
 }

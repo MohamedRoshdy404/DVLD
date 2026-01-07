@@ -38,7 +38,7 @@ namespace ProjectDVLD.Tests
         private void frmScheduleTest_Load(object sender, EventArgs e)
         {
             ctrlScheduleTest1.TestTypeID = _TestTypeID;
-            ctrlScheduleTest1.LoadData(_LocalDrivingLicenseApplicationID);
+            ctrlScheduleTest1.LoadData(_LocalDrivingLicenseApplicationID , _AppointmentID);
         }
 
     }

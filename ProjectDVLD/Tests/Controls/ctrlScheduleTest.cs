@@ -68,6 +68,7 @@ namespace ProjectDVLD.Tests.Controls
                 _Mode = enMode.Update;
 
             _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            _TestAppointmentID = AppointmentID;
             _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationID);
 
             if (_LocalDrivingLicenseApplication == null)
