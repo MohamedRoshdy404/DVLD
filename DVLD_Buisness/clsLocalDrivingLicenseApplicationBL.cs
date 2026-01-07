@@ -246,22 +246,21 @@ namespace DVLD_Buisness
         //    return clsLocalDrivingLicenseApplicationData.TotalTrialsPerTest(this.LocalDrivingLicenseApplicationID, (int)TestTypeID) > 0;
         //}
 
-        public static bool IsThereAnActiveScheduledTest(int LocalDrivingLicenseApplicationID, clsTestType.enTestType TestTypeID)
+        public static bool IsThereAnActiveScheduledTest(int LocalDrivingLicenseApplicationID , clsTestType.enTestType TestTypeID)
         {
-
-            return clsLocalDrivingLicenseApplicationDA.IsThereAnActiveScheduledTest(LocalDrivingLicenseApplicationID, (int)TestTypeID);
+            return clsLocalDrivingLicenseApplicationDA.IsThereAnActiveScheduledTest( LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
 
-        //public bool IsThereAnActiveScheduledTest(clsTestType.enTestType TestTypeID)
-        //{
+        public bool IsThereAnActiveScheduledTest(clsTestType.enTestType TestTypeID)
+        {
 
-        //    return clsLocalDrivingLicenseApplicationData.IsThereAnActiveScheduledTest(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
-        //}
+            return clsLocalDrivingLicenseApplicationDA.IsThereAnActiveScheduledTest(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
 
-        //public clsTest GetLastTestPerTestType(clsTestType.enTestType TestTypeID)
-        //{
-        //    return clsTest.FindLastTestPerPersonAndLicenseClass(this.ApplicantPersonID, this.LicenseClassID, TestTypeID);
-        //}
+        public clsTestBL GetLastTestPerTestType(clsTestType.enTestType TestTypeID)
+        {
+            return clsTestBL.FindLastTestPerPersonAndLicenseClass(this.ApplicantPersonID, this.LicenseClassID, TestTypeID);
+        }
 
         public byte GetPassedTestCount()
         {

@@ -59,25 +59,19 @@ namespace ProjectDVLD.Tests
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
-            Form frmScheduleTest = new frmScheduleTest(_LocalDrivingLicenseApplicationID , _TestType);
-            clsTestAppointmentBL appointments = clsTestAppointmentBL.GetLastTestAppointment(_LocalDrivingLicenseApplicationID,_TestType);
+            
+            clsLocalDrivingLicenseApplicationBL localDrivingLicenseApplication = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationID);
 
-
-            if (appointments != null)
+            if (localDrivingLicenseApplication.IsThereAnActiveScheduledTest(_TestType))
             {
-                if (appointments.IsLocked = true)
-                {
-                    MessageBox.Show(
-                            "This person has a previous appointment that has not been completed.\n" +
-                            "Please complete it first before proceeding with the remaining tests.",
-                            "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
-                        );
-                    return;
-                }
+                MessageBox.Show("Person Already have an active appointment for this test, You cannot add new appointment", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            frmScheduleTest.ShowDialog();
+
+
+            clsTestBL LastTest = localDrivingLicenseApplication.GetLastTestPerTestType(_TestType);
+
+            //frmScheduleTest.ShowDialog();
 
             frmListTestAppointments_Load(null , null );
 

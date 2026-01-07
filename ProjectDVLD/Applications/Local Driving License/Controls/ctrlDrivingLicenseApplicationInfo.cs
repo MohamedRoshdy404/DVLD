@@ -86,7 +86,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License.Controls
 
         private void _FillLocalDrivingLicenseApplicationInfo()
         {
-            _LicenseID = _LocalDrivingLicenseApplication.GetActiveLicenseID();
+            //_LicenseID = _LocalDrivingLicenseApplication.GetActiveLicenseID();
 
             //incase there is license enable the show link.
             llShowLicenceInfo.Enabled = (_LicenseID != -1);
