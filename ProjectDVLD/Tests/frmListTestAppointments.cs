@@ -19,17 +19,12 @@ namespace ProjectDVLD.Tests
         private int _LocalDrivingLicenseApplicationID;
         private clsTestType.enTestType _TestType = clsTestType.enTestType.VisionTest;
 
-        public frmListTestAppointments()
-        {
-            InitializeComponent();
-        }
-                
+   
         public frmListTestAppointments(int LocalDrivingLicenseApplicationID, clsTestType.enTestType TestType)
         {
             InitializeComponent();
-            _TestType = TestType;
             _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID ;
-            ctrlDrivingLicenseApplicationInfo1._LoadData(LocalDrivingLicenseApplicationID);
+            _TestType = TestType;
         }
 
         private void _LoadTestTypeImageAndTitle()
@@ -94,9 +89,11 @@ namespace ProjectDVLD.Tests
         private void frmListTestAppointments_Load(object sender, EventArgs e)
         {
             _LoadTestTypeImageAndTitle();
-            _dtLicenseTestAppointments = clsTestAppointmentBL.GetApplicationTestAppointmentsPerTestType(_LocalDrivingLicenseApplicationID, (int) _TestType);
-            dgvLicenseTestAppointments.DataSource = _dtLicenseTestAppointments;
 
+            ctrlDrivingLicenseApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationID);
+            _dtLicenseTestAppointments = clsTestAppointmentBL.GetApplicationTestAppointmentsPerTestType(_LocalDrivingLicenseApplicationID, (int) _TestType);
+
+            dgvLicenseTestAppointments.DataSource = _dtLicenseTestAppointments;
             lblRecordsCount.Text = dgvLicenseTestAppointments.Rows.Count.ToString();
 
             if (dgvLicenseTestAppointments.Rows.Count > 0)

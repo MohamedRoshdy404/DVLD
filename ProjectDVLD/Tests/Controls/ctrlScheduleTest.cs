@@ -26,7 +26,6 @@ namespace ProjectDVLD.Tests.Controls
         private clsTestAppointmentBL _TestAppointment;
         private int _TestAppointmentID = -1;
         private clsApplicationsBuisnessLayer _Application;
-        clsTestType _Test;
         public clsTestType.enTestType TestTypeID
         {
             get
@@ -42,7 +41,7 @@ namespace ProjectDVLD.Tests.Controls
                 {
                     case clsTestType.enTestType.VisionTest:
                         gbTestType.Text = "Vision Test";
-                       pbTestTypeImage.Image = Properties.Resources.Vision_512;
+                        pbTestTypeImage.Image = Properties.Resources.Vision_512;
                         break;
 
                     case clsTestType.enTestType.WrittenTest:

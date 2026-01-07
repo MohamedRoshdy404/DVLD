@@ -54,10 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\Application Types\Controls\ctrlApplicationBasicInfo.cs">
+    <Compile Include="Applications\Controls\ctrlApplicationBasicInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Application Types\Controls\ctrlApplicationBasicInfo.Designer.cs">
+    <Compile Include="Applications\Controls\ctrlApplicationBasicInfo.Designer.cs">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Application Types\frmEditApplicationType.cs">
@@ -228,7 +228,7 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Applications\Application Types\Controls\ctrlApplicationBasicInfo.resx">
+    <EmbeddedResource Include="Applications\Controls\ctrlApplicationBasicInfo.resx">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Application Types\frmEditApplicationType.resx">
@@ -359,7 +359,7 @@
     <None Include="Icons\Male 512.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Applications\Controls\" />
+    <Folder Include="Applications\Application Types\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

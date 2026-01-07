@@ -263,10 +263,10 @@ namespace DVLD_Buisness
         //    return clsTest.FindLastTestPerPersonAndLicenseClass(this.ApplicantPersonID, this.LicenseClassID, TestTypeID);
         //}
 
-        //public byte GetPassedTestCount()
-        //{
-        //    return clsTest.GetPassedTestCount(this.LocalDrivingLicenseApplicationID);
-        //}
+        public byte GetPassedTestCount()
+        {
+            return clsTestBL.GetPassedTestCount(this.LocalDrivingLicenseApplicationID);
+        }
 
         //public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
         //{

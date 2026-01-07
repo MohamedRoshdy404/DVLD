@@ -46,7 +46,7 @@ namespace ProjectDVLD.Applications.Application_Types.Controls
             lblStatusDate.Text = clsFormat.DateToShort( Application.LastStatusDate);
             lblCreatedByUser.Text = Application.CreatedByUserInfo.UserName;
         }
-        public void LoadDataApp(int AppID)
+        public void LoadApplicationInfo(int AppID)
         {
             _ApplicationID = AppID;
             Application = clsApplicationsBuisnessLayer.FindBaseApplication(_ApplicationID);
@@ -66,7 +66,7 @@ namespace ProjectDVLD.Applications.Application_Types.Controls
         {
             Form ShowPersonInfo = new frmShowPersonInfo(Application.ApplicantPersonID);
             ShowPersonInfo.ShowDialog();
-            LoadDataApp(_ApplicationID);
+            LoadApplicationInfo(_ApplicationID);
 
         }
     }

@@ -47,6 +47,7 @@
     <Compile Include="clsLicenseClassBuisnessLayer.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationBL.cs" />
     <Compile Include="clsPersonBuisnessLayer.cs" />
+    <Compile Include="clsTestBL.cs" />
     <Compile Include="clsTestAppointmentBL.cs" />
     <Compile Include="clsTestType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

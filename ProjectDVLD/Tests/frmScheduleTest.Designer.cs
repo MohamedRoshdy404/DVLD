@@ -38,7 +38,6 @@
             this.ctrlScheduleTest1.Size = new System.Drawing.Size(534, 716);
             this.ctrlScheduleTest1.TabIndex = 0;
             this.ctrlScheduleTest1.TestTypeID = DVLD_Buisness.clsTestType.enTestType.StreetTest;
-            this.ctrlScheduleTest1.Load += new System.EventHandler(this.ctrlScheduleTest1_Load);
             // 
             // frmScheduleTest
             // 

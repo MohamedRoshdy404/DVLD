@@ -49,6 +49,7 @@
     <Compile Include="clsPersonDataAccess.cs" />
     <Compile Include="clsSettingsConnectoinStrinng.cs" />
     <Compile Include="clsTestAppointmentDA.cs" />
+    <Compile Include="clsTestDA.cs" />
     <Compile Include="clsTestTypeDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="clsUsersDataAccess.cs" />
