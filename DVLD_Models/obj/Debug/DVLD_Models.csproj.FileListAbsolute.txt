@@ -1,5 +1,0 @@
-J:\DVLD-main\DVLD_Models\bin\Debug\DVLD_Models.dll
-J:\DVLD-main\DVLD_Models\bin\Debug\DVLD_Models.pdb
-J:\DVLD-main\DVLD_Models\obj\Debug\DVLD_Models.csproj.CoreCompileInputs.cache
-J:\DVLD-main\DVLD_Models\obj\Debug\DVLD_Models.dll
-J:\DVLD-main\DVLD_Models\obj\Debug\DVLD_Models.pdb
