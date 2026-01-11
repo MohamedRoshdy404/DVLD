@@ -121,9 +121,20 @@ namespace ProjectDVLD.Tests
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int AppointmentID = (int) dgvLicenseTestAppointments.CurrentRow.Cells[0].Value;
-            frmScheduleTest frmScheduleTest = new frmScheduleTest(_LocalDrivingLicenseApplicationID, _TestType ,AppointmentID );
+
+            frmScheduleTest frmScheduleTest = new frmScheduleTest(_LocalDrivingLicenseApplicationID, _TestType, AppointmentID);
             frmScheduleTest.ShowDialog();
             frmListTestAppointments_Load(null, null);
+        }
+
+
+        private void cmsApplications_Opening(object sender, CancelEventArgs e)
+        {
+            if (dgvLicenseTestAppointments.Rows.Count == 0)
+            {
+                e.Cancel = true;
+                return;
+            }
         }
     }
 }

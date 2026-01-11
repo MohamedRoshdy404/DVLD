@@ -54,7 +54,7 @@ namespace DVLD_Buisness
 
         }
         public DateTime LastStatusDate { set; get; }
-        public float PaidFees { set; get; }
+        public decimal PaidFees { set; get; }
         public int CreatedByUserID { set; get; }
         public clsUsersBuisnessLayer CreatedByUserInfo;
 
@@ -77,7 +77,7 @@ namespace DVLD_Buisness
         private clsApplicationsBuisnessLayer(int ApplicationID, int ApplicantPersonID,
             DateTime ApplicationDate, int ApplicationTypeID,
              enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
-             float PaidFees, int CreatedByUserID)
+             decimal PaidFees, int CreatedByUserID)
 
         {
             this.ApplicationID = ApplicationID;
@@ -120,7 +120,7 @@ namespace DVLD_Buisness
             int ApplicantPersonID = -1;
             DateTime ApplicationDate = DateTime.Now; int ApplicationTypeID = -1;
             byte ApplicationStatus = 1; DateTime LastStatusDate = DateTime.Now;
-            float PaidFees = 0; int CreatedByUserID = -1;
+            decimal PaidFees = 0; int CreatedByUserID = -1;
 
             bool IsFound = clsApplicationsDataAccess.GetApplicationInfoByID
                                 (

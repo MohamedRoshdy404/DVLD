@@ -15,7 +15,7 @@ namespace DVLD_DataAccess
         public static bool GetApplicationInfoByID(int ApplicationID,
            ref int ApplicantPersonID, ref DateTime ApplicationDate, ref int ApplicationTypeID,
            ref byte ApplicationStatus, ref DateTime LastStatusDate,
-           ref float PaidFees, ref int CreatedByUserID)
+           ref decimal PaidFees, ref int CreatedByUserID)
         {
             bool isFound = false;
 
@@ -43,7 +43,7 @@ namespace DVLD_DataAccess
                     ApplicationTypeID = (int)reader["ApplicationTypeID"];
                     ApplicationStatus = (byte)reader["ApplicationStatus"];
                     LastStatusDate = (DateTime)reader["LastStatusDate"];
-                    PaidFees = Convert.ToSingle(reader["PaidFees"]);
+                    PaidFees = Convert.ToDecimal(reader["PaidFees"]);
                     CreatedByUserID = (int)reader["CreatedByUserID"];
 
 
@@ -114,7 +114,7 @@ namespace DVLD_DataAccess
 
         public static int AddNewApplication(int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,
              byte ApplicationStatus, DateTime LastStatusDate,
-             float PaidFees, int CreatedByUserID)
+             decimal PaidFees, int CreatedByUserID)
         {
 
             //this function will return the new person id if succeeded and -1 if not.
@@ -174,7 +174,7 @@ namespace DVLD_DataAccess
 
         public static bool UpdateApplication(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,
              byte ApplicationStatus, DateTime LastStatusDate,
-             float PaidFees, int CreatedByUserID)
+             decimal PaidFees, int CreatedByUserID)
         {
 
             int rowsAffected = 0;

@@ -143,9 +143,6 @@ namespace DVLD_Buisness
                 case enMode.Update:
 
                     return _UpdateTestAppointment();
-                    
-                    
-
             }
 
             return false;

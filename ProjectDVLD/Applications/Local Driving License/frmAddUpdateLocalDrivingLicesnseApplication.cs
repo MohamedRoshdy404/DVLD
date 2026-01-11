@@ -153,7 +153,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             _LocalDrivingLicenseApplication.ApplicationTypeID = 1;
             _LocalDrivingLicenseApplication.ApplicationStatus = clsApplicationsBuisnessLayer.enApplicationStatus.New;
             _LocalDrivingLicenseApplication.LastStatusDate = DateTime.Now;
-            _LocalDrivingLicenseApplication.PaidFees = Convert.ToSingle(lblFees.Text);
+            _LocalDrivingLicenseApplication.PaidFees = Convert.ToDecimal(lblFees.Text);
             _LocalDrivingLicenseApplication.CreatedByUserID = clsUserInfo.CurrentUser.UserID;
             _LocalDrivingLicenseApplication.LicenseClassID = LicenseClassID;
 

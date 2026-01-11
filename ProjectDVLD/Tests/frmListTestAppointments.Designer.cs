@@ -131,6 +131,7 @@
             this.takeTestToolStripMenuItem});
             this.cmsApplications.Name = "contextMenuStrip1";
             this.cmsApplications.Size = new System.Drawing.Size(197, 102);
+            this.cmsApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApplications_Opening);
             // 
             // editToolStripMenuItem
             // 

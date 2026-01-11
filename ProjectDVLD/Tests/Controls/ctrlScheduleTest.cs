@@ -58,7 +58,7 @@ namespace ProjectDVLD.Tests.Controls
             }
         }
 
-        public void LoadData(int LocalDrivingLicenseApplicationID , int AppointmentID=-1)
+        public void LoadData(int LocalDrivingLicenseApplicationID , int AppointmentID = -1)
         {
 
             //if no appointment id this means AddNew mode otherwise it's update mode.
@@ -145,6 +145,39 @@ namespace ProjectDVLD.Tests.Controls
             return true;
         }
 
+        private bool _HandleRetakeApplication()
+        {
+            //this will decide to create a seperate application for retake test or not.
+            // and will create it if needed , then it will linkit to the appoinment.
+            if (_Mode == enMode.AddNew && _CreationMode == enCreationMode.RetakeTestSchedule)
+            {
+                //incase the mode is add new and creation mode is retake test we should create a seperate application for it.
+                //then we linke it with the appointment.
+
+                //First Create Applicaiton 
+                clsApplicationsBuisnessLayer Application = new clsApplicationsBuisnessLayer();
+
+                Application.ApplicantPersonID = _LocalDrivingLicenseApplication.ApplicantPersonID;
+                Application.ApplicationDate = DateTime.Now;
+                Application.ApplicationTypeID = (int)clsApplicationsBuisnessLayer.enApplicationType.RetakeTest;
+                Application.ApplicationStatus = clsApplicationsBuisnessLayer.enApplicationStatus.Completed;
+                Application.LastStatusDate = DateTime.Now;
+                Application.PaidFees = clsApplicationTypeBuisnessLayer.Find((int)clsApplicationsBuisnessLayer.enApplicationType.RetakeTest).ApplicationFees;
+                Application.CreatedByUserID = Global_Classes.clsUserInfo.CurrentUser.UserID;
+
+                if (!Application.Save())
+                {
+                    _TestAppointment.RetakeTestApplicationID = -1;
+                    MessageBox.Show("Faild to Create application", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                _TestAppointment.RetakeTestApplicationID = Application.ApplicationID;
+
+            }
+            return true;
+        }
+
         public ctrlScheduleTest()
         {
             InitializeComponent();
@@ -152,21 +185,21 @@ namespace ProjectDVLD.Tests.Controls
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            clsTestAppointmentBL TestAppointment = new clsTestAppointmentBL();
+
+            if (!_HandleRetakeApplication())
+                return;
+
+            _TestAppointment.TestTypeID = _TestTypeID;
+            _TestAppointment.LocalDrivingLicenseApplicationID = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID;
+            _TestAppointment.AppointmentDate =dtpTestDate.Value;
+            _TestAppointment.PaidFees = Convert.ToDecimal(lblFees.Text);
+            _TestAppointment.CreatedByUserID = Global_Classes.clsUserInfo.CurrentUser.UserID;
 
 
-            TestAppointment.TestTypeID = _TestTypeID;
-            TestAppointment.LocalDrivingLicenseApplicationID = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID;
-            TestAppointment.AppointmentDate = DateTime.Now;
-            TestAppointment.PaidFees = Convert.ToDecimal(lblFees.Text);
-            TestAppointment.CreatedByUserID = _LocalDrivingLicenseApplication.CreatedByUserID;
-            TestAppointment.IsLocked = false;
-            TestAppointment.RetakeTestApplicationID = -1;
 
-
-
-            if (TestAppointment.Save())
+            if (_TestAppointment.Save())
             {
+                _Mode = enMode.Update;
                 MessageBox.Show("The operation was successful, and a test appointment has been scheduled for the applicant.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

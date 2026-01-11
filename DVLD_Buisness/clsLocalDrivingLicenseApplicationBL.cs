@@ -42,7 +42,7 @@ namespace DVLD_Buisness
         private clsLocalDrivingLicenseApplicationBL(int LocalDrivingLicenseApplicationID, int ApplicationID, int ApplicantPersonID,
             DateTime ApplicationDate, int ApplicationTypeID,
              enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
-             float PaidFees, int CreatedByUserID, int LicenseClassID)
+             decimal PaidFees, int CreatedByUserID, int LicenseClassID)
 
         {
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID; ;
