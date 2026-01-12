@@ -308,5 +308,10 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             }
 
         }
+
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestType.enTestType.StreetTest);
+        }
     }
 }

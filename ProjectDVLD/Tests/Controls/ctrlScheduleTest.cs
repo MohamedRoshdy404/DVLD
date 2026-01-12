@@ -128,10 +128,6 @@ namespace ProjectDVLD.Tests.Controls
 
         }
 
-
-
-
-
         private bool _HandleActiveTestAppointmentConstraint()
         {
             if (_Mode == enMode.AddNew && clsLocalDrivingLicenseApplicationBL.IsThereAnActiveScheduledTest(_LocalDrivingLicenseApplicationID, _TestTypeID))
