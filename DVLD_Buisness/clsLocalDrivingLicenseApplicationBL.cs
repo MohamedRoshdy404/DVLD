@@ -180,7 +180,7 @@ namespace DVLD_Buisness
             IsBaseApplicationDeleted = base.Delete();
             return IsBaseApplicationDeleted;
         }
-        public bool DoesPassTestType(clsTestType.enMode TestTypeID)
+        public bool DoesPassTestType(clsTestType.enTestType TestTypeID)
 
         {
             return clsLocalDrivingLicenseApplicationDA.DoesPassTestType(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);

@@ -125,6 +125,12 @@ namespace ProjectDVLD.Tests.Controls
             if (!_HandleActiveTestAppointmentConstraint())
                 return;
 
+            if (!_HandleAppointmentLockedConstraint())
+                return;
+
+            if (!_HandlePrviousTestConstraint())
+                return;
+
 
         }
 
@@ -242,6 +248,91 @@ namespace ProjectDVLD.Tests.Controls
             }
             return true;
         }
+
+
+        private bool _HandleAppointmentLockedConstraint()
+        {
+            //if appointment is locked that means the person already sat for this test
+            //we cannot update locked appointment
+            if (_TestAppointment.IsLocked)
+            {
+                lblUserMessage.Visible = true;
+                lblUserMessage.Text = "Person already sat for the test, appointment loacked.";
+                dtpTestDate.Enabled = false;
+                btnSave.Enabled = false;
+                return false;
+
+            }
+            else
+                lblUserMessage.Visible = false;
+
+            return true;
+        }
+
+        private bool _HandlePrviousTestConstraint()
+        {
+            //we need to make sure that this person passed the prvious required test before apply to the new test.
+            //person cannno apply for written test unless s/he passes the vision test.
+            //person cannot apply for street test unless s/he passes the written test.
+
+            switch (TestTypeID)
+            {
+                case clsTestType.enTestType.VisionTest:
+                    //in this case no required prvious test to pass.
+                    lblUserMessage.Visible = false;
+
+                    return true;
+
+                case clsTestType.enTestType.WrittenTest:
+                    //Written Test, you cannot sechdule it before person passes the vision test.
+                    //we check if pass visiontest 1.
+                    if (!_LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.VisionTest))
+                    {
+                        lblUserMessage.Text = "Cannot Sechule, Vision Test should be passed first";
+                        lblUserMessage.Visible = true;
+                        btnSave.Enabled = false;
+                        dtpTestDate.Enabled = false;
+                        return false;
+                    }
+                    else
+                    {
+                        lblUserMessage.Visible = false;
+                        btnSave.Enabled = true;
+                        dtpTestDate.Enabled = true;
+                    }
+
+
+                    return true;
+
+                case clsTestType.enTestType.StreetTest:
+
+                    //Street Test, you cannot sechdule it before person passes the written test.
+                    //we check if pass Written 2.
+                    if (!_LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.WrittenTest))
+                    {
+                        lblUserMessage.Text = "Cannot Sechule, Written Test should be passed first";
+                        lblUserMessage.Visible = true;
+                        btnSave.Enabled = false;
+                        dtpTestDate.Enabled = false;
+                        return false;
+                    }
+                    else
+                    {
+                        lblUserMessage.Visible = false;
+                        btnSave.Enabled = true;
+                        dtpTestDate.Enabled = true;
+                    }
+
+
+                    return true;
+
+            }
+            return true;
+
+        }
+
+
+
 
 
 
