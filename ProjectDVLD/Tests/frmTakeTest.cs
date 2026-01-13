@@ -15,7 +15,6 @@ namespace ProjectDVLD.Tests
     {
 
         private clsTestType.enTestType _TestType = clsTestType.enTestType.VisionTest;
-        private clsLocalDrivingLicenseApplicationBL _LocalDrivingLicenseApplication;
         private int _LocalDrivingLicenseApplicationID;
         private int _TestAppointmentID;
         private clsTestAppointmentBL _TestAppointment;
@@ -54,19 +53,22 @@ namespace ProjectDVLD.Tests
                 return;
             }
 
+            _Test = new clsTestBL();
+
+            _TestAppointment.IsLocked = true;
             _Test.TestAppointmentID = _TestAppointmentID;
             _Test.TestResult = rbPass.Checked;
             _Test.Notes = txtNotes.Text.Trim();
             _Test.CreatedByUserID = Global_Classes.clsUserInfo.CurrentUser.UserID;
 
-            //if (_Test.Save())
-            //{
-            //    MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    btnSave.Enabled = false;
+            if (_Test.Save() && _TestAppointment.Save())
+            {
+                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnSave.Enabled = false;
 
-            //}
-            //else
-            //    MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
     }

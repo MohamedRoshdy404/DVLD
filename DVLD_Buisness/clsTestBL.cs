@@ -77,28 +77,43 @@ namespace DVLD_Buisness
 
         }
 
-        //public bool Save()
-        //{
-        //    switch (Mode)
-        //    {
-        //        case enMode.AddNew:
-        //            if (_AddNewTest())
-        //            {
-        //                Mode = enMode.Update;
-        //                return true;
-        //            }
-        //            else
-        //            {
-        //                return false;
-        //            }
 
-        //        case enMode.Update:
 
-        //            return _UpdateTest();
-        //    }
+        public bool _AddNewTest()
+        {
+            this.TestID = clsTestDA.AddNewTest(this.TestAppointmentID , this.TestResult , this.Notes , this.CreatedByUserID);
+            return this.TestID != -1;
+        }
 
-        //    return false;
-        //}
+        public bool _UpdateTest()
+        {
+             return clsTestDA.UpdateTest(this.TestID, this.TestAppointmentID , this.TestResult , this.Notes , this.CreatedByUserID);
+        }
+
+
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewTest())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                case enMode.Update:
+
+                    return _UpdateTest();
+            }
+
+            return false;
+        }
 
     }
 }

@@ -134,5 +134,109 @@ namespace DVLD_DataAccess
 
 
 
+
+
+
+        public static int AddNewTest(
+    int TestAppointmentID,
+    bool TestResult,
+    string Notes,
+    int CreatedByUserID)
+        {
+            int TestID = -1;
+
+            string query = @"INSERT INTO Tests
+                     (TestAppointmentID, TestResult, Notes, CreatedByUserID)
+                     VALUES
+                     (@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID);
+
+                     SELECT SCOPE_IDENTITY();";
+
+            using (SqlConnection connection =
+                   new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+                    command.Parameters.AddWithValue("@TestResult", TestResult);
+                    command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                    if (string.IsNullOrEmpty(Notes))
+                        command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@Notes", Notes);
+
+                    try
+                    {
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                        {
+                            TestID = insertedID;
+                        }
+                    }
+                    catch
+                    {
+                        TestID = -1;
+                    }
+                }
+            }
+
+            return TestID;
+        }
+
+
+
+
+        public static bool UpdateTest(
+    int TestID,
+    int TestAppointmentID,
+    bool TestResult,
+    string Notes,
+    int CreatedByUserID)
+        {
+            int rowsAffected = 0;
+
+            string query = @"UPDATE Tests
+                     SET TestAppointmentID = @TestAppointmentID,
+                         TestResult = @TestResult,
+                         Notes = @Notes,
+                         CreatedByUserID = @CreatedByUserID
+                     WHERE TestID = @TestID";
+
+            using (SqlConnection connection =
+                   new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestID", TestID);
+                    command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+                    command.Parameters.AddWithValue("@TestResult", TestResult);
+                    command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                    if (string.IsNullOrEmpty(Notes))
+                        command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@Notes", Notes);
+
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return (rowsAffected > 0);
+        }
+
+
+
     }
 }
