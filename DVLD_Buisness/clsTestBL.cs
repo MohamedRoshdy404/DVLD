@@ -77,7 +77,28 @@ namespace DVLD_Buisness
 
         }
 
+        //public bool Save()
+        //{
+        //    switch (Mode)
+        //    {
+        //        case enMode.AddNew:
+        //            if (_AddNewTest())
+        //            {
+        //                Mode = enMode.Update;
+        //                return true;
+        //            }
+        //            else
+        //            {
+        //                return false;
+        //            }
 
+        //        case enMode.Update:
+
+        //            return _UpdateTest();
+        //    }
+
+        //    return false;
+        //}
 
     }
 }

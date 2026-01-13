@@ -31,6 +31,7 @@ namespace ProjectDVLD
 
         public void Form1_Load(object sender, EventArgs e)
         {
+
             lebFillUserID.Text = clsUserInfo.CurrentUser.UserID.ToString();
             lebFillUsername.Text = clsUserInfo.CurrentUser.UserName.ToUpper();
             PictureBoxImgUser.ImageLocation = clsPersonBuisnessLayer.FindByPersonID(clsUserInfo.CurrentUser.PersonID).ImagePath;
@@ -122,7 +123,6 @@ namespace ProjectDVLD
             lebFillUsername.Text = clsUserInfo.CurrentUser.UserName.ToUpper();
             PictureBoxImgUser.ImageLocation = clsPersonBuisnessLayer.FindByPersonID(clsUserInfo.CurrentUser.PersonID).ImagePath;
         }
-
 
     }
 }

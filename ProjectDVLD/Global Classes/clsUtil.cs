@@ -97,5 +97,11 @@ namespace ProjectDVLD.Global_Classes
         }
 
 
+        public static bool DarkModeIsActave()
+        {
+
+            return true;
+        }
+
     }
 }

@@ -136,5 +136,12 @@ namespace ProjectDVLD.Tests
                 return;
             }
         }
+
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int AppointmentID = (int)dgvLicenseTestAppointments.CurrentRow.Cells[0].Value;
+            frmTakeTest frmTakeTest = new frmTakeTest(_LocalDrivingLicenseApplicationID , _TestType , AppointmentID);
+            frmTakeTest.ShowDialog();
+        }
     }
 }

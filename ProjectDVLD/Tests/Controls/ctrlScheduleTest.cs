@@ -122,14 +122,14 @@ namespace ProjectDVLD.Tests.Controls
 
             lblTotalFees.Text = (Convert.ToSingle(lblFees.Text) + Convert.ToSingle(lblRetakeAppFees.Text)).ToString();
 
-            if (!_HandleActiveTestAppointmentConstraint())
-                return;
+            //if (!_HandleActiveTestAppointmentConstraint())
+            //    return;
 
-            if (!_HandleAppointmentLockedConstraint())
-                return;
+            //if (!_HandleAppointmentLockedConstraint())
+            //    return;
 
-            if (!_HandlePrviousTestConstraint())
-                return;
+            //if (!_HandlePrviousTestConstraint())
+            //    return;
 
 
         }
