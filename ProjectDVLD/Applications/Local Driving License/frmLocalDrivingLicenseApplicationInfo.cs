@@ -21,7 +21,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         public frmLocalDrivingLicenseApplicationInfo(int LocalDrivingLicenseApplicationsID)
         {
             InitializeComponent();
-            ctrlDrivingLicenseApplicationInfo1._LoadData(LocalDrivingLicenseApplicationsID);
+            ctrlDrivingLicenseApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(LocalDrivingLicenseApplicationsID);
         }
 
         private void frmLocalDrivingLicenseApplicationInfo_Load(object sender, EventArgs e)
