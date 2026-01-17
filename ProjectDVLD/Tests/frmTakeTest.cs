@@ -38,6 +38,7 @@ namespace ProjectDVLD.Tests
                 rbPass.Enabled = false;
                 rbFail.Enabled = false;
                 btnSave.Enabled = false;
+                txtNotes.Enabled = false;
             }
 
         }

@@ -73,7 +73,7 @@ namespace ProjectDVLD.Tests.Controls
             lblLocalDrivingLicenseAppID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
             lblDrivingClass.Text = _LocalDrivingLicenseApplication.LicenseClassInfo.ClassName.ToString();
             lblFullName.Text = _LocalDrivingLicenseApplication.PersonFullName.ToString();
-            lblTrial.Text = "0";
+            lblTrial.Text = _LocalDrivingLicenseApplication.TotalTrialsPerTest(_TestTypeID).ToString();
             lblDate.Text = _LocalDrivingLicenseApplication.ApplicationDate.ToString();
             lblFees.Text = clsTestType.Find(TestTypeID).TestTypeFees.ToString();
             lblTestID.Text = "Not Taken Yet";

@@ -125,11 +125,11 @@ namespace ProjectDVLD.Tests.Controls
             //if (!_HandleActiveTestAppointmentConstraint())
             //    return;
 
-            //if (!_HandleAppointmentLockedConstraint())
-            //    return;
+            if (!_HandleAppointmentLockedConstraint())
+                return;
 
-            //if (!_HandlePrviousTestConstraint())
-            //    return;
+            if (!_HandlePrviousTestConstraint())
+                return;
 
 
         }
