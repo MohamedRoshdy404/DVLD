@@ -21,6 +21,12 @@ namespace DVLD_Buisness
         public int RetakeTestApplicationID { get; set; }
         public clsApplicationsBuisnessLayer RetakeTestAppInfo { set; get; }
 
+        public int TestID
+        {
+            get { return _GetTestID(); }
+
+        }
+
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
@@ -148,6 +154,10 @@ namespace DVLD_Buisness
             return false;
         }
 
+        private int _GetTestID()
+        {
+            return clsTestAppointmentDA.GetTestID(TestAppointmentID);
+        }
 
 
 

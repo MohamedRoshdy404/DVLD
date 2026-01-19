@@ -51,6 +51,40 @@ namespace DVLD_Buisness
             Mode = enMode.Update;
         }
 
+
+
+        public static clsTestBL Find(int TestID)
+        {
+            int TestAppointmentID = -1;
+            bool TestResult = false; string Notes = ""; int CreatedByUserID = -1;
+
+            if (clsTestDA.GetTestInfoByID(TestID,
+            ref TestAppointmentID, ref TestResult,
+            ref Notes, ref CreatedByUserID))
+
+                return new clsTestBL(TestID,
+                        TestAppointmentID, TestResult,
+                        Notes, CreatedByUserID);
+            else
+                return null;
+
+        }
+
+        //public static clsTestBL Find(int TestID)
+        //{
+
+        //    int TestAppointmentID = -1;
+        //    bool TestResult = false; string Notes = ""; int CreatedByUserID = -1;
+
+        //    if (clsTestDA.GetTestInfoByID(TestID, ref TestAppointmentID, ref TestResult, ref Notes, ref CreatedByUserID))
+
+        //        return new clsTestBL(TestID,
+        //              TestAppointmentID, TestResult,
+        //              Notes, CreatedByUserID);
+        //    else
+        //        return null;
+        //}
+
         public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
         {
             return clsTestDA.GetPassedTestCount(LocalDrivingLicenseApplicationID);

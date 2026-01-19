@@ -140,7 +140,7 @@ namespace ProjectDVLD.Tests
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int AppointmentID = (int)dgvLicenseTestAppointments.CurrentRow.Cells[0].Value;
-            frmTakeTest frmTakeTest = new frmTakeTest(_LocalDrivingLicenseApplicationID , _TestType , AppointmentID);
+            frmTakeTest frmTakeTest = new frmTakeTest( _TestType , AppointmentID);
             frmTakeTest.ShowDialog();
             frmListTestAppointments_Load(null , null);
         }

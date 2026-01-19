@@ -124,5 +124,10 @@ namespace ProjectDVLD
             PictureBoxImgUser.ImageLocation = clsPersonBuisnessLayer.FindByPersonID(clsUserInfo.CurrentUser.PersonID).ImagePath;
         }
 
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListLocalDrivingLicesnseApplications frm = new frmListLocalDrivingLicesnseApplications();
+            frm.ShowDialog();
+        }
     }
 }

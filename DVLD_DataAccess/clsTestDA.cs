@@ -10,6 +10,55 @@ namespace DVLD_DataAccess
     public class clsTestDA
     {
 
+        public static bool GetTestInfoByID(
+                int TestID,
+                ref int TestAppointmentID,
+                ref bool TestResult,
+                ref string Notes,
+                ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            string query = @" EXEC SP_FindTestByTestID @TestID";
+
+            using (SqlConnection connection =
+                   new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TestID", TestID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                isFound = true;
+
+                                TestAppointmentID = (int)reader["TestAppointmentID"];
+                                TestResult = (bool)reader["TestResult"];
+
+                                if (reader["Notes"] == DBNull.Value)
+                                    Notes = "";
+                                else
+                                    Notes = (string)reader["Notes"];
+
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        isFound = false;
+                    }
+                }
+            }
+
+            return isFound;
+        }
 
 
         public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
@@ -145,12 +194,15 @@ namespace DVLD_DataAccess
         {
             int TestID = -1;
 
-            string query = @"INSERT INTO Tests
-                     (TestAppointmentID, TestResult, Notes, CreatedByUserID)
-                     VALUES
-                     (@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID);
+            string query = @"Insert Into Tests (TestAppointmentID,TestResult,
+                                                Notes,   CreatedByUserID)
+                            Values (@TestAppointmentID,@TestResult,
+                                                @Notes,   @CreatedByUserID);
+                            
+                                UPDATE TestAppointments 
+                                SET IsLocked=1 where TestAppointmentID = @TestAppointmentID;
 
-                     SELECT SCOPE_IDENTITY();";
+                                SELECT SCOPE_IDENTITY();";
 
             using (SqlConnection connection =
                    new SqlConnection(clsSettingsConnectoinStrinng.connectionString))

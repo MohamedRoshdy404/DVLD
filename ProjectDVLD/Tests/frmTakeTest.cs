@@ -15,31 +15,41 @@ namespace ProjectDVLD.Tests
     {
 
         private clsTestType.enTestType _TestType = clsTestType.enTestType.VisionTest;
-        private int _LocalDrivingLicenseApplicationID;
         private int _TestAppointmentID;
         private clsTestAppointmentBL _TestAppointment;
         private clsTestBL _Test;
-        public frmTakeTest(int LocalDrivingLicenseApplicationID , clsTestType.enTestType TestType , int AppointmentID)
+        public frmTakeTest(clsTestType.enTestType TestType , int AppointmentID)
         {
             InitializeComponent();
             _TestType = TestType;
-            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             _TestAppointmentID = AppointmentID;
         }
 
         private void frmTakeTest_Load(object sender, EventArgs e)
         {
             ctrlSecheduledTest1.TestTypeID = _TestType;
-            ctrlSecheduledTest1.LoadData(_LocalDrivingLicenseApplicationID);
-            _TestAppointment = clsTestAppointmentBL.Find(_TestAppointmentID);
+            ctrlSecheduledTest1.LoadData(_TestAppointmentID);
 
-            if (_TestAppointment.IsLocked == true)
+
+
+            int _TestID = ctrlSecheduledTest1.TestID;
+            if (_TestID != -1)
             {
-                rbPass.Enabled = false;
+                _Test = clsTestBL.Find(_TestID);
+
+                if (_Test.TestResult)
+                    rbPass.Checked = true;
+                else
+                    rbFail.Checked = true;
+                txtNotes.Text = _Test.Notes;
+
+                lblUserMessage.Visible = true;
                 rbFail.Enabled = false;
-                btnSave.Enabled = false;
-                txtNotes.Enabled = false;
+                rbPass.Enabled = false;
             }
+
+            else
+                _Test = new clsTestBL();
 
         }
 
@@ -56,13 +66,12 @@ namespace ProjectDVLD.Tests
 
             _Test = new clsTestBL();
 
-            _TestAppointment.IsLocked = true;
             _Test.TestAppointmentID = _TestAppointmentID;
             _Test.TestResult = rbPass.Checked;
             _Test.Notes = txtNotes.Text.Trim();
             _Test.CreatedByUserID = Global_Classes.clsUserInfo.CurrentUser.UserID;
 
-            if (_Test.Save() && _TestAppointment.Save())
+            if (_Test.Save())
             {
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnSave.Enabled = false;

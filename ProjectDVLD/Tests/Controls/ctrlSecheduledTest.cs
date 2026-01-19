@@ -16,6 +16,9 @@ namespace ProjectDVLD.Tests.Controls
         private clsTestType.enTestType _TestTypeID = clsTestType.enTestType.VisionTest;
         private clsLocalDrivingLicenseApplicationBL _LocalDrivingLicenseApplication;
         private int _LocalDrivingLicenseApplicationID;
+        private int _TestID = -1;
+        private clsTestAppointmentBL _TestAppointment;
+        private int _TestAppointmentID;
 
 
         public clsTestType.enTestType TestTypeID
@@ -50,6 +53,20 @@ namespace ProjectDVLD.Tests.Controls
             }
         }
 
+        public int TestAppointmentID
+        {
+            get
+            {
+                return _TestAppointmentID;
+            }
+        }
+        public int TestID
+        {
+            get
+            {
+                return _TestID;
+            }
+        }
         public ctrlSecheduledTest()
         {
             InitializeComponent();
@@ -57,11 +74,25 @@ namespace ProjectDVLD.Tests.Controls
 
 
 
-        public void LoadData(int LocalDrivingLicenseApplicationID)
+        public void LoadData(int AppointmentID)
         {
-            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            _TestAppointmentID = AppointmentID;
+
+            _TestAppointment = clsTestAppointmentBL.Find(TestAppointmentID);
+
+            if (_TestAppointment == null)
+            {
+                MessageBox.Show("Error: No  Appointment ID = " + _TestAppointmentID.ToString(),
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _TestAppointmentID = -1;
+                return;
+            }
+
+            _TestID = _TestAppointment.TestID;
+            _LocalDrivingLicenseApplicationID = _TestAppointment.LocalDrivingLicenseApplicationID;
 
             _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationID);
+
 
             if (_LocalDrivingLicenseApplication == null)
             {
@@ -71,14 +102,14 @@ namespace ProjectDVLD.Tests.Controls
             }
 
             lblLocalDrivingLicenseAppID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblDrivingClass.Text = _LocalDrivingLicenseApplication.LicenseClassInfo.ClassName.ToString();
-            lblFullName.Text = _LocalDrivingLicenseApplication.PersonFullName.ToString();
+            lblDrivingClass.Text = _LocalDrivingLicenseApplication.LicenseClassInfo.ClassName;
+            lblFullName.Text = _LocalDrivingLicenseApplication.PersonFullName;
+
             lblTrial.Text = _LocalDrivingLicenseApplication.TotalTrialsPerTest(_TestTypeID).ToString();
-            lblDate.Text = _LocalDrivingLicenseApplication.ApplicationDate.ToString();
-            lblFees.Text = clsTestType.Find(TestTypeID).TestTypeFees.ToString();
-            lblTestID.Text = "Not Taken Yet";
 
-
+            lblDate.Text = _TestAppointment.AppointmentDate.ToString();
+            lblFees.Text = _TestAppointment.PaidFees.ToString();
+            lblTestID.Text = (_TestAppointment.TestAppointmentID == -1) ? "Not Taken Yet" : _TestAppointment.TestAppointmentID.ToString();
 
         }
 
