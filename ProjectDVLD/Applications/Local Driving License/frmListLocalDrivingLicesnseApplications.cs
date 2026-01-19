@@ -241,72 +241,8 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             _ScheduleTest(clsTestType.enTestType.WrittenTest);
         }
 
-        private void _EnableEditingOptions(bool enabled)
-        {
-            editToolStripMenuItem.Enabled = enabled;
-            DeleteApplicationToolStripMenuItem.Enabled = enabled;
-            CancelApplicaitonToolStripMenuItem.Enabled = enabled;
-        }
         private void dgvLocalDrivingLicenseApplications_MouseUp(object sender, MouseEventArgs e)
         {
-
-            //string ColumnStatus = dgvLocalDrivingLicenseApplications.CurrentRow.Cells[6].Value.ToString();
-            //int ColumnPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
-
-
-            //if (ColumnStatus == "Cancelled" || ColumnStatus == "Completed")
-            //{
-            //    ScheduleTestsMenue.Enabled = false;
-
-            //    _EnableEditingOptions(false);
-
-            //    showDetailsToolStripMenuItem.Enabled = true;
-            //    showLicenseToolStripMenuItem.Enabled = true;
-            //    showPersonLicenseHistoryToolStripMenuItem.Enabled = true;
-            //}
-            //else
-            //{
-            //    _EnableEditingOptions(true);
-            //    showLicenseToolStripMenuItem.Enabled = false;
-            //    showPersonLicenseHistoryToolStripMenuItem.Enabled = false;
-            //}
-
-
-            //if (ColumnStatus == "New")
-            //{
-            //    ScheduleTestsMenue.Enabled = true;
-
-            //    switch (ColumnPassedTests)
-            //    {
-            //        case 0:
-            //            scheduleVisionTestToolStripMenuItem.Enabled = true;
-            //            scheduleWrittenTestToolStripMenuItem.Enabled = false;
-            //            scheduleStreetTestToolStripMenuItem.Enabled = false;
-            //            break;
-
-            //        case 1:
-            //            scheduleVisionTestToolStripMenuItem.Enabled = false;
-            //            scheduleWrittenTestToolStripMenuItem.Enabled = true;
-            //            scheduleStreetTestToolStripMenuItem.Enabled = false;
-            //            break;
-
-            //        case 2:
-            //            scheduleVisionTestToolStripMenuItem.Enabled = false;
-            //            scheduleWrittenTestToolStripMenuItem.Enabled = false;
-            //            scheduleStreetTestToolStripMenuItem.Enabled = true;
-            //            break;
-
-
-
-            //        default:
-            //            ScheduleTestsMenue.Enabled = false;
-            //            break;
-            //    }
-            //}
-            //else
-            //{
-            //    ScheduleTestsMenue.Enabled = false;
-            //}
 
         }
 
@@ -328,7 +264,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             showLicenseToolStripMenuItem.Enabled = LicenseExists;
 
             editToolStripMenuItem.Enabled  = !LicenseExists && (LocalDrivingLicenseApplication.ApplicationStatus == clsApplicationsBuisnessLayer.enApplicationStatus.New);
-
+            DeleteApplicationToolStripMenuItem.Enabled = TotalPassedTests == 0;
             CancelApplicaitonToolStripMenuItem.Enabled = (LocalDrivingLicenseApplication.ApplicationStatus == clsApplicationsBuisnessLayer.enApplicationStatus.New);
 
 
