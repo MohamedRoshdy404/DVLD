@@ -335,15 +335,16 @@ namespace DVLD_Buisness
         //        return -1;
         //}
 
-        //public bool IsLicenseIssued()
-        //{
-        //    return (GetActiveLicenseID() != -1);
-        //}
+        public bool IsLicenseIssued()
+        {
+            return (GetActiveLicenseID() != -1);
+        }
 
-        //public int GetActiveLicenseID()
-        //{//this will get the license id that belongs to this application
-        //    return clsLicense.GetActiveLicenseIDByPersonID(this.ApplicantPersonID, this.LicenseClassID);
-        //}
+        public int GetActiveLicenseID()
+        {   
+            //this will get the license id that belongs to this application
+            return clsLicenseBL.GetActiveLicenseIDByPersonID(this.ApplicantPersonID, this.LicenseClassID);
+        }
 
 
 

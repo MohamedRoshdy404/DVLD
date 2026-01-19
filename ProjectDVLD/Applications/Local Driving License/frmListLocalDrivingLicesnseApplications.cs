@@ -250,69 +250,105 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         private void dgvLocalDrivingLicenseApplications_MouseUp(object sender, MouseEventArgs e)
         {
 
-            string ColumnStatus = dgvLocalDrivingLicenseApplications.CurrentRow.Cells[6].Value.ToString();
-            int ColumnPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
+            //string ColumnStatus = dgvLocalDrivingLicenseApplications.CurrentRow.Cells[6].Value.ToString();
+            //int ColumnPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
 
 
-            if (ColumnStatus == "Cancelled" || ColumnStatus == "Completed")
-            {
-                ScheduleTestsMenue.Enabled = false;
+            //if (ColumnStatus == "Cancelled" || ColumnStatus == "Completed")
+            //{
+            //    ScheduleTestsMenue.Enabled = false;
 
-                _EnableEditingOptions(false);
+            //    _EnableEditingOptions(false);
 
-                showDetailsToolStripMenuItem.Enabled = true;
-                showLicenseToolStripMenuItem.Enabled = true;
-                showPersonLicenseHistoryToolStripMenuItem.Enabled = true;
-            }
-            else
-            {
-                _EnableEditingOptions(true);
-                showLicenseToolStripMenuItem.Enabled = false;
-                showPersonLicenseHistoryToolStripMenuItem.Enabled = false;
-            }
-
-
-            if (ColumnStatus == "New")
-            {
-                ScheduleTestsMenue.Enabled = true;
-
-                switch (ColumnPassedTests)
-                {
-                    case 0:
-                        scheduleVisionTestToolStripMenuItem.Enabled = true;
-                        scheduleWrittenTestToolStripMenuItem.Enabled = false;
-                        scheduleStreetTestToolStripMenuItem.Enabled = false;
-                        break;
-
-                    case 1:
-                        scheduleVisionTestToolStripMenuItem.Enabled = false;
-                        scheduleWrittenTestToolStripMenuItem.Enabled = true;
-                        scheduleStreetTestToolStripMenuItem.Enabled = false;
-                        break;
-
-                    case 2:
-                        scheduleVisionTestToolStripMenuItem.Enabled = false;
-                        scheduleWrittenTestToolStripMenuItem.Enabled = false;
-                        scheduleStreetTestToolStripMenuItem.Enabled = true;
-                        break;
+            //    showDetailsToolStripMenuItem.Enabled = true;
+            //    showLicenseToolStripMenuItem.Enabled = true;
+            //    showPersonLicenseHistoryToolStripMenuItem.Enabled = true;
+            //}
+            //else
+            //{
+            //    _EnableEditingOptions(true);
+            //    showLicenseToolStripMenuItem.Enabled = false;
+            //    showPersonLicenseHistoryToolStripMenuItem.Enabled = false;
+            //}
 
 
+            //if (ColumnStatus == "New")
+            //{
+            //    ScheduleTestsMenue.Enabled = true;
 
-                    default:
-                        ScheduleTestsMenue.Enabled = false;
-                        break;
-                }
-            }
-            else
-            {
-                ScheduleTestsMenue.Enabled = false;
-            }
+            //    switch (ColumnPassedTests)
+            //    {
+            //        case 0:
+            //            scheduleVisionTestToolStripMenuItem.Enabled = true;
+            //            scheduleWrittenTestToolStripMenuItem.Enabled = false;
+            //            scheduleStreetTestToolStripMenuItem.Enabled = false;
+            //            break;
+
+            //        case 1:
+            //            scheduleVisionTestToolStripMenuItem.Enabled = false;
+            //            scheduleWrittenTestToolStripMenuItem.Enabled = true;
+            //            scheduleStreetTestToolStripMenuItem.Enabled = false;
+            //            break;
+
+            //        case 2:
+            //            scheduleVisionTestToolStripMenuItem.Enabled = false;
+            //            scheduleWrittenTestToolStripMenuItem.Enabled = false;
+            //            scheduleStreetTestToolStripMenuItem.Enabled = true;
+            //            break;
+
+
+
+            //        default:
+            //            ScheduleTestsMenue.Enabled = false;
+            //            break;
+            //    }
+            //}
+            //else
+            //{
+            //    ScheduleTestsMenue.Enabled = false;
+            //}
 
         }
 
         private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _ScheduleTest(clsTestType.enTestType.StreetTest);
+        }
+
+        private void cmsApplications_Opening(object sender, CancelEventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+            clsLocalDrivingLicenseApplicationBL LocalDrivingLicenseApplication =
+                    clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID);
+
+            int TotalPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
+
+            bool LicenseExists = LocalDrivingLicenseApplication.IsLicenseIssued();
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExists;
+            showLicenseToolStripMenuItem.Enabled = LicenseExists;
+
+            editToolStripMenuItem.Enabled  = !LicenseExists && (LocalDrivingLicenseApplication.ApplicationStatus == clsApplicationsBuisnessLayer.enApplicationStatus.New);
+
+            CancelApplicaitonToolStripMenuItem.Enabled = (LocalDrivingLicenseApplication.ApplicationStatus == clsApplicationsBuisnessLayer.enApplicationStatus.New);
+
+
+            //Enable Disable Schedule menue and it's sub menue
+            bool PassedVisionTest = LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.VisionTest); ;
+            bool PassedWrittenTest = LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.WrittenTest);
+            bool PassedStreetTest = LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.StreetTest);
+
+            ScheduleTestsMenue.Enabled = (!PassedVisionTest || !PassedWrittenTest || !PassedStreetTest) && LocalDrivingLicenseApplication
+                .ApplicationStatus == clsApplicationsBuisnessLayer.enApplicationStatus.New;
+
+
+            if (ScheduleTestsMenue.Enabled)
+            {
+                scheduleVisionTestToolStripMenuItem.Enabled = !PassedVisionTest;
+                scheduleWrittenTestToolStripMenuItem.Enabled = PassedVisionTest && (!PassedWrittenTest);
+                scheduleStreetTestToolStripMenuItem.Enabled = PassedWrittenTest && (!PassedStreetTest);
+            }
+
+
         }
     }
 }
