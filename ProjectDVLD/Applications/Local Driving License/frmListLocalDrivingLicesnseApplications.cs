@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DVLD_Buisness;
 using ProjectDVLD.Tests;
+using ProjectDVLD.Licenses.Local_Licenses;
 using System.Windows.Forms;
 
 namespace ProjectDVLD.Applications.Local_Driving_License
@@ -285,6 +286,15 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             }
 
 
+        }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            frmIssueDriverLicenseFirstTime frm = new frmIssueDriverLicenseFirstTime(LocalDrivingLicenseApplicationID);
+            frm.ShowDialog();
+            GetLocalDrivingLicesnseApplications();
         }
     }
 }

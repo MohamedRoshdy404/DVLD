@@ -35,21 +35,21 @@ namespace ProjectDVLD.Applications.Local_Driving_License.Controls
 
 
 
-        public void _LoadData(int LocalDrivingLicenseApplicationsID)
-        {
-            _LocalDrivingLicenseApplications = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationsID);
+        //public void _LoadData(int LocalDrivingLicenseApplicationsID)
+        //{
+        //    _LocalDrivingLicenseApplications = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationsID);
 
-            if (_LocalDrivingLicenseApplications == null)
-            {
-                MessageBox.Show("Error: A problem occurred while fetching the data. Please make sure all operations are correct.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+        //    if (_LocalDrivingLicenseApplications == null)
+        //    {
+        //        MessageBox.Show("Error: A problem occurred while fetching the data. Please make sure all operations are correct.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return;
+        //    }
             
-            lblLocalDrivingLicenseApplicationID.Text = _LocalDrivingLicenseApplications.ApplicationID.ToString();
-            lblAppliedFor.Text = _LocalDrivingLicenseApplications.LicenseClassInfo.ClassName;
-            ctrlApplicationBasicInfo1.LoadApplicationInfo(_LocalDrivingLicenseApplications.ApplicationID);
+        //    lblLocalDrivingLicenseApplicationID.Text = _LocalDrivingLicenseApplications.ApplicationID.ToString();
+        //    lblAppliedFor.Text = _LocalDrivingLicenseApplications.LicenseClassInfo.ClassName;
+        //    ctrlApplicationBasicInfo1.LoadApplicationInfo(_LocalDrivingLicenseApplications.ApplicationID);
 
-        }
+        //}
 
 
         public void LoadApplicationInfoByLocalDrivingAppID(int LocalDrivingLicenseApplicationID)
