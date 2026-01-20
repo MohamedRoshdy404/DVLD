@@ -119,12 +119,6 @@ namespace ProjectDVLD.Licenses.Local_Licenses
 
             }
 
-
-
-
-
-
-
             btnIssueLicense.Enabled = false;
 
 
