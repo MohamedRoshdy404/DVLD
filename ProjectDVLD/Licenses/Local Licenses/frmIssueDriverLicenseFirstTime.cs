@@ -15,6 +15,7 @@ namespace ProjectDVLD.Licenses.Local_Licenses
     {
         private int _LocalDrivingLicenseApplicationsID = -1;
         private clsLocalDrivingLicenseApplicationBL _LocalDrivingLicenseApplications;
+        private clsPersonBuisnessLayer _Person;
         private clsLicenseBL _License;
         public frmIssueDriverLicenseFirstTime(int LocalDrivingLicenseApplicationsID)
         {
@@ -45,57 +46,84 @@ namespace ProjectDVLD.Licenses.Local_Licenses
             Driver.PersonID = _LocalDrivingLicenseApplications.ApplicantPersonID;
             Driver.CreatedByUserID = Global_Classes.clsUserInfo.CurrentUser.UserID;
 
-            if (Driver.Save())
+
+            _Person = clsPersonBuisnessLayer.FindByPersonID(_LocalDrivingLicenseApplications.ApplicantPersonID);
+
+            DateTime datePerson = _Person.DateOfBirth;
+            DateTime dtNow = DateTime.Now;
+            int Years = (datePerson.Year - dtNow.Year) * -1 ;
+
+            
+            if (Years >= _LocalDrivingLicenseApplications.LicenseClassInfo.MinimumAllowedAge)
             {
-                MessageBox.Show(
-                    "New driver added successfully.",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-                _License = new clsLicenseBL();
-                _License.ApplicationID = _LocalDrivingLicenseApplications.ApplicationID;
-                _License.DriverID = Driver.DriverID;
-                _License.LicenseClass = _LocalDrivingLicenseApplications.LicenseClassID;
-                _License.IssueDate = DateTime.Now;
-                DateTime now = DateTime.Now; // تاريخ ووقت الحالي
-                _License.ExpirationDate = now.AddYears(_LocalDrivingLicenseApplications.LicenseClassInfo.DefaultValidityLength);
-                _License.Notes = txtNotes.Text;
-                _License.PaidFees = _LocalDrivingLicenseApplications.LicenseClassInfo.ClassFees;
-                _License.IsActive = true;
-                _License.IssueReason = clsLicenseBL.enIssueReason.FirstTime;
-                _License.CreatedByUserID = Global_Classes.clsUserInfo.CurrentUser.UserID;
-
-                if (_License.Save())
+                if (Driver.Save())
+                {
                     MessageBox.Show(
-                    "New license added successfully.",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                        "New driver added successfully.",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                    _License = new clsLicenseBL();
+                    _License.ApplicationID = _LocalDrivingLicenseApplications.ApplicationID;
+                    _License.DriverID = Driver.DriverID;
+                    _License.LicenseClass = _LocalDrivingLicenseApplications.LicenseClassID;
+                    _License.IssueDate = DateTime.Now;
+                    DateTime now = DateTime.Now; // تاريخ ووقت الحالي
+                    _License.ExpirationDate = now.AddYears(_LocalDrivingLicenseApplications.LicenseClassInfo.DefaultValidityLength);
+                    _License.Notes = txtNotes.Text;
+                    _License.PaidFees = _LocalDrivingLicenseApplications.LicenseClassInfo.ClassFees;
+                    _License.IsActive = true;
+                    _License.IssueReason = clsLicenseBL.enIssueReason.FirstTime;
+                    _License.CreatedByUserID = Global_Classes.clsUserInfo.CurrentUser.UserID;
+
+                    if (_License.Save())
+                        MessageBox.Show(
+                        "New license added successfully.",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
 
 
+                    else
+                        MessageBox.Show(
+                                "License issuance failed. Please follow the steps correctly.",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error
+                            );
+
+
+                }
                 else
+                {
                     MessageBox.Show(
-                            "License issuance failed. Please follow the steps correctly.",
-                            "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
-                        );
+                        "Failed to issue a new driver.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
 
 
+                }
             }
             else
             {
                 MessageBox.Show(
-                    "Failed to issue a new driver.",
+                    "The applicant is under the required age and is not eligible for this license.",
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
 
-
             }
+
+
+
+
+
+
 
             btnIssueLicense.Enabled = false;
 
