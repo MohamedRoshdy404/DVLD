@@ -38,7 +38,14 @@ namespace ProjectDVLD.Licenses.Local_Licenses
         {
             if (clsLicenseBL.GetActiveLicenseIDByPersonID(_LocalDrivingLicenseApplications.ApplicantPersonID, _LocalDrivingLicenseApplications.LicenseClassID) > 1)
             {
-                MessageBox.Show("The Person Is Active Liiii");
+                MessageBox.Show(
+                    "This person already holds an active license of the same category. A new license cannot be issued.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
+                return;
             }
 
             clsDriverBL Driver = new clsDriverBL();
@@ -51,9 +58,10 @@ namespace ProjectDVLD.Licenses.Local_Licenses
 
             DateTime datePerson = _Person.DateOfBirth;
             DateTime dtNow = DateTime.Now;
-            int Years = (datePerson.Year - dtNow.Year) * -1 ;
-
+            int Years = (dtNow.Year - datePerson.Year);
             
+
+
             if (Years >= _LocalDrivingLicenseApplications.LicenseClassInfo.MinimumAllowedAge)
             {
                 if (Driver.Save())
@@ -93,8 +101,6 @@ namespace ProjectDVLD.Licenses.Local_Licenses
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error
                             );
-
-
                 }
                 else
                 {
