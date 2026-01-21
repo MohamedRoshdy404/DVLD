@@ -296,5 +296,14 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             frm.ShowDialog();
             GetLocalDrivingLicesnseApplications();
         }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            frmShowLicenseInfo frm = new frmShowLicenseInfo(LocalDrivingLicenseApplicationID);
+            frm.ShowDialog();
+            GetLocalDrivingLicesnseApplications();
+        }
     }
 }

@@ -57,6 +57,135 @@ namespace DVLD_DataAccess
 
 
 
+        //    public static bool GetLicenseInfoByLicenseID(
+        //int LicenseID,
+        //ref int ApplicationID,
+        //ref int DriverID,
+        //ref int LicenseClass,
+        //ref DateTime IssueDate,
+        //ref DateTime ExpirationDate,
+        //ref string Notes,
+        //ref decimal PaidFees,
+        //ref bool IsActive,
+        //ref byte IssueReason,
+        //ref int CreatedByUserID)
+        //    {
+        //        bool isFound = false;
+
+        //        string query = @"SELECT *
+        //                 FROM Licenses
+        //                 WHERE LicenseID = @LicenseID";
+
+        //        using (SqlConnection connection =
+        //               new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+        //        {
+        //            using (SqlCommand command = new SqlCommand(query, connection))
+        //            {
+        //                command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+        //                try
+        //                {
+        //                    connection.Open();
+
+        //                    using (SqlDataReader reader = command.ExecuteReader())
+        //                    {
+        //                        if (reader.Read())
+        //                        {
+        //                            isFound = true;
+
+        //                            ApplicationID = (int)reader["ApplicationID"];
+        //                            DriverID = (int)reader["DriverID"];
+        //                            LicenseClass = (int)reader["LicenseClass"];
+        //                            IssueDate = (DateTime)reader["IssueDate"];
+        //                            ExpirationDate = (DateTime)reader["ExpirationDate"];
+
+        //                            if (reader["Notes"] == DBNull.Value)
+        //                                Notes = "";
+        //                            else
+        //                                Notes = (string)reader["Notes"];
+
+        //                            PaidFees = Convert.ToDecimal(reader["PaidFees"]);
+        //                            IsActive = (bool)reader["IsActive"];
+        //                            IssueReason = (byte)reader["IssueReason"];
+        //                            CreatedByUserID = (int)reader["CreatedByUserID"];
+        //                        }
+        //                    }
+        //                }
+        //                catch
+        //                {
+        //                    isFound = false;
+        //                }
+        //            }
+        //        }
+
+        //        return isFound;
+        //    }
+
+
+
+
+        public static bool GetLicenseInfoByApplication(
+                    int ApplicationID,
+                    int LicenseClass,
+                    ref int LicenseID,
+                    ref int DriverID,
+                    ref DateTime IssueDate,
+                    ref DateTime ExpirationDate,
+                    ref string Notes,
+                    ref decimal PaidFees,
+                    ref bool IsActive,
+                    ref byte IssueReason,
+                    ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            string query = @"SELECT *
+                     FROM Licenses
+                     WHERE ApplicationID = @ApplicationID AND LicenseClass = @LicenseClass";
+
+            using (SqlConnection connection = new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                    command.Parameters.AddWithValue("@LicenseClass", LicenseClass);
+
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                isFound = true;
+
+                                LicenseID = (int)reader["LicenseID"];
+                                DriverID = (int)reader["DriverID"];
+                                IssueDate = (DateTime)reader["IssueDate"];
+                                ExpirationDate = (DateTime)reader["ExpirationDate"];
+
+                                Notes = reader["Notes"] == DBNull.Value ? "" : (string)reader["Notes"];
+                                PaidFees = Convert.ToDecimal(reader["PaidFees"]);
+                                IsActive = (bool)reader["IsActive"];
+                                IssueReason = (byte)reader["IssueReason"];
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        isFound = false;
+                    }
+                }
+            }
+
+            return isFound;
+        }
+
+
+
+
 
         public static int AddNewLicense(
     int ApplicationID,

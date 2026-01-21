@@ -75,6 +75,38 @@ namespace DVLD_Buisness
             Mode = enMode.Update;
         }
 
+
+
+
+
+
+        public static clsLicenseBL FindLicenseInfoByLicenseID(int ApplicationID ,  int LicenseClass)
+        {
+            int LicenseID = 0;
+            int DriverID = 0;
+            DateTime IssueDate = DateTime.MinValue;
+            DateTime ExpirationDate = DateTime.MinValue;
+            string Notes = string.Empty;
+            decimal PaidFees = 0;
+            bool IsActive = false;
+            byte IssueReason = 0;
+            int CreatedByUserID = 0;
+
+
+            if (clsLicenseDA.GetLicenseInfoByApplication( ApplicationID, LicenseClass, ref LicenseID , ref DriverID, ref IssueDate, ref ExpirationDate ,ref Notes , ref PaidFees , ref IsActive , ref IssueReason , ref CreatedByUserID ))
+            
+                return new clsLicenseBL(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, (enIssueReason)IssueReason, CreatedByUserID
+                    );
+            
+            else 
+                return null;
+
+
+
+        }
+
+
+
         private bool _AddNewLicense()
         {
             //call DataAccess Layer 
