@@ -33,6 +33,7 @@
             this.llShowLicenceInfo = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblPassedTests = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lblAppliedFor = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.lblLocalDrivingLicenseApplicationID = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ctrlApplicationBasicInfo1 = new ProjectDVLD.Applications.Application_Types.Controls.ctrlApplicationBasicInfo();
-            this.lblPassedTests = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,6 +79,7 @@
             this.llShowLicenceInfo.TabIndex = 191;
             this.llShowLicenceInfo.TabStop = true;
             this.llShowLicenceInfo.Text = "Show License Info";
+            this.llShowLicenceInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenceInfo_LinkClicked);
             // 
             // pictureBox3
             // 
@@ -99,6 +100,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 189;
             this.pictureBox1.TabStop = false;
+            // 
+            // lblPassedTests
+            // 
+            this.lblPassedTests.AutoSize = true;
+            this.lblPassedTests.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassedTests.Location = new System.Drawing.Point(506, 73);
+            this.lblPassedTests.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassedTests.Name = "lblPassedTests";
+            this.lblPassedTests.Size = new System.Drawing.Size(19, 21);
+            this.lblPassedTests.TabIndex = 188;
+            this.lblPassedTests.Text = "0";
             // 
             // label2
             // 
@@ -181,17 +193,6 @@
             this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
             this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(896, 222);
             this.ctrlApplicationBasicInfo1.TabIndex = 3;
-            // 
-            // lblPassedTests
-            // 
-            this.lblPassedTests.AutoSize = true;
-            this.lblPassedTests.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassedTests.Location = new System.Drawing.Point(506, 73);
-            this.lblPassedTests.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPassedTests.Name = "lblPassedTests";
-            this.lblPassedTests.Size = new System.Drawing.Size(19, 21);
-            this.lblPassedTests.TabIndex = 188;
-            this.lblPassedTests.Text = "0";
             // 
             // ctrlDrivingLicenseApplicationInfo
             // 
