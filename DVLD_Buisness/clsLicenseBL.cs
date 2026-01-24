@@ -16,7 +16,7 @@ namespace DVLD_Buisness
 
         public enum enIssueReason { FirstTime = 1, Renew = 2, DamagedReplacement = 3, LostReplacement = 4 };
 
-        //public clsdr DriverInfo;
+        public clsDriverBL DriverInfo;
         public int LicenseID { set; get; }
         public int ApplicationID { set; get; }
         public int DriverID { set; get; }
@@ -68,7 +68,7 @@ namespace DVLD_Buisness
             this.IssueReason = IssueReason;
             this.CreatedByUserID = CreatedByUserID;
 
-            //this.DriverInfo = clsDriver.FindByDriverID(this.DriverID);
+            //this.DriverInfo = clsDriverBL.FindByDriverID(this.DriverID);
             this.LicenseClassIfo = clsLicenseClassBuisnessLayer.Find(this.LicenseClass);
             //this.DetainedInfo = clsDetainedLicense.FindByLicenseID(this.LicenseID);
 
@@ -119,6 +119,11 @@ namespace DVLD_Buisness
             return (this.LicenseID != -1);
         }
 
+
+        public static bool IsLicenseExistByPersonID(int PersonID, int LicenseClassID)
+        {
+            return (GetActiveLicenseIDByPersonID(PersonID, LicenseClassID) != -1);
+        }
 
         public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
         {

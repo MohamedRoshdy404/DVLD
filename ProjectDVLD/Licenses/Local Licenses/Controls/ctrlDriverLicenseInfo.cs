@@ -86,7 +86,11 @@ namespace ProjectDVLD.Licenses.Local_Licenses.Controls
 
             lblIssueDate.Text =  _LicenseClass.IssueDate.ToShortDateString();
             lblIssueReason.Text = _LicenseClass.IssueReason.ToString();
-            lblNotes.Text = _LicenseClass.Notes.ToString();
+
+            if (_LicenseClass.Notes == "")
+                lblNotes.Text = "No Notes";
+            else
+                lblNotes.Text = _LicenseClass.Notes;
 
             if (_LicenseClass.IsActive == true)
                 lblIsActive.Text = "Yes";
@@ -94,7 +98,7 @@ namespace ProjectDVLD.Licenses.Local_Licenses.Controls
                 lblIsActive.Text = "No";
 
             lblDateOfBirth.Text = _Person.DateOfBirth.ToShortDateString();
-            //lblDriverID.Text = ;
+            lblDriverID.Text = _LicenseClass.DriverID.ToString();
             lblExpirationDate.Text = _LicenseClass.ExpirationDate.ToShortDateString();
             lblIsDetained.Text = "No";
 
