@@ -90,6 +90,12 @@ namespace DVLD_Buisness
             return clsTestDA.GetPassedTestCount(LocalDrivingLicenseApplicationID);
         }
 
+        public static bool PassedAllTests(int LocalDrivingLicenseApplicationID)
+        {
+            //if total passed test less than 3 it will return false otherwise will return true
+            return GetPassedTestCount(LocalDrivingLicenseApplicationID) == 3;
+        }
+
 
         public static clsTestBL FindLastTestPerPersonAndLicenseClass
     (int PersonID, int LicenseClassID, clsTestType.enTestType TestTypeID)

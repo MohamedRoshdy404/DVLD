@@ -106,9 +106,6 @@ namespace DVLD_DataAccess
 
         }
 
-
-
-
         public static bool GetLastTestByPersonAndTestTypeAndLicenseClass
     (int PersonID, int LicenseClassID, int TestTypeID, ref int TestID,
       ref int TestAppointmentID, ref bool TestResult,

@@ -25,13 +25,38 @@ namespace ProjectDVLD.Licenses.Local_Licenses
 
         private void frmIssueDriverLicenseFirstTime_Load(object sender, EventArgs e)
         {
-            ctrlDrivingLicenseApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationsID);
+            txtNotes.Focus();
             _LocalDrivingLicenseApplications = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationsID);
+
             if (_LocalDrivingLicenseApplications == null)
             {
-                MessageBox.Show("This application does not exist on the system.", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+                MessageBox.Show("No Applicaiton with ID=" + _LocalDrivingLicenseApplicationsID.ToString(), "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
                 return;
             }
+
+
+            if (!_LocalDrivingLicenseApplications.PassedAllTests())
+            {
+
+                MessageBox.Show("Person Should Pass All Tests First.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            int LicenseID = _LocalDrivingLicenseApplications.GetActiveLicenseID();
+            if (LicenseID != -1)
+            {
+
+                MessageBox.Show("Person already has License before with License ID=" + LicenseID.ToString(), "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+
+            }
+
+
+            ctrlDrivingLicenseApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationsID);
         }
 
         private void btnIssueLicense_Click(object sender, EventArgs e)

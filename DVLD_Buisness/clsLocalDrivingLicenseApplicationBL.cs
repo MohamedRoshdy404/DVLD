@@ -267,21 +267,21 @@ namespace DVLD_Buisness
             return clsTestBL.GetPassedTestCount(this.LocalDrivingLicenseApplicationID);
         }
 
-        //public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
-        //{
-        //    return clsTest.GetPassedTestCount(LocalDrivingLicenseApplicationID);
-        //}
+        public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
+        {
+            return clsTestBL.GetPassedTestCount(LocalDrivingLicenseApplicationID);
+        }
 
-        //public bool PassedAllTests()
-        //{
-        //    return clsTest.PassedAllTests(this.LocalDrivingLicenseApplicationID);
-        //}
+        public bool PassedAllTests()
+        {
+            return clsTestBL.PassedAllTests(this.LocalDrivingLicenseApplicationID);
+        }
 
-        //public static bool PassedAllTests(int LocalDrivingLicenseApplicationID)
-        //{
-        //    //if total passed test less than 3 it will return false otherwise will return true
-        //    return clsTest.PassedAllTests(LocalDrivingLicenseApplicationID);
-        //}
+        public static bool PassedAllTests(int LocalDrivingLicenseApplicationID)
+        {
+            //if total passed test less than 3 it will return false otherwise will return true
+            return clsTestBL.PassedAllTests(LocalDrivingLicenseApplicationID);
+        }
 
         public int IssueLicenseForTheFirtTime(string Notes, int CreatedByUserID)
         {
