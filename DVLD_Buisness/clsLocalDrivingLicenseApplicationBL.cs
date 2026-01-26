@@ -283,57 +283,63 @@ namespace DVLD_Buisness
         //    return clsTest.PassedAllTests(LocalDrivingLicenseApplicationID);
         //}
 
-        //public int IssueLicenseForTheFirtTime(string Notes, int CreatedByUserID)
-        //{
-        //    int DriverID = -1;
+        public int IssueLicenseForTheFirtTime(string Notes, int CreatedByUserID)
+        {
+            int DriverID = -1;
 
-        //    clsDriver Driver = clsDriver.FindByPersonID(this.ApplicantPersonID);
+            clsDriverBL Driver = clsDriverBL.FindByPersonID(this.ApplicantPersonID);
 
-        //    if (Driver == null)
-        //    {
-        //        //we check if the driver already there for this person.
-        //        Driver = new clsDriver();
+            if (Driver == null)
+            {
+                //we check if the driver already there for this person.
+                Driver = new clsDriverBL();
 
-        //        Driver.PersonID = this.ApplicantPersonID;
-        //        Driver.CreatedByUserID = CreatedByUserID;
-        //        if (Driver.Save())
-        //        {
-        //            DriverID = Driver.DriverID;
-        //        }
-        //        else
-        //        {
-        //            return -1;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        DriverID = Driver.DriverID;
-        //    }
-        //    //now we diver is there, so we add new licesnse
+                Driver.PersonID = this.ApplicantPersonID;
+                Driver.CreatedByUserID = CreatedByUserID;
+                if (Driver.Save())
+                {
+                    DriverID = Driver.DriverID;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                DriverID = Driver.DriverID;
+            }
 
-        //    clsLicense License = new clsLicense();
-        //    License.ApplicationID = this.ApplicationID;
-        //    License.DriverID = DriverID;
-        //    License.LicenseClass = this.LicenseClassID;
-        //    License.IssueDate = DateTime.Now;
-        //    License.ExpirationDate = DateTime.Now.AddYears(this.LicenseClassInfo.DefaultValidityLength);
-        //    License.Notes = Notes;
-        //    License.PaidFees = this.LicenseClassInfo.ClassFees;
-        //    License.IsActive = true;
-        //    License.IssueReason = clsLicense.enIssueReason.FirstTime;
-        //    License.CreatedByUserID = CreatedByUserID;
 
-        //    if (License.Save())
-        //    {
-        //        //now we should set the application status to complete.
-        //        this.SetComplete();
+            //now we diver is there, so we add new licesnse
+            DateTime datePerson = clsPersonBuisnessLayer.FindByPersonID(this.ApplicantPersonID).DateOfBirth;
+            DateTime dtNow = DateTime.Now;
+            int Years = (dtNow.Year - datePerson.Year);
 
-        //        return License.LicenseID;
-        //    }
+            if (Years >= this.LicenseClassInfo.MinimumAllowedAge)
+            {
+                clsLicenseBL License = new clsLicenseBL();
+                License.ApplicationID = this.ApplicationID;
+                License.DriverID = DriverID;
+                License.LicenseClass = this.LicenseClassID;
+                License.IssueDate = DateTime.Now;
+                License.ExpirationDate = DateTime.Now.AddYears(this.LicenseClassInfo.DefaultValidityLength);
+                License.Notes = Notes;
+                License.PaidFees = this.LicenseClassInfo.ClassFees;
+                License.IsActive = true;
+                License.IssueReason = clsLicenseBL.enIssueReason.FirstTime;
+                License.CreatedByUserID = CreatedByUserID;
 
-        //    else
-        //        return -1;
-        //}
+                if (License.Save())
+                    return License.LicenseID;
+                else
+                    return -1;
+
+
+            }
+
+            return -1;
+        }
 
         public bool IsLicenseIssued()
         {

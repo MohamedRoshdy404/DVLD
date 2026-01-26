@@ -10,6 +10,11 @@ namespace DVLD_Buisness
     public class clsDriverBL
     {
 
+        private int _LocalDrivingLicenseApplicationsID = -1;
+        private clsLocalDrivingLicenseApplicationBL _LocalDrivingLicenseApplications;
+        private clsPersonBuisnessLayer _Person;
+        private clsLicenseBL _License;
+
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
@@ -44,14 +49,62 @@ namespace DVLD_Buisness
         }
 
 
+        public static clsDriverBL FindByPersonID(int PersonID)
+        {
+            int driverID = -1;
+            int createdByUserID = -1;
+            DateTime createdDate = DateTime.MinValue;
+
+            if (clsDriverDA.GetDriverInfoByPersonID(
+                PersonID,
+                ref driverID,
+                ref createdByUserID,
+                ref createdDate))
+            {
+                return new clsDriverBL(driverID, PersonID, createdByUserID, createdDate);
+            }
+
+            return null;
+        }
+
+
+        public static clsDriverBL FindByDriverID(int DriverID)
+        {
+            int personID = -1;
+            int createdByUserID = -1;
+            DateTime createdDate = DateTime.MinValue;
+
+            if (clsDriverDA.GetDriverInfoByDriverID(DriverID, ref personID,ref createdByUserID,ref createdDate))
+            {
+                return new clsDriverBL(DriverID,personID,createdByUserID,createdDate);
+            }
+
+            return null;
+        }
+
+
+        //public bool SavePersonAndLicenseWithChecks()
+        //{
+
+        //}
+
+
+
+
+        public int GetDriverIDByPersonID(int PersonID)
+        {
+            return clsDriverDA.GetDriverIDByPersonID(PersonID);
+        }
+
+        public bool IsDriverExistByPersonID(int PersonID)
+        {
+            return clsDriverDA.IsDriverExistByPersonID(PersonID);
+        }
+
 
         private bool _AddNewDriver()
         {
-            //call DataAccess Layer 
-
             this.DriverID = clsDriverDA.AddNewDriver(PersonID, CreatedByUserID);
-
-
             return (this.DriverID != -1);
         }
 
