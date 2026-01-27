@@ -15,17 +15,22 @@ namespace ProjectDVLD.Licenses.Local_Licenses.Controls
     public partial class ctrlDriverLicenseInfo : UserControl
     {
 
-        private clsLocalDrivingLicenseApplicationBL _LocalDrivingLicenseApplication;
-        private clsPersonBuisnessLayer _Person;
-        private clsLicenseBL _LicenseClass;
-        private int _LocalDrivingLicenseApplicationID;
-
         private int _LicenseID;
         private clsLicenseBL _License;
         public ctrlDriverLicenseInfo()
         {
             InitializeComponent();
         }
+
+
+        public int LicenseID
+        {
+            get { return _LicenseID; }
+        }
+
+        public clsLicenseBL SelectedLicenseInfo
+        { get { return _License; } }
+
 
         private void _LoadPersonImage()
         {
