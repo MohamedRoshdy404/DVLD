@@ -68,16 +68,12 @@ namespace DVLD_Buisness
             this.IssueReason = IssueReason;
             this.CreatedByUserID = CreatedByUserID;
 
-            //this.DriverInfo = clsDriverBL.FindByDriverID(this.DriverID);
+            this.DriverInfo = clsDriverBL.FindByDriverID(this.DriverID);
             this.LicenseClassIfo = clsLicenseClassBuisnessLayer.Find(this.LicenseClass);
             //this.DetainedInfo = clsDetainedLicense.FindByLicenseID(this.LicenseID);
 
             Mode = enMode.Update;
         }
-
-
-
-
 
 
         public static clsLicenseBL FindLicenseInfoByLicenseID(int ApplicationID ,  int LicenseClass)
@@ -102,6 +98,30 @@ namespace DVLD_Buisness
                 return null;
 
 
+
+        }
+               
+        public static clsLicenseBL Find(int LicenseID)
+        {
+            int ApplicationID = 0;
+            int DriverID = 0;
+            int LicenseClass = 0;
+            DateTime IssueDate = DateTime.MinValue;
+            DateTime ExpirationDate = DateTime.MinValue;
+            string Notes = string.Empty;
+            decimal PaidFees = 0;
+            bool IsActive = false;
+            byte IssueReason = 0;
+            int CreatedByUserID = 0;
+
+
+            if (clsLicenseDA.GetLicenseInfoByID(LicenseID, ref ApplicationID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate ,ref Notes , ref PaidFees , ref IsActive , ref IssueReason , ref CreatedByUserID ))
+            
+                return new clsLicenseBL(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, (enIssueReason)IssueReason, CreatedByUserID
+                    );
+            
+            else 
+                return null;
 
         }
 

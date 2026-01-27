@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DVLD_Buisness;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ProjectDVLD.Licenses.Local_Licenses.Controls
@@ -18,109 +19,60 @@ namespace ProjectDVLD.Licenses.Local_Licenses.Controls
         private clsPersonBuisnessLayer _Person;
         private clsLicenseBL _LicenseClass;
         private int _LocalDrivingLicenseApplicationID;
+
+        private int _LicenseID;
+        private clsLicenseBL _License;
         public ctrlDriverLicenseInfo()
         {
             InitializeComponent();
         }
 
-
-
-
-
-
-
-
-        public void LoadDataPersonWithLicense(int LocalDrivingLicenseApplicationID)
+        private void _LoadPersonImage()
         {
-            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
-            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(_LocalDrivingLicenseApplicationID);
+            if (_License.DriverInfo.PersonInfo.Gender == 0)
+                pbPersonImage.Image = ProjectDVLD.Properties.Resources.Male_512;
+            else
+                pbPersonImage.Image = ProjectDVLD.Properties.Resources.Female_512;
 
-            if (_LocalDrivingLicenseApplication == null)
+            string ImagePath = _License.DriverInfo.PersonInfo.ImagePath;
+
+            if (ImagePath != "")
+                if (File.Exists(ImagePath))
+                    pbPersonImage.Load(ImagePath);
+                else
+                    MessageBox.Show("Could not find this image: = " + ImagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        public void LoadDataPersonWithLicense(int LicenseID)
+        {
+            _LicenseID = LicenseID;
+            _License = clsLicenseBL.Find(_LicenseID);
+            if (_License == null)
             {
-                MessageBox.Show(
-                    "An error occurred while retrieving the application data.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-
+                MessageBox.Show("Could not find License ID = " + _LicenseID.ToString(),
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _LicenseID = -1;
                 return;
             }
 
-            _Person = clsPersonBuisnessLayer.FindByPersonID(_LocalDrivingLicenseApplication.ApplicantPersonID);
 
-            if (_Person == null)
-            {
-                                MessageBox.Show(
-                    "An error occurred while retrieving the person's data.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return;
-            }
-
-
-            _LicenseClass = clsLicenseBL.FindLicenseInfoByLicenseID(_LocalDrivingLicenseApplication.ApplicationID, _LocalDrivingLicenseApplication.LicenseClassID);
-
-            if (_LicenseClass == null)
-            {
-                                MessageBox.Show(
-                    "An error occurred while retrieving the license data.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return ;
-            }
-
-
-            lblClass.Text = _LocalDrivingLicenseApplication.LicenseClassInfo.ClassName;
-            lblFullName.Text = _LocalDrivingLicenseApplication.PersonFullName;
-            lblLicenseID.Text = _LicenseClass.LicenseID.ToString();
-            lblNationalNo.Text = _Person.NationalNo;
-            if (_Person.Gender == 0)
-                lblGendor.Text = "Male";
-            else
-                lblGendor.Text = "Female";
-
-            lblIssueDate.Text =  _LicenseClass.IssueDate.ToShortDateString();
-            lblIssueReason.Text = _LicenseClass.IssueReason.ToString();
-
-            if (_LicenseClass.Notes == "")
-                lblNotes.Text = "No Notes";
-            else
-                lblNotes.Text = _LicenseClass.Notes;
-
-            if (_LicenseClass.IsActive == true)
-                lblIsActive.Text = "Yes";
-            else
-                lblIsActive.Text = "No";
-
-            lblDateOfBirth.Text = _Person.DateOfBirth.ToShortDateString();
-            lblDriverID.Text = _LicenseClass.DriverID.ToString();
-            lblExpirationDate.Text = _LicenseClass.ExpirationDate.ToShortDateString();
+            lblLicenseID.Text = _License.LicenseID.ToString();
+            lblIsActive.Text = _License.IsActive ? "Yes" : "No";
+            //lblIsDetained.Text = _License.IsDetained ? "Yes" : "No";
             lblIsDetained.Text = "No";
+            lblClass.Text = _License.LicenseClassIfo.ClassName;
+            lblFullName.Text = _License.DriverInfo.PersonInfo.FullName;
+            lblNationalNo.Text = _License.DriverInfo.PersonInfo.NationalNo;
+            lblGender.Text = _License.DriverInfo.PersonInfo.Gender == 0 ? "Male" : "Female";
+            lblDateOfBirth.Text = _License.DriverInfo.PersonInfo.DateOfBirth.ToShortDateString();
 
-
-
-
-
-            if (_Person.ImagePath != "")
-            {
-                pbPersonImage.ImageLocation = _Person.ImagePath;
-            }
-
-
-
-
-
-
-
-
-
-
-
+            lblDriverID.Text = _License.DriverID.ToString();
+            lblIssueDate.Text = _License.IssueDate.ToShortDateString();
+            lblExpirationDate.Text =_License.ExpirationDate.ToShortDateString();
+            lblIssueReason.Text = _License.IssueReason.ToString();
+            lblNotes.Text = _License.Notes == "" ? "No Notes" : _License.Notes;
+            _LoadPersonImage();
         }
 
 

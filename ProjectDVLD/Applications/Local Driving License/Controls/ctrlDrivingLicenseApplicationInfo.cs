@@ -83,7 +83,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License.Controls
 
         private void llShowLicenceInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmShowLicenseInfo frm = new frmShowLicenseInfo(LocalDrivingLicenseApplicationID);
+            frmShowLicenseInfo frm = new frmShowLicenseInfo(_LicenseID);
             frm.ShowDialog();
         }
     }

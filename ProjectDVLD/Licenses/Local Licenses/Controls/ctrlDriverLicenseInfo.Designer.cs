@@ -50,7 +50,7 @@
             this.lblExpirationDate = new System.Windows.Forms.Label();
             this.lblDriverID = new System.Windows.Forms.Label();
             this.lblDateOfBirth = new System.Windows.Forms.Label();
-            this.lblGendor = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
             this.lblNotes = new System.Windows.Forms.Label();
             this.lblIssueDate = new System.Windows.Forms.Label();
             this.lblNationalNo = new System.Windows.Forms.Label();
@@ -109,7 +109,7 @@
             this.groupBox1.Controls.Add(this.lblExpirationDate);
             this.groupBox1.Controls.Add(this.lblDriverID);
             this.groupBox1.Controls.Add(this.lblDateOfBirth);
-            this.groupBox1.Controls.Add(this.lblGendor);
+            this.groupBox1.Controls.Add(this.lblGender);
             this.groupBox1.Controls.Add(this.lblNotes);
             this.groupBox1.Controls.Add(this.lblIssueDate);
             this.groupBox1.Controls.Add(this.lblNationalNo);
@@ -360,16 +360,16 @@
             this.lblDateOfBirth.TabIndex = 136;
             this.lblDateOfBirth.Text = "[????]";
             // 
-            // lblGendor
+            // lblGender
             // 
-            this.lblGendor.AutoSize = true;
-            this.lblGendor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGendor.Location = new System.Drawing.Point(180, 180);
-            this.lblGendor.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblGendor.Name = "lblGendor";
-            this.lblGendor.Size = new System.Drawing.Size(53, 20);
-            this.lblGendor.TabIndex = 135;
-            this.lblGendor.Text = "[????]";
+            this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.Location = new System.Drawing.Point(180, 180);
+            this.lblGender.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(53, 20);
+            this.lblGender.TabIndex = 135;
+            this.lblGender.Text = "[????]";
             // 
             // lblNotes
             // 
@@ -633,7 +633,7 @@
         private System.Windows.Forms.Label lblExpirationDate;
         private System.Windows.Forms.Label lblDriverID;
         private System.Windows.Forms.Label lblDateOfBirth;
-        private System.Windows.Forms.Label lblGendor;
+        private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.Label lblIssueDate;
         private System.Windows.Forms.Label lblNationalNo;

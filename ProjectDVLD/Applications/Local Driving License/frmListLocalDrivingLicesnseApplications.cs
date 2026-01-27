@@ -299,10 +299,32 @@ namespace ProjectDVLD.Applications.Local_Driving_License
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+
+
             int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
-            frmShowLicenseInfo frm = new frmShowLicenseInfo(LocalDrivingLicenseApplicationID);
-            frm.ShowDialog();
+            int LicenseID = clsLocalDrivingLicenseApplicationBL.FindByLocalDrivingAppLicenseID(LocalDrivingLicenseApplicationID).GetActiveLicenseID();
+
+            if (LicenseID != -1)
+            {
+                frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+                frm.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("No License Found!", "No License", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
+
+            //int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
+
+            //frmShowLicenseInfo frm = new frmShowLicenseInfo(LocalDrivingLicenseApplicationID);
+            //frm.ShowDialog();
             GetLocalDrivingLicesnseApplications();
         }
     }
