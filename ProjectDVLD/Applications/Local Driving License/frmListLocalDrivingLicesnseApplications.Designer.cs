@@ -149,12 +149,12 @@
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
-            this.showPersonLicenseHistoryToolStripMenuItem.Enabled = false;
             this.showPersonLicenseHistoryToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showPersonLicenseHistoryToolStripMenuItem.Image")));
             this.showPersonLicenseHistoryToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
+            this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
