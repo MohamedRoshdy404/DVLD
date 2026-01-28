@@ -22,12 +22,16 @@ namespace ProjectDVLD.Licenses
             _PersonID = PersonID;
         }
 
+
+
+
         private void frmShowPersonLicenseHistory_Load(object sender, EventArgs e)
         {
 
             if (_PersonID != -1)
             {
                 ctrlPersonCardWithFilter1.LoadPersonInfo(_PersonID);
+                ctrlDriverLicenses1.LoadInfoByPersonID(_PersonID);
                 ctrlPersonCardWithFilter1.FilterEnabled = false;
             }
             else

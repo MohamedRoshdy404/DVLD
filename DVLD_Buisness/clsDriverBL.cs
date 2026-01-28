@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using DVLD_DataAccess;
 
 namespace DVLD_Buisness
@@ -46,6 +47,13 @@ namespace DVLD_Buisness
             this.PersonInfo = clsPersonBuisnessLayer.FindByPersonID(PersonID);
 
             Mode = enMode.Update;
+        }
+
+
+
+        public static DataTable GetLicenses(int DriverID)
+        {
+            return clsDriverDA.GetDriverLicenses(DriverID);
         }
 
 

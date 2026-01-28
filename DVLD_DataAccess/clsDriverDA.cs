@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace DVLD_DataAccess
 {
@@ -11,6 +12,48 @@ namespace DVLD_DataAccess
     {
 
 
+
+        public static DataTable GetDriverLicenses(int DriverID)
+        {
+            DataTable dt = new DataTable();
+
+            string query = @"SELECT Licenses.LicenseID,
+                            Licenses.ApplicationID,
+                            LicenseClasses.ClassName,
+                            Licenses.IssueDate,
+                            Licenses.ExpirationDate,
+                            Licenses.IsActive
+                     FROM Licenses
+                     INNER JOIN LicenseClasses
+                         ON Licenses.LicenseClass = LicenseClasses.LicenseClassID
+                     WHERE DriverID = @DriverID
+                     ORDER BY IsActive DESC, ExpirationDate DESC";
+
+            using (SqlConnection connection =
+                   new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DriverID", DriverID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            dt.Load(reader);
+                        }
+                    }
+                    catch
+                    {
+                        dt = new DataTable();
+                    }
+                }
+            }
+
+            return dt;
+        }
 
 
 
