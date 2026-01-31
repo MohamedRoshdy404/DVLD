@@ -16,6 +16,7 @@ using ProjectDVLD.Login;
 using ProjectDVLD.Applications.Application_Types;
 using ProjectDVLD.Tests.Test_Types;
 using ProjectDVLD.QuickView;
+using ProjectDVLD.Drivers;
 using ProjectDVLD.Applications.Local_Driving_License;
 
 namespace ProjectDVLD
@@ -127,6 +128,12 @@ namespace ProjectDVLD
         private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListLocalDrivingLicesnseApplications frm = new frmListLocalDrivingLicesnseApplications();
+            frm.ShowDialog();
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListDrivers frm = new frmListDrivers();
             frm.ShowDialog();
         }
     }

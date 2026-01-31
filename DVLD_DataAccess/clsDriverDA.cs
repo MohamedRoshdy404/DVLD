@@ -57,7 +57,61 @@ namespace DVLD_DataAccess
 
 
 
-        public static bool GetDriverInfoByDriverID(
+        public static DataTable GetAllDriverLicenses()
+        {
+            DataTable dt = new DataTable();
+
+            string query = @"
+                        SELECT 
+                            Drivers.DriverID,
+                            People.PersonID,
+                            People.NationalNo,
+                            People.FirstName + ' ' + People.SecondName + ' ' + 
+                            People.ThirdName + ' ' + People.LastName AS FullName,
+                            Drivers.CreatedDate,
+                            MAX(CAST(Licenses.IsActive AS INT)) AS ActiveLicense
+                        FROM Drivers
+                        INNER JOIN People ON Drivers.PersonID = People.PersonID
+                        INNER JOIN Licenses ON Drivers.DriverID = Licenses.DriverID
+                        GROUP BY 
+                            People.PersonID,
+                            Drivers.DriverID,
+                            People.NationalNo,
+                            People.FirstName,
+                            People.SecondName,
+                            People.ThirdName,
+                            People.LastName,
+                            Drivers.CreatedDate;
+                    ";
+
+            using (SqlConnection connection = new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                    catch
+                    {
+                        dt = null;
+                    }
+                }
+            }
+
+            return dt;
+        }
+    
+
+
+
+
+    public static bool GetDriverInfoByDriverID(
                     int DriverID,
                     ref int PersonID,
                     ref int CreatedByUserID,

@@ -56,6 +56,10 @@ namespace DVLD_Buisness
             return clsDriverDA.GetDriverLicenses(DriverID);
         }
 
+        public static DataTable GetAllDriverLicenses()
+        {
+            return clsDriverDA.GetAllDriverLicenses();
+        }
 
         public static clsDriverBL FindByPersonID(int PersonID)
         {
