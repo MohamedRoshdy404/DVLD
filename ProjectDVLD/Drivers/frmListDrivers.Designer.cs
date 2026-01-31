@@ -42,12 +42,12 @@
             this.issueInternationalLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pbDriverImage = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.dgvDrivers = new Siticone.UI.WinForms.SiticoneDataGridView();
             this.cbFilterBy = new Siticone.UI.WinForms.SiticoneComboBox();
+            this.txtFilterValue = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
+            this.dgvDrivers = new Siticone.UI.WinForms.SiticoneDataGridView();
             this.cmsDrivers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDriverImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
@@ -101,6 +101,7 @@
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
             this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(241, 38);
             this.showDetailsToolStripMenuItem.Text = "&Show Person Info";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -127,16 +128,7 @@
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(241, 38);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
-            // 
-            // txtFilterValue
-            // 
-            this.txtFilterValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFilterValue.Location = new System.Drawing.Point(312, 294);
-            this.txtFilterValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtFilterValue.Name = "txtFilterValue";
-            this.txtFilterValue.Size = new System.Drawing.Size(256, 20);
-            this.txtFilterValue.TabIndex = 134;
-            this.txtFilterValue.Visible = false;
+            this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -175,6 +167,55 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
+            // cbFilterBy
+            // 
+            this.cbFilterBy.BackColor = System.Drawing.Color.Transparent;
+            this.cbFilterBy.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterBy.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbFilterBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbFilterBy.FormattingEnabled = true;
+            this.cbFilterBy.HoveredState.Parent = this.cbFilterBy;
+            this.cbFilterBy.ItemHeight = 30;
+            this.cbFilterBy.Items.AddRange(new object[] {
+            "None",
+            "Driver ID",
+            "Person ID",
+            "National No.",
+            "Full Name"});
+            this.cbFilterBy.ItemsAppearance.Parent = this.cbFilterBy;
+            this.cbFilterBy.Location = new System.Drawing.Point(98, 290);
+            this.cbFilterBy.Name = "cbFilterBy";
+            this.cbFilterBy.ShadowDecoration.Parent = this.cbFilterBy;
+            this.cbFilterBy.Size = new System.Drawing.Size(207, 36);
+            this.cbFilterBy.TabIndex = 137;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
+            // 
+            // txtFilterValue
+            // 
+            this.txtFilterValue.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFilterValue.DefaultText = "";
+            this.txtFilterValue.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtFilterValue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtFilterValue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFilterValue.DisabledState.Parent = this.txtFilterValue;
+            this.txtFilterValue.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFilterValue.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFilterValue.FocusedState.Parent = this.txtFilterValue;
+            this.txtFilterValue.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFilterValue.HoveredState.Parent = this.txtFilterValue;
+            this.txtFilterValue.Location = new System.Drawing.Point(311, 290);
+            this.txtFilterValue.Name = "txtFilterValue";
+            this.txtFilterValue.PasswordChar = '\0';
+            this.txtFilterValue.PlaceholderText = "";
+            this.txtFilterValue.SelectedText = "";
+            this.txtFilterValue.ShadowDecoration.Parent = this.txtFilterValue;
+            this.txtFilterValue.Size = new System.Drawing.Size(254, 36);
+            this.txtFilterValue.TabIndex = 138;
+            this.txtFilterValue.Visible = false;
+            this.txtFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
+            this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
+            // 
             // dgvDrivers
             // 
             this.dgvDrivers.AllowUserToAddRows = false;
@@ -204,14 +245,15 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDrivers.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDrivers.EnableHeadersVisualStyles = false;
             this.dgvDrivers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvDrivers.Location = new System.Drawing.Point(16, 333);
+            this.dgvDrivers.Location = new System.Drawing.Point(16, 332);
             this.dgvDrivers.Name = "dgvDrivers";
             this.dgvDrivers.ReadOnly = true;
             this.dgvDrivers.RowHeadersVisible = false;
             this.dgvDrivers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDrivers.Size = new System.Drawing.Size(1105, 344);
-            this.dgvDrivers.TabIndex = 136;
+            this.dgvDrivers.Size = new System.Drawing.Size(1091, 355);
+            this.dgvDrivers.TabIndex = 139;
             this.dgvDrivers.Theme = Siticone.UI.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -235,40 +277,17 @@
             this.dgvDrivers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDrivers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // cbFilterBy
-            // 
-            this.cbFilterBy.BackColor = System.Drawing.Color.Transparent;
-            this.cbFilterBy.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFilterBy.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbFilterBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbFilterBy.FormattingEnabled = true;
-            this.cbFilterBy.HoveredState.Parent = this.cbFilterBy;
-            this.cbFilterBy.ItemHeight = 30;
-            this.cbFilterBy.Items.AddRange(new object[] {
-            "None",
-            "Driver ID",
-            "Person ID",
-            "National No.",
-            "Full Name"});
-            this.cbFilterBy.ItemsAppearance.Parent = this.cbFilterBy;
-            this.cbFilterBy.Location = new System.Drawing.Point(98, 290);
-            this.cbFilterBy.Name = "cbFilterBy";
-            this.cbFilterBy.ShadowDecoration.Parent = this.cbFilterBy;
-            this.cbFilterBy.Size = new System.Drawing.Size(207, 36);
-            this.cbFilterBy.TabIndex = 137;
-            // 
             // frmListDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 742);
-            this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.dgvDrivers);
+            this.Controls.Add(this.txtFilterValue);
+            this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtFilterValue);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbDriverImage);
             this.Controls.Add(this.btnClose);
@@ -296,11 +315,11 @@
         private System.Windows.Forms.ToolStripMenuItem issueInternationalLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
-        private System.Windows.Forms.TextBox txtFilterValue;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbDriverImage;
         private System.Windows.Forms.Button btnClose;
-        private Siticone.UI.WinForms.SiticoneDataGridView dgvDrivers;
         private Siticone.UI.WinForms.SiticoneComboBox cbFilterBy;
+        private Siticone.UI.WinForms.SiticoneMaterialTextBox txtFilterValue;
+        private Siticone.UI.WinForms.SiticoneDataGridView dgvDrivers;
     }
 }
