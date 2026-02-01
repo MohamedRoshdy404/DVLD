@@ -60,8 +60,8 @@
             this.cmsApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.labRecordsCount = new System.Windows.Forms.Label();
-            this.dgvLocalDrivingLicenseApplications = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.dgvLocalDrivingLicenseApplications = new Siticone.UI.WinForms.SiticoneDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.cmsApplications.SuspendLayout();
@@ -312,7 +312,7 @@
             this.toolStripSeparator6,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsApplications.Name = "contextMenuStrip1";
-            this.cmsApplications.Size = new System.Drawing.Size(262, 366);
+            this.cmsApplications.Size = new System.Drawing.Size(262, 344);
             this.cmsApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsApplications_Opening);
             // 
             // lblRecordsCount
@@ -334,44 +334,6 @@
             this.labRecordsCount.TabIndex = 133;
             this.labRecordsCount.Text = "# Records:";
             // 
-            // dgvLocalDrivingLicenseApplications
-            // 
-            this.dgvLocalDrivingLicenseApplications.AllowUserToAddRows = false;
-            this.dgvLocalDrivingLicenseApplications.AllowUserToDeleteRows = false;
-            this.dgvLocalDrivingLicenseApplications.AllowUserToResizeRows = false;
-            this.dgvLocalDrivingLicenseApplications.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLocalDrivingLicenseApplications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvLocalDrivingLicenseApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLocalDrivingLicenseApplications.ContextMenuStrip = this.cmsApplications;
-            this.dgvLocalDrivingLicenseApplications.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvLocalDrivingLicenseApplications.Location = new System.Drawing.Point(13, 305);
-            this.dgvLocalDrivingLicenseApplications.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgvLocalDrivingLicenseApplications.MultiSelect = false;
-            this.dgvLocalDrivingLicenseApplications.Name = "dgvLocalDrivingLicenseApplications";
-            this.dgvLocalDrivingLicenseApplications.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLocalDrivingLicenseApplications.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
-            this.dgvLocalDrivingLicenseApplications.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvLocalDrivingLicenseApplications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLocalDrivingLicenseApplications.Size = new System.Drawing.Size(1405, 353);
-            this.dgvLocalDrivingLicenseApplications.TabIndex = 132;
-            this.dgvLocalDrivingLicenseApplications.TabStop = false;
-            this.dgvLocalDrivingLicenseApplications.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvLocalDrivingLicenseApplications_MouseUp);
-            // 
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Microsoft YaHei UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -383,11 +345,73 @@
             this.lblTitle.Text = "Local Driving License Applications";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dgvLocalDrivingLicenseApplications
+            // 
+            this.dgvLocalDrivingLicenseApplications.AllowUserToAddRows = false;
+            this.dgvLocalDrivingLicenseApplications.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvLocalDrivingLicenseApplications.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLocalDrivingLicenseApplications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLocalDrivingLicenseApplications.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLocalDrivingLicenseApplications.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvLocalDrivingLicenseApplications.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvLocalDrivingLicenseApplications.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLocalDrivingLicenseApplications.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvLocalDrivingLicenseApplications.ColumnHeadersHeight = 30;
+            this.dgvLocalDrivingLicenseApplications.ContextMenuStrip = this.cmsApplications;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLocalDrivingLicenseApplications.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvLocalDrivingLicenseApplications.EnableHeadersVisualStyles = false;
+            this.dgvLocalDrivingLicenseApplications.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvLocalDrivingLicenseApplications.Location = new System.Drawing.Point(24, 317);
+            this.dgvLocalDrivingLicenseApplications.Name = "dgvLocalDrivingLicenseApplications";
+            this.dgvLocalDrivingLicenseApplications.ReadOnly = true;
+            this.dgvLocalDrivingLicenseApplications.RowHeadersVisible = false;
+            this.dgvLocalDrivingLicenseApplications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLocalDrivingLicenseApplications.Size = new System.Drawing.Size(1394, 343);
+            this.dgvLocalDrivingLicenseApplications.TabIndex = 142;
+            this.dgvLocalDrivingLicenseApplications.Theme = Siticone.UI.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.HeaderStyle.Height = 30;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.ReadOnly = true;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvLocalDrivingLicenseApplications.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
             // frmListLocalDrivingLicesnseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1428, 711);
+            this.Controls.Add(this.dgvLocalDrivingLicenseApplications);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAddNewApplication);
             this.Controls.Add(this.cbFilterBy);
@@ -397,7 +421,6 @@
             this.Controls.Add(this.pbPersonImage);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.labRecordsCount);
-            this.Controls.Add(this.dgvLocalDrivingLicenseApplications);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmListLocalDrivingLicesnseApplications";
@@ -442,7 +465,7 @@
         private System.Windows.Forms.ContextMenuStrip cmsApplications;
         private System.Windows.Forms.Label lblRecordsCount;
         private System.Windows.Forms.Label labRecordsCount;
-        private System.Windows.Forms.DataGridView dgvLocalDrivingLicenseApplications;
         private System.Windows.Forms.Label lblTitle;
+        private Siticone.UI.WinForms.SiticoneDataGridView dgvLocalDrivingLicenseApplications;
     }
 }

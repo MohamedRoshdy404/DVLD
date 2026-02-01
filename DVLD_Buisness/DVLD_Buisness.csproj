@@ -45,6 +45,7 @@
     <Compile Include="clsApplicationTypeBuisnessLayer.cs" />
     <Compile Include="clsCountriesBuisnessLayer.cs" />
     <Compile Include="clsDriverBL.cs" />
+    <Compile Include="clsInternationalLicenseBL.cs" />
     <Compile Include="clsLicenseBL.cs" />
     <Compile Include="clsLicenseClassBuisnessLayer.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationBL.cs" />

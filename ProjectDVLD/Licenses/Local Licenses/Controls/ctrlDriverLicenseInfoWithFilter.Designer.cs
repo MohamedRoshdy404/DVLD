@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlDriverLicenseInfoWithFilter));
             this.gbFilters = new System.Windows.Forms.GroupBox();
             this.btnFind = new System.Windows.Forms.Button();
-            this.txtLicenseID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtLicenseID = new Siticone.UI.WinForms.SiticoneTextBox();
             this.ctrlDriverLicenseInfo1 = new ProjectDVLD.Licenses.Local_Licenses.Controls.ctrlDriverLicenseInfo();
             this.gbFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -42,8 +42,8 @@
             // 
             // gbFilters
             // 
-            this.gbFilters.Controls.Add(this.btnFind);
             this.gbFilters.Controls.Add(this.txtLicenseID);
+            this.gbFilters.Controls.Add(this.btnFind);
             this.gbFilters.Controls.Add(this.label1);
             this.gbFilters.Location = new System.Drawing.Point(3, 3);
             this.gbFilters.Name = "gbFilters";
@@ -63,18 +63,6 @@
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
-            // txtLicenseID
-            // 
-            this.txtLicenseID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLicenseID.Location = new System.Drawing.Point(113, 26);
-            this.txtLicenseID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtLicenseID.Multiline = true;
-            this.txtLicenseID.Name = "txtLicenseID";
-            this.txtLicenseID.Size = new System.Drawing.Size(328, 35);
-            this.txtLicenseID.TabIndex = 17;
-            this.txtLicenseID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLicenseID_KeyPress);
-            this.txtLicenseID.Validating += new System.ComponentModel.CancelEventHandler(this.txtLicenseID_Validating);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -88,6 +76,29 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // txtLicenseID
+            // 
+            this.txtLicenseID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLicenseID.DefaultText = "";
+            this.txtLicenseID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtLicenseID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtLicenseID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLicenseID.DisabledState.Parent = this.txtLicenseID;
+            this.txtLicenseID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLicenseID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLicenseID.FocusedState.Parent = this.txtLicenseID;
+            this.txtLicenseID.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLicenseID.HoveredState.Parent = this.txtLicenseID;
+            this.txtLicenseID.Location = new System.Drawing.Point(117, 27);
+            this.txtLicenseID.Name = "txtLicenseID";
+            this.txtLicenseID.PasswordChar = '\0';
+            this.txtLicenseID.PlaceholderText = "";
+            this.txtLicenseID.SelectedText = "";
+            this.txtLicenseID.ShadowDecoration.Parent = this.txtLicenseID;
+            this.txtLicenseID.Size = new System.Drawing.Size(325, 36);
+            this.txtLicenseID.TabIndex = 20;
+            this.txtLicenseID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLicenseID_KeyPress_1);
             // 
             // ctrlDriverLicenseInfo1
             // 
@@ -115,9 +126,9 @@
 
         private System.Windows.Forms.GroupBox gbFilters;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.TextBox txtLicenseID;
         private System.Windows.Forms.Label label1;
         private Local_Licenses.Controls.ctrlDriverLicenseInfo ctrlDriverLicenseInfo1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private Siticone.UI.WinForms.SiticoneTextBox txtLicenseID;
     }
 }

@@ -82,6 +82,16 @@ namespace ProjectDVLD.Licenses.Controls
                 return;
 
             }
+
+            if (txtLicenseID.Text == "")
+                MessageBox.Show(
+                    "Please enter valid data in the input field. It cannot be left empty.",
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+
             _LicenseID = int.Parse(txtLicenseID.Text);
             LoadLicenseInfo(_LicenseID);
         }
@@ -104,7 +114,7 @@ namespace ProjectDVLD.Licenses.Controls
             }
         }
 
-        private void txtLicenseID_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtLicenseID_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
 

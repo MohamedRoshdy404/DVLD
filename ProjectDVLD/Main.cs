@@ -17,6 +17,7 @@ using ProjectDVLD.Applications.Application_Types;
 using ProjectDVLD.Tests.Test_Types;
 using ProjectDVLD.QuickView;
 using ProjectDVLD.Drivers;
+using ProjectDVLD.Applications.International_License;
 using ProjectDVLD.Applications.Local_Driving_License;
 
 namespace ProjectDVLD
@@ -134,6 +135,12 @@ namespace ProjectDVLD
         private void driversToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListDrivers frm = new frmListDrivers();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewInternationalLicenseApplication frm = new frmNewInternationalLicenseApplication();
             frm.ShowDialog();
         }
     }
