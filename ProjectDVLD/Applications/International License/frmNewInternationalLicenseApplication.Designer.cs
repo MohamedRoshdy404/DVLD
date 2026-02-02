@@ -409,6 +409,7 @@
             this.btnIssueLicense.TabIndex = 179;
             this.btnIssueLicense.Text = "Issue";
             this.btnIssueLicense.UseVisualStyleBackColor = true;
+            this.btnIssueLicense.Click += new System.EventHandler(this.btnIssueLicense_Click);
             // 
             // btnClose
             // 
