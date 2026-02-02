@@ -77,15 +77,7 @@ namespace DVLD_Buisness
             return this.InternationalLicenseID != -1;
         }
 
-
-
-
-
-
-
-
-
-        public static bool CanIssueInternationalLicense(int licenseID, out string errorMessage)
+        public static bool CanIssueInternationalLicense(int licenseID, ref string errorMessage)
         {
             clsLicenseBL license = clsLicenseBL.Find(licenseID);
 
@@ -107,20 +99,8 @@ namespace DVLD_Buisness
                 return false;
             }
 
-            errorMessage = string.Empty;
             return true;
         }
-
-
-
-
-
-
-
-
-
-
-
 
         public bool Save()
         {

@@ -29,13 +29,12 @@ namespace ProjectDVLD.Applications.International_License
         private void ValidateLocalLicenseForInternationalLicense(int LicenseID)
         {
             string error = "";
-            if (!clsInternationalLicenseBL.CanIssueInternationalLicense(LicenseID, out error))
+            if (!clsInternationalLicenseBL.CanIssueInternationalLicense(LicenseID, ref error))
             {
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnIssueLicense.Enabled = false;
                 return;
             }
-
 
             btnIssueLicense.Enabled = true;
             llShowLicenseHistory.Enabled = (LicenseID != -1);
