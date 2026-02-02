@@ -22,11 +22,11 @@ namespace ProjectDVLD.Applications.International_License
             InitializeComponent();
             _FillDataAppInfo();
 
-            ctrlDriverLicenseInfoWithFilter1.OnLicenseSelected += getLicenseID;
+            ctrlDriverLicenseInfoWithFilter1.OnLicenseSelected += ValidateLocalLicenseForInternationalLicense;
         }
 
 
-        private void getLicenseID(int LicenseID)
+        private void ValidateLocalLicenseForInternationalLicense(int LicenseID)
         {
             _License = clsLicenseBL.Find(ctrlDriverLicenseInfoWithFilter1.LicenseID);
 
@@ -34,6 +34,18 @@ namespace ProjectDVLD.Applications.International_License
             {
                 MessageBox.Show(
                     "This person does not hold a local license, which violates the requirements. To obtain an international license, you must have a local private car license.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                btnIssueLicense.Enabled = false;
+                return;
+            }
+
+            if (!_License.IsActive)
+            {
+                MessageBox.Show(
+                    "An international license cannot be issued because your local license is not active. Please activate your local license before applying for an international license.",
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -51,6 +63,7 @@ namespace ProjectDVLD.Applications.International_License
                     MessageBoxIcon.Error
                 );
                 btnIssueLicense.Enabled = false;
+                return;
             }
 
 

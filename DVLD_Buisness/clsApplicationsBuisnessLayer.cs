@@ -146,11 +146,10 @@ namespace DVLD_Buisness
             return clsApplicationsDataAccess.UpdateStatus(ApplicationID, 2);
         }
 
-        public bool SetComplete()
-
-        {
-            return clsApplicationsDataAccess.UpdateStatus(ApplicationID, 3);
-        }
+        //public bool SetComplete()
+        //{
+        //    return clsApplicationsDataAccess.UpdateStatus(ApplicationID, 3);
+        //}
 
         public bool Save()
         {
