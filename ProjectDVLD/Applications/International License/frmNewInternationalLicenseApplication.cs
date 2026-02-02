@@ -28,48 +28,18 @@ namespace ProjectDVLD.Applications.International_License
 
         private void ValidateLocalLicenseForInternationalLicense(int LicenseID)
         {
-            _License = clsLicenseBL.Find(ctrlDriverLicenseInfoWithFilter1.LicenseID);
-
-            if (_License == null)
+            string error = "";
+            if (!clsInternationalLicenseBL.CanIssueInternationalLicense(LicenseID, out error))
             {
-                MessageBox.Show(
-                    "This person does not hold a local license, which violates the requirements. To obtain an international license, you must have a local private car license.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                btnIssueLicense.Enabled = false;
-                return;
-            }
-
-            if (!_License.IsActive)
-            {
-                MessageBox.Show(
-                    "An international license cannot be issued because your local license is not active. Please activate your local license before applying for an international license.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                btnIssueLicense.Enabled = false;
-                return;
-            }
-
-            if (_License.ExpirationDate < DateTime.Now)
-            {
-                MessageBox.Show(
-                    "An international license cannot be issued because your local license has expired. Please renew your local license before applying for an international license.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnIssueLicense.Enabled = false;
                 return;
             }
 
 
+            btnIssueLicense.Enabled = true;
             llShowLicenseHistory.Enabled = (LicenseID != -1);
             lblLocalLicenseID.Text = LicenseID.ToString();
-            btnIssueLicense.Enabled = !(_License.ExpirationDate < DateTime.Now);
         }
 
         private void _FillDataAppInfo()

@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace DVLD_Buisness
 {
+
     public class clsInternationalLicenseBL : clsApplicationsBuisnessLayer
     {
+        private clsLicenseBL _License;
+        private int _InternationalLicenseID;
 
 
         public enum enMode { AddNew = 0, Update = 1 };
@@ -68,12 +71,53 @@ namespace DVLD_Buisness
             Mode = enMode.Update;
         }
 
-
         private bool _AddNewInternationalLicense()
         {
             this.InternationalLicenseID = clsInternationalLicenseDA.AddInternationalLicense(this.ApplicationID, this.DriverID, this.IssuedUsingLocalLicenseID , this.IssueDate , this.ExpirationDate , this.IsActive , this.CreatedByUserID);
             return this.InternationalLicenseID != -1;
         }
+
+
+
+
+
+
+
+
+
+        public static bool CanIssueInternationalLicense(int licenseID, out string errorMessage)
+        {
+            clsLicenseBL license = clsLicenseBL.Find(licenseID);
+
+            if (license == null)
+            {
+                errorMessage = "This person does not hold a local license.";
+                return false;
+            }
+
+            if (!license.IsActive)
+            {
+                errorMessage = "Local license is not active.";
+                return false;
+            }
+
+            if (license.ExpirationDate < DateTime.Now)
+            {
+                errorMessage = "Local license has expired.";
+                return false;
+            }
+
+            errorMessage = string.Empty;
+            return true;
+        }
+
+
+
+
+
+
+
+
 
 
 
