@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlDriverLicenseInfoWithFilter));
             this.gbFilters = new System.Windows.Forms.GroupBox();
+            this.txtLicenseID = new Siticone.UI.WinForms.SiticoneTextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtLicenseID = new Siticone.UI.WinForms.SiticoneTextBox();
             this.ctrlDriverLicenseInfo1 = new ProjectDVLD.Licenses.Local_Licenses.Controls.ctrlDriverLicenseInfo();
             this.gbFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -51,6 +51,29 @@
             this.gbFilters.TabIndex = 18;
             this.gbFilters.TabStop = false;
             this.gbFilters.Text = "Filter";
+            // 
+            // txtLicenseID
+            // 
+            this.txtLicenseID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLicenseID.DefaultText = "";
+            this.txtLicenseID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtLicenseID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtLicenseID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLicenseID.DisabledState.Parent = this.txtLicenseID;
+            this.txtLicenseID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLicenseID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLicenseID.FocusedState.Parent = this.txtLicenseID;
+            this.txtLicenseID.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLicenseID.HoveredState.Parent = this.txtLicenseID;
+            this.txtLicenseID.Location = new System.Drawing.Point(117, 27);
+            this.txtLicenseID.Name = "txtLicenseID";
+            this.txtLicenseID.PasswordChar = '\0';
+            this.txtLicenseID.PlaceholderText = "";
+            this.txtLicenseID.SelectedText = "";
+            this.txtLicenseID.ShadowDecoration.Parent = this.txtLicenseID;
+            this.txtLicenseID.Size = new System.Drawing.Size(325, 36);
+            this.txtLicenseID.TabIndex = 20;
+            this.txtLicenseID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLicenseID_KeyPress_1);
             // 
             // btnFind
             // 
@@ -76,29 +99,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // txtLicenseID
-            // 
-            this.txtLicenseID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtLicenseID.DefaultText = "";
-            this.txtLicenseID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtLicenseID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtLicenseID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLicenseID.DisabledState.Parent = this.txtLicenseID;
-            this.txtLicenseID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLicenseID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLicenseID.FocusedState.Parent = this.txtLicenseID;
-            this.txtLicenseID.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLicenseID.HoveredState.Parent = this.txtLicenseID;
-            this.txtLicenseID.Location = new System.Drawing.Point(117, 27);
-            this.txtLicenseID.Name = "txtLicenseID";
-            this.txtLicenseID.PasswordChar = '\0';
-            this.txtLicenseID.PlaceholderText = "";
-            this.txtLicenseID.SelectedText = "";
-            this.txtLicenseID.ShadowDecoration.Parent = this.txtLicenseID;
-            this.txtLicenseID.Size = new System.Drawing.Size(325, 36);
-            this.txtLicenseID.TabIndex = 20;
-            this.txtLicenseID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLicenseID_KeyPress_1);
             // 
             // ctrlDriverLicenseInfo1
             // 

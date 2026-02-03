@@ -21,7 +21,6 @@ namespace ProjectDVLD.Applications.International_License
         {
             InitializeComponent();
             _FillDataAppInfo();
-
             ctrlDriverLicenseInfoWithFilter1.OnLicenseSelected += ValidateLocalLicenseForInternationalLicense;
         }
 
@@ -43,13 +42,13 @@ namespace ProjectDVLD.Applications.International_License
 
         private void _FillDataAppInfo()
         {
-            lblApplicationDate.Text = DateTime.Now.ToShortDateString();
-            lblIssueDate.Text = DateTime.Now.ToShortDateString();
+            lblApplicationDate.Text = Global_Classes.clsFormat.DateToShort(DateTime.Now);
+            lblIssueDate.Text = Global_Classes.clsFormat.DateToShort(DateTime.Now);
             lblFees.Text = clsApplicationTypeBuisnessLayer.Find(6).ApplicationFees.ToString();
             lblCreatedByUser.Text = Global_Classes.clsUserInfo.CurrentUser.UserName;
             DateTime today = DateTime.Today;
             DateTime nextYear = today.AddYears(1);
-            lblExpirationDate.Text = nextYear.ToShortDateString();
+            lblExpirationDate.Text = Global_Classes.clsFormat.DateToShort(nextYear);
         }
 
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -101,5 +100,7 @@ namespace ProjectDVLD.Applications.International_License
             llShowLicenseInfo.Enabled = true;
 
         }
+
+
     }
 }
