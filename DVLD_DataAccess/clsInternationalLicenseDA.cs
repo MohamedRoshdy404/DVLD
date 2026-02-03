@@ -58,7 +58,8 @@ namespace DVLD_DataAccess
                 ref int IssuedUsingLocalLicenseID,
                 ref DateTime IssueDate,
                 ref DateTime ExpirationDate,
-                ref int CreatedByUserID)
+                ref int CreatedByUserID ,
+                ref bool IsActive)
         {
             bool isFound = false;
 
@@ -69,7 +70,8 @@ namespace DVLD_DataAccess
                             IssuedUsingLocalLicenseID,
                             IssueDate,
                             ExpirationDate,
-                            CreatedByUserID
+                            CreatedByUserID,
+                            IsActive
                         FROM InternationalLicenses
                         WHERE DriverID = @DriverID
                           AND IsActive = 1;
@@ -98,6 +100,7 @@ namespace DVLD_DataAccess
                                 IssueDate = (DateTime)reader["IssueDate"];
                                 ExpirationDate = (DateTime)reader["ExpirationDate"];
                                 CreatedByUserID = (int)reader["CreatedByUserID"];
+                                IsActive = (bool)reader["IsActive"];
                             }
                         }
                     }

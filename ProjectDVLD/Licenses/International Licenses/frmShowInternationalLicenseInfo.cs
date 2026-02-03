@@ -12,9 +12,16 @@ namespace ProjectDVLD.Licenses.International_Licenses
 {
     public partial class frmShowInternationalLicenseInfo : Form
     {
-        public frmShowInternationalLicenseInfo()
+        private int _DriverID;
+        public frmShowInternationalLicenseInfo(int DriverID)
         {
             InitializeComponent();
+            _DriverID = DriverID;
+        }
+
+        private void frmShowInternationalLicenseInfo_Load(object sender, EventArgs e)
+        {
+            ctrlDriverInternationalLicenseInfo1.LoadInternationalLicenseData(_DriverID);
         }
     }
 }

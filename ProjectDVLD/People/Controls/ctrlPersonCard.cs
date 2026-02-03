@@ -91,27 +91,6 @@ namespace ProjectDVLD.People.Controls
 
         }
 
-
-
-        //private void _LoadPersonImage()
-        //{
-        //    if (_Person.Gender == 0)
-        //        pbPersonImage.Image = Resources.Male_512;
-        //    else
-        //        pbPersonImage.Image = Resources.Female_512;
-
-        //    string ImagePath = _Person.ImagePath;
-        //    if (ImagePath != "")
-        //        if (File.Exists(ImagePath))
-        //            pbPersonImage.ImageLocation = ImagePath;
-        //        else
-        //            MessageBox.Show("Could not find this image: = " + ImagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        //}
-
-
-
-
         private void _FillPersonInfo()
         {
             
