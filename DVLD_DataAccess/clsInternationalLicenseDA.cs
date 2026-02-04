@@ -51,6 +51,50 @@ namespace DVLD_DataAccess
         }
 
 
+        public static DataTable GetDriverInternationalLicenses(int DriverID)
+        {
+            DataTable dt = new DataTable();
+
+            string query = @"
+                        SELECT  
+                            InternationalLicenseID,
+                            ApplicationID,
+                            IssuedUsingLocalLicenseID,
+                            IssueDate,
+                            ExpirationDate,
+                            IsActive
+                        FROM InternationalLicenses
+                        WHERE DriverID = @DriverID
+                        ORDER BY ExpirationDate DESC;
+                    ";
+
+            using (SqlConnection connection =
+                   new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DriverID", DriverID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            dt.Load(reader);
+                        }
+                    }
+                    catch
+                    {
+                        dt = null;
+                    }
+                }
+            }
+
+            return dt;
+        }
+
+
         public static bool GetActiveInternationalLicenseByDriverID(
                 int DriverID,
                 ref int InternationalLicenseID,

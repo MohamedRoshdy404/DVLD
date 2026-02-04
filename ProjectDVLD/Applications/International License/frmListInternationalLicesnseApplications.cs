@@ -29,6 +29,7 @@ namespace ProjectDVLD.Applications.International_License
 
             cbFilterBy.SelectedIndex = 0;
             cbIsReleased.SelectedIndex = 0;
+
             dgvInternationalLicenses.DataSource = _dtInternationalLicense;
             lblInternationalLicensesRecords.Text = dgvInternationalLicenses.RowCount.ToString();
 
@@ -56,10 +57,6 @@ namespace ProjectDVLD.Applications.International_License
                 dgvInternationalLicenses.Columns[6].Width = 120;
 
             }
-
-
-
-
 
         }
 
@@ -89,7 +86,6 @@ namespace ProjectDVLD.Applications.International_License
                 frmShowPersonInfo frm = new frmShowPersonInfo(_Driver.PersonID);
                 frm.ShowDialog();
             }
-
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -111,14 +107,8 @@ namespace ProjectDVLD.Applications.International_License
             txtFilterValue.Visible = !(cbFilterBy.Text == "None" || cbFilterBy.Text == "Is Active");
             cbIsReleased.Visible = cbFilterBy.SelectedIndex == 5;
 
-            //Reset the filters in case nothing selected or filter value conains nothing.
-            if (txtFilterValue.Text.Trim() == "" || cbFilterBy.Text == "None")
-            {
-                _dtInternationalLicense.DefaultView.RowFilter = "";
-                lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
-                return;
-            }
-
+            _dtInternationalLicense.DefaultView.RowFilter = "";
+            lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)

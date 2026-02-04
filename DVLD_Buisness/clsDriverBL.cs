@@ -55,7 +55,10 @@ namespace DVLD_Buisness
         {
             return clsDriverDA.GetDriverLicenses(DriverID);
         }
-
+        public static DataTable GetDriverInternationalLicenses(int DriverID)
+        {
+            return clsInternationalLicenseDA.GetDriverInternationalLicenses(DriverID);
+        }
         public static DataTable GetAllDriverLicenses()
         {
             return clsDriverDA.GetAllDriverLicenses();
@@ -93,15 +96,6 @@ namespace DVLD_Buisness
 
             return null;
         }
-
-
-        //public bool SavePersonAndLicenseWithChecks()
-        //{
-
-        //}
-
-
-
 
         public int GetDriverIDByPersonID(int PersonID)
         {
