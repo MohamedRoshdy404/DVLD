@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using DVLD_Buisness;
 using ProjectDVLD.People;
 using ProjectDVLD.Licenses;
+using ProjectDVLD.Applications.International_License;
 using System.Windows.Forms;
 
 namespace ProjectDVLD.Drivers
@@ -133,6 +134,12 @@ namespace ProjectDVLD.Drivers
                 if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                     e.Handled = true;
             }
+        }
+
+        private void issueInternationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewInternationalLicenseApplication frm = new frmNewInternationalLicenseApplication();
+            frm.ShowDialog();
         }
     }
 }

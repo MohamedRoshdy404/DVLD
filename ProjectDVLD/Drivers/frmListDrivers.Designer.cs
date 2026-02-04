@@ -92,7 +92,7 @@
             this.toolStripSeparator1,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsDrivers.Name = "contextMenuStrip1";
-            this.cmsDrivers.Size = new System.Drawing.Size(242, 130);
+            this.cmsDrivers.Size = new System.Drawing.Size(242, 152);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -115,6 +115,7 @@
             this.issueInternationalLicenseToolStripMenuItem.Name = "issueInternationalLicenseToolStripMenuItem";
             this.issueInternationalLicenseToolStripMenuItem.Size = new System.Drawing.Size(241, 38);
             this.issueInternationalLicenseToolStripMenuItem.Text = "Issue International License";
+            this.issueInternationalLicenseToolStripMenuItem.Click += new System.EventHandler(this.issueInternationalLicenseToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

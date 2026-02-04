@@ -29,6 +29,10 @@ namespace ProjectDVLD.Applications.International_License
 
         private void ValidateLocalLicenseForInternationalLicense(int LicenseID)
         {
+            btnIssueLicense.Enabled = true;
+            llShowLicenseHistory.Enabled = (LicenseID != -1);
+            lblLocalLicenseID.Text = LicenseID.ToString();
+
             string error = "";
             if (!clsInternationalLicenseBL.CanIssueInternationalLicense(LicenseID, ref error))
             {
@@ -37,9 +41,6 @@ namespace ProjectDVLD.Applications.International_License
                 return;
             }
 
-            btnIssueLicense.Enabled = true;
-            llShowLicenseHistory.Enabled = (LicenseID != -1);
-            lblLocalLicenseID.Text = LicenseID.ToString();
         }
 
         private void _FillDataAppInfo()
