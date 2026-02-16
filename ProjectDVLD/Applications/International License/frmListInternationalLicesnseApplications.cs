@@ -90,8 +90,8 @@ namespace ProjectDVLD.Applications.International_License
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int DriverID = (int)dgvInternationalLicenses.CurrentRow.Cells[2].Value;
-            frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo (DriverID);
+            int InternationalLicenseID = (int)dgvInternationalLicenses.CurrentRow.Cells[2].Value;
+            frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo (InternationalLicenseID);
             frm.ShowDialog();
         }
 

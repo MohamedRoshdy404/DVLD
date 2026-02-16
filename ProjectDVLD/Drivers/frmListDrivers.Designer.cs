@@ -92,7 +92,7 @@
             this.toolStripSeparator1,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsDrivers.Name = "contextMenuStrip1";
-            this.cmsDrivers.Size = new System.Drawing.Size(242, 152);
+            this.cmsDrivers.Size = new System.Drawing.Size(242, 130);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -224,8 +224,8 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvDrivers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDrivers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDrivers.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDrivers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDrivers.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvDrivers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDrivers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDrivers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -261,7 +261,7 @@
             this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvDrivers.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvDrivers.ThemeStyle.BackColor = System.Drawing.SystemColors.Control;
             this.dgvDrivers.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDrivers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dgvDrivers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;

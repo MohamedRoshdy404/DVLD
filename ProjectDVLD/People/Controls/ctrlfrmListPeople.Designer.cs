@@ -243,8 +243,8 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.DGVGetAllPeople.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVGetAllPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DGVGetAllPeople.BackgroundColor = System.Drawing.Color.White;
-            this.DGVGetAllPeople.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DGVGetAllPeople.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DGVGetAllPeople.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DGVGetAllPeople.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DGVGetAllPeople.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -288,7 +288,7 @@
             this.DGVGetAllPeople.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.DGVGetAllPeople.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.DGVGetAllPeople.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.DGVGetAllPeople.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DGVGetAllPeople.ThemeStyle.BackColor = System.Drawing.SystemColors.Control;
             this.DGVGetAllPeople.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DGVGetAllPeople.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.DGVGetAllPeople.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;

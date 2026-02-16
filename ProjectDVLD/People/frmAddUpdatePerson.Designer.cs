@@ -37,29 +37,30 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNationalNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtThirdName = new System.Windows.Forms.TextBox();
-            this.txtSecondName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbCountry = new Siticone.UI.WinForms.SiticoneComboBox();
+            this.txtEmail = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
+            this.txtPhone = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
+            this.txtLastName = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
+            this.txtNationalNo = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
+            this.txtThirdName = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
+            this.txtSecondName = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
+            this.txtFirstName = new Siticone.UI.WinForms.SiticoneMaterialTextBox();
+            this.dtpDateOfBirth = new Siticone.UI.WinForms.SiticoneRoundedDateTimePicker();
             this.llRemoveImage = new System.Windows.Forms.LinkLabel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbCountry = new System.Windows.Forms.ComboBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -72,7 +73,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -172,17 +172,6 @@
             this.label12.TabIndex = 92;
             this.label12.Text = "Address:";
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(222, 221);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtEmail.MaxLength = 50;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(221, 27);
-            this.txtEmail.TabIndex = 10;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating_1);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -193,17 +182,6 @@
             this.label6.Size = new System.Drawing.Size(55, 24);
             this.label6.TabIndex = 91;
             this.label6.Text = "Email:";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(715, 173);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtPhone.MaxLength = 50;
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(221, 27);
-            this.txtPhone.TabIndex = 9;
-            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
             // 
             // label4
             // 
@@ -227,17 +205,6 @@
             this.label3.TabIndex = 89;
             this.label3.Text = "Date Of Birth:";
             // 
-            // txtNationalNo
-            // 
-            this.txtNationalNo.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNationalNo.Location = new System.Drawing.Point(222, 124);
-            this.txtNationalNo.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtNationalNo.MaxLength = 50;
-            this.txtNationalNo.Name = "txtNationalNo";
-            this.txtNationalNo.Size = new System.Drawing.Size(221, 27);
-            this.txtNationalNo.TabIndex = 5;
-            this.txtNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -249,39 +216,6 @@
             this.label2.TabIndex = 88;
             this.label2.Text = "National No:";
             // 
-            // txtLastName
-            // 
-            this.txtLastName.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(978, 76);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtLastName.MaxLength = 50;
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(221, 27);
-            this.txtLastName.TabIndex = 4;
-            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
-            // 
-            // txtThirdName
-            // 
-            this.txtThirdName.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThirdName.Location = new System.Drawing.Point(726, 76);
-            this.txtThirdName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtThirdName.MaxLength = 50;
-            this.txtThirdName.Name = "txtThirdName";
-            this.txtThirdName.Size = new System.Drawing.Size(221, 27);
-            this.txtThirdName.TabIndex = 3;
-            this.txtThirdName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
-            // 
-            // txtSecondName
-            // 
-            this.txtSecondName.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecondName.Location = new System.Drawing.Point(473, 76);
-            this.txtSecondName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtSecondName.MaxLength = 50;
-            this.txtSecondName.Name = "txtSecondName";
-            this.txtSecondName.Size = new System.Drawing.Size(221, 27);
-            this.txtSecondName.TabIndex = 2;
-            this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -292,17 +226,6 @@
             this.label1.Size = new System.Drawing.Size(59, 24);
             this.label1.TabIndex = 87;
             this.label1.Text = "Name:";
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(222, 76);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtFirstName.MaxLength = 50;
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(221, 27);
-            this.txtFirstName.TabIndex = 1;
-            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmptyTextBox);
             // 
             // pbPersonImage
             // 
@@ -328,7 +251,7 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(168, 48);
-            this.btnSave.TabIndex = 14;
+            this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -347,13 +270,21 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbCountry);
+            this.groupBox1.Controls.Add(this.txtEmail);
+            this.groupBox1.Controls.Add(this.txtPhone);
+            this.groupBox1.Controls.Add(this.txtLastName);
+            this.groupBox1.Controls.Add(this.txtNationalNo);
+            this.groupBox1.Controls.Add(this.txtThirdName);
+            this.groupBox1.Controls.Add(this.txtSecondName);
+            this.groupBox1.Controls.Add(this.txtFirstName);
+            this.groupBox1.Controls.Add(this.dtpDateOfBirth);
             this.groupBox1.Controls.Add(this.llRemoveImage);
             this.groupBox1.Controls.Add(this.pictureBox9);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.rbFemale);
             this.groupBox1.Controls.Add(this.rbMale);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.cbCountry);
             this.groupBox1.Controls.Add(this.pictureBox8);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
@@ -366,23 +297,15 @@
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.dtpDateOfBirth);
             this.groupBox1.Controls.Add(this.btnClose);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtPhone);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtNationalNo);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtLastName);
-            this.groupBox1.Controls.Add(this.txtThirdName);
-            this.groupBox1.Controls.Add(this.txtSecondName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtFirstName);
             this.groupBox1.Controls.Add(this.pbPersonImage);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -394,6 +317,200 @@
             this.groupBox1.TabIndex = 124;
             this.groupBox1.TabStop = false;
             // 
+            // cbCountry
+            // 
+            this.cbCountry.BackColor = System.Drawing.Color.Transparent;
+            this.cbCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCountry.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbCountry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.HoveredState.Parent = this.cbCountry;
+            this.cbCountry.ItemHeight = 30;
+            this.cbCountry.ItemsAppearance.Parent = this.cbCountry;
+            this.cbCountry.Location = new System.Drawing.Point(715, 226);
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.ShadowDecoration.Parent = this.cbCountry;
+            this.cbCountry.Size = new System.Drawing.Size(220, 36);
+            this.cbCountry.TabIndex = 11;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.DefaultText = "";
+            this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.DisabledState.Parent = this.txtEmail;
+            this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.FocusedState.Parent = this.txtEmail;
+            this.txtEmail.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEmail.HoveredState.Parent = this.txtEmail;
+            this.txtEmail.Location = new System.Drawing.Point(220, 221);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(12);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PasswordChar = '\0';
+            this.txtEmail.PlaceholderText = "";
+            this.txtEmail.SelectedText = "";
+            this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
+            this.txtEmail.Size = new System.Drawing.Size(220, 35);
+            this.txtEmail.TabIndex = 10;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPhone.DefaultText = "";
+            this.txtPhone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPhone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPhone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPhone.DisabledState.Parent = this.txtPhone;
+            this.txtPhone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPhone.FocusedState.Parent = this.txtPhone;
+            this.txtPhone.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPhone.HoveredState.Parent = this.txtPhone;
+            this.txtPhone.Location = new System.Drawing.Point(715, 172);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(12);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.PasswordChar = '\0';
+            this.txtPhone.PlaceholderText = "";
+            this.txtPhone.SelectedText = "";
+            this.txtPhone.ShadowDecoration.Parent = this.txtPhone;
+            this.txtPhone.Size = new System.Drawing.Size(220, 35);
+            this.txtPhone.TabIndex = 9;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLastName.DefaultText = "";
+            this.txtLastName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtLastName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtLastName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLastName.DisabledState.Parent = this.txtLastName;
+            this.txtLastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLastName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLastName.FocusedState.Parent = this.txtLastName;
+            this.txtLastName.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLastName.HoveredState.Parent = this.txtLastName;
+            this.txtLastName.Location = new System.Drawing.Point(978, 76);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(9);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.PasswordChar = '\0';
+            this.txtLastName.PlaceholderText = "";
+            this.txtLastName.SelectedText = "";
+            this.txtLastName.ShadowDecoration.Parent = this.txtLastName;
+            this.txtLastName.Size = new System.Drawing.Size(220, 35);
+            this.txtLastName.TabIndex = 4;
+            // 
+            // txtNationalNo
+            // 
+            this.txtNationalNo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNationalNo.DefaultText = "";
+            this.txtNationalNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNationalNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNationalNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNationalNo.DisabledState.Parent = this.txtNationalNo;
+            this.txtNationalNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNationalNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNationalNo.FocusedState.Parent = this.txtNationalNo;
+            this.txtNationalNo.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNationalNo.HoveredState.Parent = this.txtNationalNo;
+            this.txtNationalNo.Location = new System.Drawing.Point(222, 124);
+            this.txtNationalNo.Margin = new System.Windows.Forms.Padding(9);
+            this.txtNationalNo.Name = "txtNationalNo";
+            this.txtNationalNo.PasswordChar = '\0';
+            this.txtNationalNo.PlaceholderText = "";
+            this.txtNationalNo.SelectedText = "";
+            this.txtNationalNo.ShadowDecoration.Parent = this.txtNationalNo;
+            this.txtNationalNo.Size = new System.Drawing.Size(220, 35);
+            this.txtNationalNo.TabIndex = 5;
+            // 
+            // txtThirdName
+            // 
+            this.txtThirdName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtThirdName.DefaultText = "";
+            this.txtThirdName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtThirdName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtThirdName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtThirdName.DisabledState.Parent = this.txtThirdName;
+            this.txtThirdName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtThirdName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtThirdName.FocusedState.Parent = this.txtThirdName;
+            this.txtThirdName.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtThirdName.HoveredState.Parent = this.txtThirdName;
+            this.txtThirdName.Location = new System.Drawing.Point(715, 76);
+            this.txtThirdName.Margin = new System.Windows.Forms.Padding(7);
+            this.txtThirdName.Name = "txtThirdName";
+            this.txtThirdName.PasswordChar = '\0';
+            this.txtThirdName.PlaceholderText = "";
+            this.txtThirdName.SelectedText = "";
+            this.txtThirdName.ShadowDecoration.Parent = this.txtThirdName;
+            this.txtThirdName.Size = new System.Drawing.Size(220, 35);
+            this.txtThirdName.TabIndex = 3;
+            // 
+            // txtSecondName
+            // 
+            this.txtSecondName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSecondName.DefaultText = "";
+            this.txtSecondName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSecondName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSecondName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSecondName.DisabledState.Parent = this.txtSecondName;
+            this.txtSecondName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSecondName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSecondName.FocusedState.Parent = this.txtSecondName;
+            this.txtSecondName.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSecondName.HoveredState.Parent = this.txtSecondName;
+            this.txtSecondName.Location = new System.Drawing.Point(469, 73);
+            this.txtSecondName.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSecondName.Name = "txtSecondName";
+            this.txtSecondName.PasswordChar = '\0';
+            this.txtSecondName.PlaceholderText = "";
+            this.txtSecondName.SelectedText = "";
+            this.txtSecondName.ShadowDecoration.Parent = this.txtSecondName;
+            this.txtSecondName.Size = new System.Drawing.Size(220, 35);
+            this.txtSecondName.TabIndex = 2;
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFirstName.DefaultText = "";
+            this.txtFirstName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtFirstName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtFirstName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFirstName.DisabledState.Parent = this.txtFirstName;
+            this.txtFirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFirstName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFirstName.FocusedState.Parent = this.txtFirstName;
+            this.txtFirstName.HoveredState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFirstName.HoveredState.Parent = this.txtFirstName;
+            this.txtFirstName.Location = new System.Drawing.Point(220, 73);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.PasswordChar = '\0';
+            this.txtFirstName.PlaceholderText = "";
+            this.txtFirstName.SelectedText = "";
+            this.txtFirstName.ShadowDecoration.Parent = this.txtFirstName;
+            this.txtFirstName.Size = new System.Drawing.Size(220, 35);
+            this.txtFirstName.TabIndex = 1;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
+            // 
+            // dtpDateOfBirth
+            // 
+            this.dtpDateOfBirth.CheckedState.Parent = this.dtpDateOfBirth;
+            this.dtpDateOfBirth.FillColor = System.Drawing.SystemColors.Control;
+            this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpDateOfBirth.HoveredState.Parent = this.dtpDateOfBirth;
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(715, 124);
+            this.dtpDateOfBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpDateOfBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpDateOfBirth.Name = "dtpDateOfBirth";
+            this.dtpDateOfBirth.ShadowDecoration.Parent = this.dtpDateOfBirth;
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(232, 39);
+            this.dtpDateOfBirth.TabIndex = 6;
+            this.dtpDateOfBirth.Value = new System.DateTime(2026, 2, 7, 15, 19, 8, 278);
+            // 
             // llRemoveImage
             // 
             this.llRemoveImage.AutoSize = true;
@@ -402,7 +519,7 @@
             this.llRemoveImage.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.llRemoveImage.Name = "llRemoveImage";
             this.llRemoveImage.Size = new System.Drawing.Size(73, 24);
-            this.llRemoveImage.TabIndex = 112;
+            this.llRemoveImage.TabIndex = 14;
             this.llRemoveImage.TabStop = true;
             this.llRemoveImage.Text = "Remove";
             this.llRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llRemoveImage_LinkClicked);
@@ -467,17 +584,6 @@
             this.label5.Size = new System.Drawing.Size(68, 24);
             this.label5.TabIndex = 106;
             this.label5.Text = "Gendor:";
-            // 
-            // cbCountry
-            // 
-            this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCountry.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCountry.FormattingEnabled = true;
-            this.cbCountry.Location = new System.Drawing.Point(718, 221);
-            this.cbCountry.Margin = new System.Windows.Forms.Padding(5);
-            this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(221, 32);
-            this.cbCountry.TabIndex = 11;
             // 
             // pictureBox8
             // 
@@ -613,19 +719,6 @@
             this.pictureBox2.TabIndex = 94;
             this.pictureBox2.TabStop = false;
             // 
-            // dtpDateOfBirth
-            // 
-            this.dtpDateOfBirth.CustomFormat = "dd/M/yyyy";
-            this.dtpDateOfBirth.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(715, 124);
-            this.dtpDateOfBirth.Margin = new System.Windows.Forms.Padding(5);
-            this.dtpDateOfBirth.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(221, 27);
-            this.dtpDateOfBirth.TabIndex = 6;
-            this.dtpDateOfBirth.Value = new System.DateTime(2000, 12, 31, 0, 0, 0, 0);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -640,7 +733,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(1271, 597);
+            this.ClientSize = new System.Drawing.Size(1271, 626);
             this.Controls.Add(this.lblPersonID);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.label22);
@@ -682,18 +775,11 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNationalNo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtThirdName;
-        private System.Windows.Forms.TextBox txtSecondName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblTitle;
@@ -704,7 +790,6 @@
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbCountry;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -717,8 +802,16 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private Siticone.UI.WinForms.SiticoneRoundedDateTimePicker dtpDateOfBirth;
+        private Siticone.UI.WinForms.SiticoneMaterialTextBox txtFirstName;
+        private Siticone.UI.WinForms.SiticoneMaterialTextBox txtSecondName;
+        private Siticone.UI.WinForms.SiticoneMaterialTextBox txtLastName;
+        private Siticone.UI.WinForms.SiticoneMaterialTextBox txtNationalNo;
+        private Siticone.UI.WinForms.SiticoneMaterialTextBox txtThirdName;
+        private Siticone.UI.WinForms.SiticoneMaterialTextBox txtEmail;
+        private Siticone.UI.WinForms.SiticoneMaterialTextBox txtPhone;
+        private Siticone.UI.WinForms.SiticoneComboBox cbCountry;
     }
 }

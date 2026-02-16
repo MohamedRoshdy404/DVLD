@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Resources;
 using System.Windows.Forms;
 using ProjectDVLD.Properties;
-using ProjectDVLD.Globel_Classes;
 using ProjectDVLD.Global_Classes;
 using System.IO;
 
@@ -263,18 +262,7 @@ namespace ProjectDVLD.People
 
             if (Mode == enMode.Update)
                 _LoadData();
-
-
-
-
-
         }
-
-        private void txtEmail_Validating(object sender , CancelEventArgs e)
-        {
-
-        }
-
         private void ValidateEmptyTextBox(object sender, CancelEventArgs e)
         {
 
@@ -328,6 +316,23 @@ namespace ProjectDVLD.People
 
         private void txtEmail_Validating_1(object sender, CancelEventArgs e)
         {
+
+        }
+
+        private void txtFirstName_Validating(object sender, CancelEventArgs e)
+        {
+            //// First: set AutoValidate property of your Form to EnableAllowFocusChange in designer 
+            //TextBox Temp = ((TextBox)sender);
+            //if (string.IsNullOrEmpty(Temp.Text.Trim()))
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError(Temp, "This field is required!");
+            //}
+            //else
+            //{
+            //    //e.Cancel = false;
+            //    errorProvider1.SetError(Temp, null);
+            //}
 
         }
     }

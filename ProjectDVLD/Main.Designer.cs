@@ -388,6 +388,7 @@
             // PictureBoxImgUser
             // 
             this.PictureBoxImgUser.BackColor = System.Drawing.SystemColors.Window;
+            this.PictureBoxImgUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PictureBoxImgUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PictureBoxImgUser.Location = new System.Drawing.Point(212, 44);
             this.PictureBoxImgUser.Name = "PictureBoxImgUser";

@@ -290,6 +290,7 @@ namespace DVLD_DataAccess
         {
             int TestAppointmentID = -1;
 
+
             string query = @"INSERT INTO TestAppointments
                      (TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate,
                       PaidFees, CreatedByUserID, IsLocked, RetakeTestApplicationID)

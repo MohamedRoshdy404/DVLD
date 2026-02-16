@@ -18,6 +18,7 @@ namespace ProjectDVLD.Applications.International_License
 
         private clsLicenseBL _License;
         private clsInternationalLicenseBL _InternationalLicense;
+
         private int _InternationalLicenseID;
         public frmNewInternationalLicenseApplication()
         {
@@ -25,8 +26,6 @@ namespace ProjectDVLD.Applications.International_License
             _FillDataAppInfo();
             ctrlDriverLicenseInfoWithFilter1.OnLicenseSelected += ValidateLocalLicenseForInternationalLicense;
         }
-
-
         private void ValidateLocalLicenseForInternationalLicense(int LicenseID)
         {
             btnIssueLicense.Enabled = true;
@@ -38,9 +37,11 @@ namespace ProjectDVLD.Applications.International_License
             {
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnIssueLicense.Enabled = false;
+                llShowLicenseInfo.Enabled = true;
                 return;
             }
 
+            llShowLicenseInfo.Enabled = false;
         }
 
         private void _FillDataAppInfo()
@@ -53,22 +54,17 @@ namespace ProjectDVLD.Applications.International_License
             DateTime nextYear = today.AddYears(1);
             lblExpirationDate.Text = Global_Classes.clsFormat.DateToShort(nextYear);
         }
-
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.DriverInfo.PersonID);
             frm.ShowDialog();
         }
-
         private void btnIssueLicense_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to issue the license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
-
-
-
             //those are the information for the base application, because it inhirts from application, they are part of the sub class.
 
             _InternationalLicense = new clsInternationalLicenseBL();
@@ -103,10 +99,9 @@ namespace ProjectDVLD.Applications.International_License
             llShowLicenseInfo.Enabled = true;
 
         }
-
         private void llShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(_InternationalLicense.DriverID);
+            frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.DriverID);
             frm.ShowDialog();
         }
     }

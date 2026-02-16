@@ -30,6 +30,7 @@ namespace DVLD_Buisness
         public string UserName { get; set; }
         public string Password { get; set; }
         public byte IsActive { get; set; }
+        public int Permissions {  get; set; }
 
 
 
@@ -45,17 +46,19 @@ namespace DVLD_Buisness
             this.UserName = "";
             this.Password = "";
             this.IsActive = 0;
+            this.Permissions = 0;
 
             Mode = enMode.AddNew;
         }
 
-        public clsUsersBuisnessLayer(int UserID , int PersonID ,string UserName, string Password, byte IsActive)
+        public clsUsersBuisnessLayer(int UserID , int PersonID ,string UserName, string Password, byte IsActive , int Permissions)
         {
             this.UserID = UserID;
             this.PersonID = PersonID;
             this.UserName = UserName;
             this.Password = Password;
             this.IsActive = IsActive;
+            this.Permissions = Permissions;
 
             Mode = enMode.Update;
         }
@@ -68,13 +71,13 @@ namespace DVLD_Buisness
 
         public static clsUsersBuisnessLayer Find(int UserID)
         {
-            int PersonID = 0;
+            int PersonID = 0 , Permissions = 0 ;
             string UserName = "", Password = "";
             byte IsActive = 0;
 
-            if (clsUsersDataAccess.FindUser(UserID, ref PersonID, ref UserName, ref Password, ref IsActive))
+            if (clsUsersDataAccess.FindUser(UserID, ref PersonID, ref UserName, ref Password, ref IsActive , ref Permissions))
             {
-                return new clsUsersBuisnessLayer(UserID , PersonID , UserName , Password , IsActive);
+                return new clsUsersBuisnessLayer(UserID , PersonID , UserName , Password , IsActive , Permissions);
             }
             else
             {
@@ -84,12 +87,12 @@ namespace DVLD_Buisness
 
         public static clsUsersBuisnessLayer FindUserByUserNameAndPassword(string UserName , string Password )
         {
-            int PersonID = 0 , UserID = 0;
+            int PersonID = 0 , UserID = 0 , Permissions = 0;
             byte IsActive = 0;
 
-            if (clsUsersDataAccess.FindUserByUserNameAndPassword(ref UserID, ref PersonID,  UserName,  Password, ref IsActive))
+            if (clsUsersDataAccess.FindUserByUserNameAndPassword(ref UserID, ref PersonID,  UserName,  Password, ref IsActive , ref Permissions))
             {
-                return new clsUsersBuisnessLayer(UserID , PersonID , UserName , Password , IsActive);
+                return new clsUsersBuisnessLayer(UserID , PersonID , UserName , Password , IsActive , Permissions);
             }
             else
             {

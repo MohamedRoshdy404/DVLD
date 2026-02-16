@@ -61,28 +61,7 @@ namespace DVLD_DataAccess
         {
             DataTable dt = new DataTable();
 
-            string query = @"
-                        SELECT 
-                            Drivers.DriverID,
-                            People.PersonID,
-                            People.NationalNo,
-                            People.FirstName + ' ' + People.SecondName + ' ' + 
-                            People.ThirdName + ' ' + People.LastName AS FullName,
-                            Drivers.CreatedDate,
-                            MAX(CAST(Licenses.IsActive AS INT)) AS ActiveLicense
-                        FROM Drivers
-                        INNER JOIN People ON Drivers.PersonID = People.PersonID
-                        INNER JOIN Licenses ON Drivers.DriverID = Licenses.DriverID
-                        GROUP BY 
-                            People.PersonID,
-                            Drivers.DriverID,
-                            People.NationalNo,
-                            People.FirstName,
-                            People.SecondName,
-                            People.ThirdName,
-                            People.LastName,
-                            Drivers.CreatedDate;
-                    ";
+            string query = @"  SELECT * FROM Drivers_View  ";
 
             using (SqlConnection connection = new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
             {

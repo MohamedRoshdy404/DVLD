@@ -38,12 +38,12 @@
             this.pbApplicationTypesmage = new System.Windows.Forms.PictureBox();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvApplicationTypes = new System.Windows.Forms.DataGridView();
             this.cmsApplicationTypes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editApplicationTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvApplicationTypes = new Siticone.UI.WinForms.SiticoneDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbApplicationTypesmage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypes)).BeginInit();
             this.cmsApplicationTypes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypes)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -107,57 +107,13 @@
             this.label2.TabIndex = 114;
             this.label2.Text = "# Records:";
             // 
-            // dgvApplicationTypes
-            // 
-            this.dgvApplicationTypes.AllowUserToAddRows = false;
-            this.dgvApplicationTypes.AllowUserToDeleteRows = false;
-            this.dgvApplicationTypes.AllowUserToResizeRows = false;
-            this.dgvApplicationTypes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Quicksand", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvApplicationTypes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvApplicationTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvApplicationTypes.ContextMenuStrip = this.cmsApplicationTypes;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvApplicationTypes.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvApplicationTypes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvApplicationTypes.Location = new System.Drawing.Point(20, 308);
-            this.dgvApplicationTypes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgvApplicationTypes.MultiSelect = false;
-            this.dgvApplicationTypes.Name = "dgvApplicationTypes";
-            this.dgvApplicationTypes.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvApplicationTypes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvApplicationTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvApplicationTypes.Size = new System.Drawing.Size(679, 354);
-            this.dgvApplicationTypes.TabIndex = 113;
-            this.dgvApplicationTypes.TabStop = false;
-            this.dgvApplicationTypes.DoubleClick += new System.EventHandler(this.dgvApplicationTypes_DoubleClick);
-            // 
             // cmsApplicationTypes
             // 
             this.cmsApplicationTypes.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsApplicationTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editApplicationTypeToolStripMenuItem});
             this.cmsApplicationTypes.Name = "cmsApplicationTypes";
-            this.cmsApplicationTypes.Size = new System.Drawing.Size(256, 64);
+            this.cmsApplicationTypes.Size = new System.Drawing.Size(256, 42);
             // 
             // editApplicationTypeToolStripMenuItem
             // 
@@ -168,25 +124,86 @@
             this.editApplicationTypeToolStripMenuItem.Text = "&Edit Application Type";
             this.editApplicationTypeToolStripMenuItem.Click += new System.EventHandler(this.editApplicationTypeToolStripMenuItem_Click);
             // 
+            // dgvApplicationTypes
+            // 
+            this.dgvApplicationTypes.AllowUserToAddRows = false;
+            this.dgvApplicationTypes.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvApplicationTypes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvApplicationTypes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvApplicationTypes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvApplicationTypes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvApplicationTypes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvApplicationTypes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvApplicationTypes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvApplicationTypes.ColumnHeadersHeight = 30;
+            this.dgvApplicationTypes.ContextMenuStrip = this.cmsApplicationTypes;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvApplicationTypes.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvApplicationTypes.EnableHeadersVisualStyles = false;
+            this.dgvApplicationTypes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvApplicationTypes.Location = new System.Drawing.Point(26, 292);
+            this.dgvApplicationTypes.Name = "dgvApplicationTypes";
+            this.dgvApplicationTypes.ReadOnly = true;
+            this.dgvApplicationTypes.RowHeadersVisible = false;
+            this.dgvApplicationTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvApplicationTypes.Size = new System.Drawing.Size(673, 357);
+            this.dgvApplicationTypes.TabIndex = 118;
+            this.dgvApplicationTypes.Theme = Siticone.UI.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvApplicationTypes.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvApplicationTypes.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvApplicationTypes.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvApplicationTypes.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvApplicationTypes.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvApplicationTypes.ThemeStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.dgvApplicationTypes.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvApplicationTypes.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvApplicationTypes.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvApplicationTypes.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvApplicationTypes.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvApplicationTypes.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvApplicationTypes.ThemeStyle.HeaderStyle.Height = 30;
+            this.dgvApplicationTypes.ThemeStyle.ReadOnly = true;
+            this.dgvApplicationTypes.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvApplicationTypes.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvApplicationTypes.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvApplicationTypes.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvApplicationTypes.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvApplicationTypes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvApplicationTypes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
             // frmListApplicationTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 750);
+            this.Controls.Add(this.dgvApplicationTypes);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pbApplicationTypesmage);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgvApplicationTypes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmListApplicationTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Application Types";
             this.Load += new System.EventHandler(this.frmListApplicationTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbApplicationTypesmage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypes)).EndInit();
             this.cmsApplicationTypes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,8 +216,8 @@
         private System.Windows.Forms.PictureBox pbApplicationTypesmage;
         private System.Windows.Forms.Label lblRecordsCount;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgvApplicationTypes;
         private System.Windows.Forms.ContextMenuStrip cmsApplicationTypes;
         private System.Windows.Forms.ToolStripMenuItem editApplicationTypeToolStripMenuItem;
+        private Siticone.UI.WinForms.SiticoneDataGridView dgvApplicationTypes;
     }
 }

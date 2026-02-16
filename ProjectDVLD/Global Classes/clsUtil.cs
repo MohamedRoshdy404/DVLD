@@ -13,6 +13,24 @@ namespace ProjectDVLD.Global_Classes
     {
 
 
+
+        public enum enMainMenuePermissions
+        {
+            eAll = -1, ssToolStripMenuItem = 1, manageApplications = 2, detainLicenses = 4, manageApplicationTypesToolStripMenuItem = 8
+                , manageTestTypesToolStripMenuItem = 16
+
+        };
+
+        public static bool CheckPermissions(enMainMenuePermissions permissions)
+        {
+            if ((enMainMenuePermissions)Global_Classes.clsUserInfo.CurrentUser.Permissions == enMainMenuePermissions.eAll)
+                return true;
+            if ((permissions & (enMainMenuePermissions)Global_Classes.clsUserInfo.CurrentUser.Permissions) == permissions)
+                return true;
+            else
+                return false;
+        }
+
         public static string GenerateGUID()
         {
 

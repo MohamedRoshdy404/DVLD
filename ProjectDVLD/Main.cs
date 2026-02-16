@@ -37,6 +37,35 @@ namespace ProjectDVLD
             lebFillUserID.Text = clsUserInfo.CurrentUser.UserID.ToString();
             lebFillUsername.Text = clsUserInfo.CurrentUser.UserName.ToUpper();
             PictureBoxImgUser.ImageLocation = clsPersonBuisnessLayer.FindByPersonID(clsUserInfo.CurrentUser.PersonID).ImagePath;
+
+            if (! Global_Classes.clsUtil
+                .CheckPermissions(Global_Classes.clsUtil.enMainMenuePermissions.ssToolStripMenuItem))
+            {
+                ssToolStripMenuItem.Visible = false;
+            }
+                        
+            if (! Global_Classes.clsUtil
+                .CheckPermissions(Global_Classes.clsUtil.enMainMenuePermissions.manageApplications))
+            {
+                manageApplicationsToolStripMenuItem.Visible = false;
+            }
+
+
+            if (! Global_Classes.clsUtil.CheckPermissions(Global_Classes.clsUtil.enMainMenuePermissions.detainLicenses))
+            {
+                detainLicensesToolStripMenuItem.Visible = false;
+            }
+
+            if (! Global_Classes.clsUtil.CheckPermissions(Global_Classes.clsUtil.enMainMenuePermissions.manageApplicationTypesToolStripMenuItem))
+            {
+                manageApplicationTypesToolStripMenuItem.Visible = false;
+            }
+                        
+            if (! Global_Classes.clsUtil.CheckPermissions(Global_Classes.clsUtil.enMainMenuePermissions.manageTestTypesToolStripMenuItem))
+            {
+                manageTestTypesToolStripMenuItem.Visible = false;
+            }
+
         }
 
         private void peopalToolStripMenuItem_Click(object sender, EventArgs e)

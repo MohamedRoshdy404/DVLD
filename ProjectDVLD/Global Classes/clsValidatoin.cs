@@ -5,10 +5,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ProjectDVLD.Globel_Classes
+namespace ProjectDVLD.Global_Classes
 {
     public class clsValidatoin
     {
+
+
+
+
 
 
         public static bool ValidateEmail(string emailAddress)

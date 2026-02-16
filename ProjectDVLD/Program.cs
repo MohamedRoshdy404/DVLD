@@ -23,7 +23,7 @@ namespace ProjectDVLD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-          //Application.Run(new frmListLocalDrivingLicesnseApplications());
+           //Application.Run(new FormISTest());
            Application.Run(new frmLogin());
 
            

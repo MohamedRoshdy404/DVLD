@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DVLD_Buisness;
 using ProjectDVLD.Licenses.Local_Licenses;
+using ProjectDVLD.Licenses.International_Licenses;
 using System.Windows.Forms;
 
 namespace ProjectDVLD.Licenses.Controls
@@ -107,6 +108,12 @@ namespace ProjectDVLD.Licenses.Controls
         {
             int LicenseID = (int)dgvLocalLicensesHistory.CurrentRow.Cells[0].Value;
             frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+            frm.ShowDialog();
+        }
+
+        private void InternationalLicenseHistorytoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo (_DriverID);
             frm.ShowDialog();
         }
     }

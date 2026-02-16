@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGetAllUsers));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGetAllUsers));
-            this.DGVGetAllUsers = new System.Windows.Forms.DataGridView();
             this.cmsUser = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -56,52 +54,12 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cbIsActive = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVGetAllUsers)).BeginInit();
+            this.DGVGetAllUsers = new Siticone.UI.WinForms.SiticoneDataGridView();
             this.cmsUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxManagePeople)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAddPerson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVGetAllUsers)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DGVGetAllUsers
-            // 
-            this.DGVGetAllUsers.AllowUserToAddRows = false;
-            this.DGVGetAllUsers.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Quicksand Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DGVGetAllUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DGVGetAllUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGVGetAllUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DGVGetAllUsers.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Quicksand", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGVGetAllUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.DGVGetAllUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVGetAllUsers.ContextMenuStrip = this.cmsUser;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Quicksand Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVGetAllUsers.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DGVGetAllUsers.Location = new System.Drawing.Point(38, 341);
-            this.DGVGetAllUsers.Name = "DGVGetAllUsers";
-            this.DGVGetAllUsers.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Quicksand", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGVGetAllUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.DGVGetAllUsers.Size = new System.Drawing.Size(837, 309);
-            this.DGVGetAllUsers.TabIndex = 0;
             // 
             // cmsUser
             // 
@@ -117,7 +75,7 @@
             this.sendEmailToolStripMenuItem,
             this.phoneCallToolStripMenuItem});
             this.cmsUser.Name = "contextMenuStrip1";
-            this.cmsUser.Size = new System.Drawing.Size(232, 304);
+            this.cmsUser.Size = new System.Drawing.Size(232, 282);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -269,8 +227,9 @@
             // labRecordsCount
             // 
             this.labRecordsCount.AutoSize = true;
+            this.labRecordsCount.ContextMenuStrip = this.cmsUser;
             this.labRecordsCount.Font = new System.Drawing.Font("Quicksand Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labRecordsCount.Location = new System.Drawing.Point(147, 663);
+            this.labRecordsCount.Location = new System.Drawing.Point(130, 663);
             this.labRecordsCount.Name = "labRecordsCount";
             this.labRecordsCount.Size = new System.Drawing.Size(20, 24);
             this.labRecordsCount.TabIndex = 16;
@@ -323,12 +282,74 @@
             this.cbIsActive.Visible = false;
             this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
             // 
+            // DGVGetAllUsers
+            // 
+            this.DGVGetAllUsers.AllowUserToAddRows = false;
+            this.DGVGetAllUsers.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.DGVGetAllUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGVGetAllUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVGetAllUsers.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DGVGetAllUsers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DGVGetAllUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DGVGetAllUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVGetAllUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGVGetAllUsers.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVGetAllUsers.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DGVGetAllUsers.EnableHeadersVisualStyles = false;
+            this.DGVGetAllUsers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DGVGetAllUsers.Location = new System.Drawing.Point(38, 338);
+            this.DGVGetAllUsers.Name = "DGVGetAllUsers";
+            this.DGVGetAllUsers.ReadOnly = true;
+            this.DGVGetAllUsers.RowHeadersVisible = false;
+            this.DGVGetAllUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVGetAllUsers.Size = new System.Drawing.Size(837, 312);
+            this.DGVGetAllUsers.TabIndex = 105;
+            this.DGVGetAllUsers.Theme = Siticone.UI.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.DGVGetAllUsers.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DGVGetAllUsers.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DGVGetAllUsers.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DGVGetAllUsers.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DGVGetAllUsers.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DGVGetAllUsers.ThemeStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.DGVGetAllUsers.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DGVGetAllUsers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DGVGetAllUsers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DGVGetAllUsers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.DGVGetAllUsers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DGVGetAllUsers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DGVGetAllUsers.ThemeStyle.HeaderStyle.Height = 30;
+            this.DGVGetAllUsers.ThemeStyle.ReadOnly = true;
+            this.DGVGetAllUsers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DGVGetAllUsers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DGVGetAllUsers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.DGVGetAllUsers.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DGVGetAllUsers.ThemeStyle.RowsStyle.Height = 22;
+            this.DGVGetAllUsers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DGVGetAllUsers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
             // frmGetAllUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(916, 703);
+            this.ContextMenuStrip = this.cmsUser;
+            this.Controls.Add(this.DGVGetAllUsers);
             this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.labRecordsCount);
@@ -339,24 +360,21 @@
             this.Controls.Add(this.labFilterBy);
             this.Controls.Add(this.labManageUsers);
             this.Controls.Add(this.picBoxManagePeople);
-            this.Controls.Add(this.DGVGetAllUsers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmGetAllUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Users";
             this.Load += new System.EventHandler(this.GetAllUsers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DGVGetAllUsers)).EndInit();
             this.cmsUser.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxManagePeople)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAddPerson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVGetAllUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView DGVGetAllUsers;
         private System.Windows.Forms.TextBox txtFilter;
         private System.Windows.Forms.ComboBox cbFilterBy;
         private System.Windows.Forms.Label labFilterBy;
@@ -378,5 +396,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ComboBox cbIsActive;
+        private Siticone.UI.WinForms.SiticoneDataGridView DGVGetAllUsers;
     }
 }

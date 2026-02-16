@@ -10,51 +10,6 @@ namespace DVLD_DataAccess
 {
     public class clsUsersDataAccess
     {
-
-
-
-
-        //public static DataTable GetAllUsers()
-        //{
-        //    DataTable dtUsers = new DataTable();
-
-
-
-        //    SqlConnection connection = new SqlConnection(clsSettingsConnectoinStrinng.connectionString);
-        //    string query = "select * from Users";
-        //    SqlCommand command = new SqlCommand(query, connection);
-
-        //    try
-        //    {
-        //        connection.Open();
-
-        //        SqlDataReader reader = command.ExecuteReader();
-        //        if (reader.HasRows)
-        //        {
-        //            dtUsers.Load(reader);
-        //        }
-
-        //        reader.Close();
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //         Console.WriteLine("Error: " + ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-
-
-
-
-
-        //    return dtUsers;
-        //}
-
-
         
         public static DataTable GetInfoUsers()
         {
@@ -101,13 +56,13 @@ namespace DVLD_DataAccess
 
 
 
-        public static bool FindUserByUserNameAndPassword(ref int UserID, ref int PersonID, string UserName, string Password, ref byte IsActive)
+        public static bool FindUserByUserNameAndPassword(ref int UserID, ref int PersonID, string UserName, string Password, ref byte IsActive , ref int Permissions)
         {
             bool isFound = false;
 
             using (SqlConnection connection = new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
             {
-                string query = "select UserID , PersonID , UserName , Password , IsActive from Users where UserName = @UserName and Password = @Password";
+                string query = "select UserID , PersonID , UserName , Password , IsActive , Permissions from Users where UserName = @UserName and Password = @Password";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -130,6 +85,7 @@ namespace DVLD_DataAccess
                                 UserName = reader["UserName"]?.ToString() ?? "";
                                 Password = reader["Password"]?.ToString() ?? "";
                                 IsActive = Convert.ToByte(reader["IsActive"]);
+                                Permissions = Convert.ToInt32(reader["Permissions"]);
 
 
                             }
@@ -289,7 +245,7 @@ namespace DVLD_DataAccess
 
 
                        
-        public static bool FindUser(int UserID, ref int PersonID ,ref string UserName , ref string Password ,ref byte IsActive)
+        public static bool FindUser(int UserID, ref int PersonID ,ref string UserName , ref string Password ,ref byte IsActive , ref int Permissions)
         {
 
             bool IsFound = false;
@@ -297,7 +253,7 @@ namespace DVLD_DataAccess
             using (SqlConnection connection = new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
             {
 
-                string query = "select PersonID , UserName , Password , IsActive  from Users WHERE UserID = @UserID";
+                string query = "select PersonID , UserName , Password , IsActive , Permissions  from Users WHERE UserID = @UserID";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -319,6 +275,7 @@ namespace DVLD_DataAccess
                                 UserName = reader["UserName"].ToString();
                                 Password = reader["Password"].ToString();
                                 IsActive = Convert.ToByte(reader["IsActive"]);
+                                Permissions = Convert.ToInt32(reader["Permissions"]);
 
 
                             }

@@ -27,16 +27,11 @@ namespace ProjectDVLD.People.Controls
         {
             get { return _Person; }
         }
-
-
-
         public ctrlPersonCard()
         {
             InitializeComponent();
             
         }
-
-
         public void ResetPersonInfo()
         {
             _PersonID = -1;
@@ -53,9 +48,6 @@ namespace ProjectDVLD.People.Controls
             pbPersonImage.Image = Resources.Male_512;
 
         }
-
-
-
         private void _loadImagePerson()
         {
             string ImagePath = _Person.ImagePath;

@@ -26,6 +26,11 @@ namespace ProjectDVLD.Tests
             _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID ;
             _TestType = TestType;
         }
+                
+        public frmListTestAppointments()
+        {
+            InitializeComponent();
+        }
 
         private void _LoadTestTypeImageAndTitle()
         {

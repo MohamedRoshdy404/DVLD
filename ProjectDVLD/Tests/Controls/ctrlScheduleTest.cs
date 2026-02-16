@@ -20,7 +20,7 @@ namespace ProjectDVLD.Tests.Controls
         private enCreationMode _CreationMode = enCreationMode.FirstTimeSchedule;
 
 
-        private clsTestType.enTestType _TestTypeID = clsTestType.enTestType.VisionTest;
+        private clsTestType.enTestType _TestTypeID ;
         private clsLocalDrivingLicenseApplicationBL _LocalDrivingLicenseApplication;
         private int _LocalDrivingLicenseApplicationID = -1;
         private clsTestAppointmentBL _TestAppointment;
@@ -191,7 +191,7 @@ namespace ProjectDVLD.Tests.Controls
             if (!_HandleRetakeApplication())
                 return;
 
-            _TestAppointment.TestTypeID = _TestTypeID;
+            _TestAppointment.TestTypeID = TestTypeID;
             _TestAppointment.LocalDrivingLicenseApplicationID = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID;
             _TestAppointment.AppointmentDate =dtpTestDate.Value;
             _TestAppointment.PaidFees = Convert.ToDecimal(lblFees.Text);

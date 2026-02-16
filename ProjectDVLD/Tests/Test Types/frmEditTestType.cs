@@ -1,5 +1,4 @@
 ﻿using DVLD_Buisness;
-using ProjectDVLD.Globel_Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -89,7 +88,7 @@ namespace ProjectDVLD.Tests.Test_Types
             };
 
 
-            if (!clsValidatoin.IsNumber(txtFees.Text))
+            if (!Global_Classes.clsValidatoin.IsNumber(txtFees.Text))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtFees, "Invalid Number.");
