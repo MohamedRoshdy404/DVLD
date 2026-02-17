@@ -19,6 +19,7 @@ using ProjectDVLD.QuickView;
 using ProjectDVLD.Drivers;
 using ProjectDVLD.Applications.International_License;
 using ProjectDVLD.Applications.Local_Driving_License;
+using ProjectDVLD.Applications.Renew_Local_License;
 
 namespace ProjectDVLD
 {
@@ -176,6 +177,12 @@ namespace ProjectDVLD
         private void internationalLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListInternationalLicesnseApplications frm = new frmListInternationalLicesnseApplications();
+            frm.ShowDialog();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewLocalDrivingLicenseApplication frm = new frmRenewLocalDrivingLicenseApplication();
             frm.ShowDialog();
         }
     }

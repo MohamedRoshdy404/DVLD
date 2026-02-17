@@ -336,6 +336,102 @@ namespace DVLD_DataAccess
             return LicenseID;
         }
 
+        public static bool UpdateLicense(
+            int LicenseID,
+            int ApplicationID,
+            int DriverID,
+            int LicenseClass,
+            DateTime IssueDate,
+            DateTime ExpirationDate,
+            string Notes,
+            decimal PaidFees,
+            bool IsActive,
+            byte IssueReason,
+            int CreatedByUserID)
+        {
+            int rowsAffected = 0;
+
+            string query = @"UPDATE Licenses
+                     SET ApplicationID = @ApplicationID,
+                         DriverID = @DriverID,
+                         LicenseClass = @LicenseClass,
+                         IssueDate = @IssueDate,
+                         ExpirationDate = @ExpirationDate,
+                         Notes = @Notes,
+                         PaidFees = @PaidFees,
+                         IsActive = @IsActive,
+                         IssueReason = @IssueReason,
+                         CreatedByUserID = @CreatedByUserID
+                     WHERE LicenseID = @LicenseID;";
+
+            using (SqlConnection connection =
+                   new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseID", LicenseID);
+                    command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                    command.Parameters.AddWithValue("@DriverID", DriverID);
+                    command.Parameters.AddWithValue("@LicenseClass", LicenseClass);
+                    command.Parameters.AddWithValue("@IssueDate", IssueDate);
+                    command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
+
+                    if (string.IsNullOrEmpty(Notes))
+                        command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@Notes", Notes);
+
+                    command.Parameters.AddWithValue("@PaidFees", PaidFees);
+                    command.Parameters.AddWithValue("@IsActive", IsActive);
+                    command.Parameters.AddWithValue("@IssueReason", IssueReason);
+                    command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return (rowsAffected > 0);
+        }
+
+
+        public static bool UpdateLicenseIsActive(int LicenseID, bool IsActive)
+        {
+            int rowsAffected = 0;
+
+            string query = @"UPDATE Licenses
+                     SET IsActive = @IsActive
+                     WHERE LicenseID = @LicenseID;";
+
+            using (SqlConnection connection =
+                   new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LicenseID", LicenseID);
+                    command.Parameters.AddWithValue("@IsActive", IsActive);
+
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return (rowsAffected > 0);
+        }
 
 
 

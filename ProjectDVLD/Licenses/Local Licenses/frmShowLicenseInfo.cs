@@ -12,16 +12,16 @@ namespace ProjectDVLD.Licenses.Local_Licenses
 {
     public partial class frmShowLicenseInfo : Form
     {
-        private int _LocalDrivingLicenseApplicationID = -1;
-        public frmShowLicenseInfo(int LocalDrivingLicenseApplicationID)
+        private int _LicenseID = -1;
+        public frmShowLicenseInfo(int LicenseID)
         {
             InitializeComponent();
-            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            _LicenseID = LicenseID;
         }
 
         private void frmShowLicenseInfo_Load(object sender, EventArgs e)
         {
-            ctrlDriverLicenseInfo1.LoadDataPersonWithLicense(_LocalDrivingLicenseApplicationID);
+            ctrlDriverLicenseInfo1.LoadDataPersonWithLicense(_LicenseID);
         }
     }
 }
