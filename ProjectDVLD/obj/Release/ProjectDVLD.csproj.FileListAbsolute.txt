@@ -196,3 +196,4 @@ C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.csproj.Cor
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.csproj.CopyComplete
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.exe
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.pdb
+C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.Applications.ReplaceLostOrDamagedLicense.frmReplaceLostOrDamagedLicenseApplication.resources

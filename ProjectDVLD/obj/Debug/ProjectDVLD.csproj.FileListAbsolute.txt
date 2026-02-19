@@ -159,6 +159,7 @@ C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Debug\ProjectDVLD.Applications
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.Local_Driving_License.frmListLocalDrivingLicesnseApplications.resources
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.Local_Driving_License.frmLocalDrivingLicenseApplicationInfo.resources
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.Renew_Local_License.frmRenewLocalDrivingLicenseApplication.resources
+C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Debug\ProjectDVLD.Applications.ReplaceLostOrDamagedLicense.frmReplaceLostOrDamagedLicenseApplication.resources
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Debug\ProjectDVLD.Drivers.frmListDrivers.resources
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Debug\ProjectDVLD.Licenses.Controls.ctrlDriverLicenses.resources
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Debug\ProjectDVLD.Licenses.frmShowPersonLicenseHistory.resources

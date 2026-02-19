@@ -27,7 +27,9 @@ namespace DVLD_DataAccess
                      INNER JOIN LicenseClasses
                          ON Licenses.LicenseClass = LicenseClasses.LicenseClassID
                      WHERE DriverID = @DriverID
-                     ORDER BY IsActive DESC, ExpirationDate DESC";
+                     ORDER BY IsActive DESC,
+                              ExpirationDate DESC,
+                              LicenseID DESC";
 
             using (SqlConnection connection =
                    new SqlConnection(clsSettingsConnectoinStrinng.connectionString))

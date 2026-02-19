@@ -203,6 +203,54 @@ namespace DVLD_Buisness
         }
 
 
+        public clsLicenseBL Replace(enIssueReason IssueReason, int CreatedByUserID)
+        {
+
+
+            //First Create Applicaiton 
+            clsApplicationsBuisnessLayer Application = new clsApplicationsBuisnessLayer();
+
+            Application.ApplicantPersonID = this.DriverInfo.PersonID;
+            Application.ApplicationDate = DateTime.Now;
+
+            Application.ApplicationTypeID = (IssueReason == enIssueReason.DamagedReplacement) ?
+                (int)clsApplicationsBuisnessLayer.enApplicationType.ReplaceDamagedDrivingLicense :
+                (int)clsApplicationsBuisnessLayer.enApplicationType.ReplaceLostDrivingLicense;
+
+            Application.ApplicationStatus = clsApplicationsBuisnessLayer.enApplicationStatus.Completed;
+            Application.LastStatusDate = DateTime.Now;
+            Application.PaidFees = clsApplicationTypeBuisnessLayer.Find(Application.ApplicationTypeID).ApplicationFees;
+            Application.CreatedByUserID = CreatedByUserID;
+
+            if (!Application.Save())
+            {
+                return null;
+            }
+
+            clsLicenseBL NewLicense = new clsLicenseBL();
+
+            NewLicense.ApplicationID = Application.ApplicationID;
+            NewLicense.DriverID = this.DriverID;
+            NewLicense.LicenseClass = this.LicenseClass;
+            NewLicense.IssueDate = DateTime.Now;
+            NewLicense.ExpirationDate = this.ExpirationDate;
+            NewLicense.Notes = this.Notes;
+            NewLicense.PaidFees = 0;// no fees for the license because it's a replacement.
+            NewLicense.IsActive = true;
+            NewLicense.IssueReason = IssueReason;
+            NewLicense.CreatedByUserID = CreatedByUserID;
+
+
+
+            if (!NewLicense.Save())
+            {
+                return null;
+            }
+
+            DeactivateCurrentLicense(false);
+
+            return NewLicense;
+        }
 
         public static bool IsLicenseExistByPersonID(int PersonID, int LicenseClassID)
         {

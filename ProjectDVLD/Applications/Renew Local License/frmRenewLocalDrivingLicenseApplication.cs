@@ -61,14 +61,7 @@ namespace ProjectDVLD.Applications.Renew_Local_License
                 return;
             }
 
-
-
-
-
-
             btnRenewLicense.Enabled = true;
-
-
         }
 
 
@@ -112,8 +105,6 @@ namespace ProjectDVLD.Applications.Renew_Local_License
             lblRenewedLicenseID.Text = _NewLicenseID.ToString();
             lblExpirationDate.Text = Global_Classes.clsFormat.DateToShort(NewLicense.ExpirationDate);
             MessageBox.Show("Licensed Renewed Successfully with ID=" + _NewLicenseID.ToString(), "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
 
             btnRenewLicense.Enabled = false;
             ctrlDriverLicenseInfoWithFilter1.FilterEnabled = false;

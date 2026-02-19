@@ -5,6 +5,7 @@ J:\DVLD-main\DVLD_Models\obj\Debug\DVLD_Models.dll
 J:\DVLD-main\DVLD_Models\obj\Debug\DVLD_Models.pdb
 C:\Users\roshdy\Desktop\DVLD-main\DVLD_Models\bin\Debug\DVLD_Models.dll
 C:\Users\roshdy\Desktop\DVLD-main\DVLD_Models\bin\Debug\DVLD_Models.pdb
+C:\Users\roshdy\Desktop\DVLD-main\DVLD_Models\obj\Debug\DVLD_Models.csproj.AssemblyReference.cache
 C:\Users\roshdy\Desktop\DVLD-main\DVLD_Models\obj\Debug\DVLD_Models.csproj.CoreCompileInputs.cache
 C:\Users\roshdy\Desktop\DVLD-main\DVLD_Models\obj\Debug\DVLD_Models.dll
 C:\Users\roshdy\Desktop\DVLD-main\DVLD_Models\obj\Debug\DVLD_Models.pdb
