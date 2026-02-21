@@ -97,7 +97,9 @@ namespace ProjectDVLD.Licenses.Controls
         }
         public void txtLicenseIDFocus()
         {
+            txtLicenseID.TabStop = true;
             txtLicenseID.Focus();
+            txtLicenseID.Select();
         }
 
         private void txtLicenseID_Validating(object sender, CancelEventArgs e)

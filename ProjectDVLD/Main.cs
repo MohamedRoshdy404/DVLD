@@ -21,6 +21,8 @@ using ProjectDVLD.Applications.International_License;
 using ProjectDVLD.Applications.Local_Driving_License;
 using ProjectDVLD.Applications.Renew_Local_License;
 using ProjectDVLD.Applications.ReplaceLostOrDamagedLicense;
+using ProjectDVLD.Applications.Rlease_Detained_License;
+using ProjectDVLD.Licenses.Detain_License;
 
 namespace ProjectDVLD
 {
@@ -190,6 +192,12 @@ namespace ProjectDVLD
         private void replacementForLostOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReplaceLostOrDamagedLicenseApplication frm = new frmReplaceLostOrDamagedLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDetainLicenseApplication frm = new frmDetainLicenseApplication();
             frm.ShowDialog();
         }
     }

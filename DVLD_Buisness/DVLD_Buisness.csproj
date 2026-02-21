@@ -44,7 +44,7 @@
     <Compile Include="clsApplicationsBuisnessLayer.cs" />
     <Compile Include="clsApplicationTypeBuisnessLayer.cs" />
     <Compile Include="clsCountriesBuisnessLayer.cs" />
-    <Compile Include="clsDetainedLicense.cs" />
+    <Compile Include="clsDetainedLicenseBL.cs" />
     <Compile Include="clsDriverBL.cs" />
     <Compile Include="clsInternationalLicenseBL.cs" />
     <Compile Include="clsLicenseBL.cs" />

@@ -198,3 +198,4 @@ C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.exe
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.pdb
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.Applications.ReplaceLostOrDamagedLicense.frmReplaceLostOrDamagedLicenseApplication.resources
 C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.Applications.Rlease_Detained_License.frmReleaseDetainedLicenseApplication.resources
+C:\Users\roshdy\Desktop\DVLD-main\ProjectDVLD\obj\Release\ProjectDVLD.Licenses.Detain_License.frmDetainLicenseApplication.resources

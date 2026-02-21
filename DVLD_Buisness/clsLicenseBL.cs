@@ -22,6 +22,7 @@ namespace DVLD_Buisness
         public int DriverID { set; get; }
         public int LicenseClass { set; get; }
         public clsLicenseClassBuisnessLayer LicenseClassIfo;
+        public clsDetainedLicenseBL DetainedInfo { set; get; }
         public DateTime IssueDate { set; get; }
         public DateTime ExpirationDate { set; get; }
         public string Notes { set; get; }
@@ -30,7 +31,13 @@ namespace DVLD_Buisness
         public enIssueReason IssueReason { set; get; }
         public int CreatedByUserID { set; get; }
 
-
+        public bool IsDetained
+        {
+            get
+            {
+                return clsDetainedLicenseBL.IsLicenseDetained(this.LicenseID);
+            }
+        }
 
         public clsLicenseBL()
 
@@ -70,7 +77,7 @@ namespace DVLD_Buisness
 
             this.DriverInfo = clsDriverBL.FindByDriverID(this.DriverID);
             this.LicenseClassIfo = clsLicenseClassBuisnessLayer.Find(this.LicenseClass);
-            //this.DetainedInfo = clsDetainedLicense.FindByLicenseID(this.LicenseID);
+            this.DetainedInfo = clsDetainedLicenseBL.FindDetainedLicenseByLicenseID(this.LicenseID);
 
             Mode = enMode.Update;
         }
