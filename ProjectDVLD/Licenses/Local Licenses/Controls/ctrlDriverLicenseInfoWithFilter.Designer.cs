@@ -45,7 +45,7 @@
             this.gbFilters.Controls.Add(this.txtLicenseID);
             this.gbFilters.Controls.Add(this.btnFind);
             this.gbFilters.Controls.Add(this.label1);
-            this.gbFilters.Location = new System.Drawing.Point(3, 3);
+            this.gbFilters.Location = new System.Drawing.Point(6, 3);
             this.gbFilters.Name = "gbFilters";
             this.gbFilters.Size = new System.Drawing.Size(527, 74);
             this.gbFilters.TabIndex = 18;
@@ -102,9 +102,9 @@
             // 
             // ctrlDriverLicenseInfo1
             // 
-            this.ctrlDriverLicenseInfo1.Location = new System.Drawing.Point(3, 72);
+            this.ctrlDriverLicenseInfo1.Location = new System.Drawing.Point(-1, 72);
             this.ctrlDriverLicenseInfo1.Name = "ctrlDriverLicenseInfo1";
-            this.ctrlDriverLicenseInfo1.Size = new System.Drawing.Size(866, 341);
+            this.ctrlDriverLicenseInfo1.Size = new System.Drawing.Size(863, 341);
             this.ctrlDriverLicenseInfo1.TabIndex = 19;
             // 
             // ctrlDriverLicenseInfoWithFilter

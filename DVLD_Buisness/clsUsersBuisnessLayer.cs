@@ -85,6 +85,24 @@ namespace DVLD_Buisness
             }
         }
 
+
+        public static clsUsersBuisnessLayer FindByPersonID(int PersonID)
+        {
+            int UserID = -1 , Permissions = 0;
+            string UserName = "", Password = "";
+            byte IsActive = 0;
+
+            bool IsFound = clsUsersDataAccess.GetUserInfoByPersonID
+                                (PersonID, ref UserID, ref UserName, ref Password, ref IsActive);
+
+            if (IsFound)
+                //we return new object of that User with the right data
+                return new clsUsersBuisnessLayer(UserID, UserID, UserName, Password, IsActive , Permissions);
+            else
+                return null;
+        }
+
+
         public static clsUsersBuisnessLayer FindUserByUserNameAndPassword(string UserName , string Password )
         {
             int PersonID = 0 , UserID = 0 , Permissions = 0;
