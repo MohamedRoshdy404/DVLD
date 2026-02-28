@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "507dacb0-9fe2-45be-b358-7d481d2fe870": {
+      "ProjectGuid": "507dacb0-9fe2-45be-b358-7d481d2fe870",
+      "DisplayName": "ProjectDVLD",
+      "ColorIndex": 0
+    },
+    "ec79b98f-1580-45ab-af8e-0f46c6a20bda": {
+      "ProjectGuid": "ec79b98f-1580-45ab-af8e-0f46c6a20bda",
+      "DisplayName": "DVLD_Buisness",
+      "ColorIndex": 1
+    },
+    "02b0a080-da76-4a5c-b6bd-9c28fbf91936": {
+      "ProjectGuid": "02b0a080-da76-4a5c-b6bd-9c28fbf91936",
+      "DisplayName": "DVLD_DataAccess",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

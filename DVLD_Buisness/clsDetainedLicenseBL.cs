@@ -114,11 +114,21 @@ namespace DVLD_Buisness
         }
 
 
-        public bool ReleaseDetainedLicense(int ReleasedByUserID, int ReleaseApplicationID)
+        public bool ReleaseDetainedLicense(int ApplicantPersonID,
+            DateTime ApplicationDate, int ApplicationTypeID,
+           int ApplicationStatus, DateTime LastStatusDate,
+             decimal PaidFees, int CreatedByUserID, int ReleasedByUserID , ref int ApplicationID)
         {
-            return clsDetainedLicenseDA.ReleaseDetainedLicense(this.DetainID,
-                   ReleasedByUserID, ReleaseApplicationID);
+            return clsDetainedLicenseDA.ReleaseDetainedLicense(ApplicantPersonID , ApplicationDate , ApplicationTypeID , ApplicationStatus , LastStatusDate , PaidFees , CreatedByUserID ,  this.DetainID,
+                   ReleasedByUserID , ref ApplicationID);
         }
+        
+
+        //public bool ReleaseDetainedLicense(int ReleasedByUserID, int ReleaseApplicationID)
+        //{
+        //    return clsDetainedLicenseDA.ReleaseDetainedLicense(this.DetainID,
+        //           ReleasedByUserID, ReleaseApplicationID);
+        //}
 
         public bool Save()
         {

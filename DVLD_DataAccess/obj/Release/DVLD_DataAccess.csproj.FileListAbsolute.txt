@@ -23,3 +23,4 @@ C:\Users\roshdy\Desktop\DVLD-main\DVLD_DataAccess\bin\Release\DVLD_DataAccess.pd
 C:\Users\roshdy\Desktop\DVLD-main\DVLD_DataAccess\obj\Release\DVLD_DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\roshdy\Desktop\DVLD-main\DVLD_DataAccess\obj\Release\DVLD_DataAccess.dll
 C:\Users\roshdy\Desktop\DVLD-main\DVLD_DataAccess\obj\Release\DVLD_DataAccess.pdb
+C:\Users\roshdy\Desktop\DVLD-main\DVLD_DataAccess\obj\Release\DVLD_DataAccess.csproj.AssemblyReference.cache

@@ -241,33 +241,55 @@ namespace DVLD_DataAccess
 
 
         public static bool ReleaseDetainedLicense(
+
+
+            int ApplicantPersonID,
+            DateTime ApplicationDate, int ApplicationTypeID,
+            int ApplicationStatus, DateTime LastStatusDate,
+             decimal PaidFees, int CreatedByUserID,
             int DetainID,
             int ReleasedByUserID,
-            int ReleaseApplicationID)
+            ref int ApplicationID
+            )
         {
-            int rowsAffected = 0;
-
-            string query = @"UPDATE DetainedLicenses
-                     SET IsReleased = 1,
-                         ReleaseDate = @ReleaseDate, 
-                         ReleasedByUserID = @ReleasedByUserID,
-                         ReleaseApplicationID = @ReleaseApplicationID
-                     WHERE DetainID = @DetainID";
 
             using (SqlConnection connection =
                    new SqlConnection(clsSettingsConnectoinStrinng.connectionString))
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command =
+                       new SqlCommand("SP_ReleaseDetainedLicense", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+                    command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+                    command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
+                    command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+                    command.Parameters.AddWithValue("@PaidFees", PaidFees);
+                    command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
                     command.Parameters.AddWithValue("@DetainID", DetainID);
                     command.Parameters.AddWithValue("@ReleaseDate", DateTime.Now);
                     command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
-                    command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+
+                    SqlParameter outputParam =
+                        new SqlParameter("@ReleaseApplicationID", SqlDbType.Int);
+                    outputParam.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(outputParam);
 
                     try
                     {
                         connection.Open();
-                        rowsAffected = command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
+
+                        if (outputParam.Value != DBNull.Value)
+                        {
+                            ApplicationID = Convert.ToInt32(outputParam.Value);
+                            return ApplicationID > 0;
+                        }
+
+                        ApplicationID = -1;
+                        return false;
                     }
                     catch
                     {
@@ -276,9 +298,8 @@ namespace DVLD_DataAccess
                 }
             }
 
-            return (rowsAffected > 0);
-        }
-
-
+        }        
+        
+        
     }
 }
