@@ -292,9 +292,91 @@ DVLD/
 ### Database
 
 * **Microsoft SQL Server**
+* **T-SQL**
 * **ADO.NET**
 * Relational database design
-* Stored database backup
+* Stored Procedures
+* Database Transactions
+* Database backup & restoration
+
+# 🗃️ T-SQL & Database Programming
+
+The project makes use of **T-SQL** to handle database-side operations and business-related data processing.
+
+Instead of relying entirely on application-side code, several database operations are implemented directly within SQL Server to improve consistency, maintainability, and control over data operations.
+
+### 🔹 Stored Procedures
+
+The system uses **Stored Procedures** for database operations and data manipulation.
+
+They provide a controlled interface between the application and the database while keeping SQL logic separated from the application's business and presentation layers.
+
+Typical operations include:
+
+* Retrieving records
+* Inserting new records
+* Updating existing records
+* Deleting records
+* Searching and filtering data
+* Executing multi-step database operations
+
+The Data Access Layer communicates with SQL Server through these database operations using **ADO.NET**.
+
+---
+
+### 🔹 Transactions
+
+**SQL Transactions** are used when an operation involves multiple related database changes that must succeed or fail as a single unit.
+
+This helps maintain **data integrity and consistency** across related operations.
+
+Conceptually:
+
+```text
+BEGIN TRANSACTION
+       │
+       ├──► Operation 1
+       │
+       ├──► Operation 2
+       │
+       ├──► Operation 3
+       │
+       ▼
+   All Successful?
+      /      \
+    YES       NO
+     │         │
+ COMMIT      ROLLBACK
+```
+
+For example, when a business operation requires multiple dependent changes, a transaction ensures that the database does not remain in a partially updated state if one of the operations fails.
+
+---
+
+### 🔹 Database Responsibility
+
+The database layer is responsible for more than simply storing data.
+
+The project separates responsibilities between:
+
+```text
+Application
+    │
+    ▼
+Business Logic
+    │
+    ▼
+Data Access Layer
+    │
+    ▼
+T-SQL / Stored Procedures
+    │
+    ▼
+SQL Server
+```
+
+This approach keeps database operations organized while maintaining a clear separation between the application's UI, business logic, data access, and database responsibilities.
+
 
 ### Architecture & Design
 
@@ -601,6 +683,8 @@ Building DVLD provided practical experience with several important software engi
 * Managing complex entity relationships
 * Creating reusable Windows Forms controls
 * Working with ADO.NET and SQL Server
+* Writing and working with T-SQL
+* Using Stored Procedures and SQL Transactions
 * Handling real-world business rules
 * Structuring a maintainable C# application
 
