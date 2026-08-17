@@ -531,39 +531,59 @@ The main application dashboard provides access to multiple modules:
 
 ---
 
-# 📸 Screenshots
+# 📸 Application Preview
 
-> Add application screenshots here to make the repository more visually attractive and easier to understand.
+A visual overview of the DVLD system, showcasing some of its main screens and core management workflows.
 
-Recommended screenshots:
+<div align="center">
 
-* Login Screen
-* Main Dashboard
-* People Management
-* User Management
-* Drivers
-* Local License Applications
-* Test Scheduling
-* License Information
-* International License
-* Detained License
-* Quick View
+### 🔐 Authentication
 
-Example:
+<img src="Screenshots/Login.png" width="80%" alt="DVLD Login Screen"/>
 
-```md
-## Login
+---
 
-![Login Screen](Screenshots/Login.png)
+### 🏠 Main Dashboard
 
-## Main Dashboard
+<img src="Screenshots/MainDashboard.png" width="80%" alt="DVLD Main Dashboard"/>
 
-![Main Dashboard](Screenshots/MainDashboard.png)
+---
 
-## People Management
+### 👥 People & Drivers Management
 
-![People Management](Screenshots/People.png)
-```
+<img src="Screenshots/People.png" width="48%" alt="People Management"/>
+<img src="Screenshots/Drivers.png" width="48%" alt="Drivers Management"/>
+
+<br/><br/>
+
+---
+
+### 📝 Applications & Tests
+
+<img src="Screenshots/Applications.png" width="48%" alt="Applications Management"/>
+<img src="Screenshots/Tests.png" width="48%" alt="Tests Management"/>
+
+<br/><br/>
+
+---
+
+### 🪪 License Management
+
+<img src="Screenshots/Licenses.png" width="48%" alt="License Management"/>
+<img src="Screenshots/InternationalLicense.png" width="48%" alt="International License Management"/>
+
+<br/><br/>
+
+---
+
+### 🔒 Detained Licenses
+
+<img src="Screenshots/DetainedLicenses.png" width="80%" alt="Detained Licenses Management"/>
+
+</div>
+
+> 📌 **Note:** The screenshots above represent selected screens from the application and are intended to provide a quick visual overview of the system's user interface and main workflows.
+
 
 ---
 
