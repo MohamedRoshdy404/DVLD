@@ -69,6 +69,7 @@ namespace ProjectDVLD.Applications.Local_Driving_License
         }
 
 
+
         private void _TestTakingLogic()
         {
 
@@ -124,10 +125,18 @@ namespace ProjectDVLD.Applications.Local_Driving_License
             }
 
             if (FilterColumn == "LocalDrivingLicenseApplicationID")
-
+            {
                 _dtAllLocalDrivingLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text);
+
+                dgvLocalDrivingLicenseApplications.DataSource = _dtAllLocalDrivingLicenseApplications;
+            }
+
+
             else
+            {
                 _dtAllLocalDrivingLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", FilterColumn, txtFilterValue.Text);
+                dgvLocalDrivingLicenseApplications.DataSource = _dtAllLocalDrivingLicenseApplications;
+            }
 
 
 
@@ -145,7 +154,16 @@ namespace ProjectDVLD.Applications.Local_Driving_License
                 txtFilterValue.Text = "";
                 txtFilterValue.Focus();
             }
+
+            if (cbFilterBy.Text.Trim() == "None")
+            {
+                GetLocalDrivingLicesnseApplications();
+                return;
+            }    
+
         }
+
+
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -187,12 +205,13 @@ namespace ProjectDVLD.Applications.Local_Driving_License
                 }
                 else
                 {
-                    MessageBox.Show("Could not delete applicatoin, other data depends on it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     MessageBox.Show("Could not delete applicatoin, other data depends on it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
-
         }
+
+
 
         private void CancelApplicaitonToolStripMenuItem_Click(object sender, EventArgs e)
         {

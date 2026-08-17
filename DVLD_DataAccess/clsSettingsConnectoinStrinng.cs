@@ -10,8 +10,8 @@ namespace DVLD_DataAccess
     {
 
 
-        //public static string connectionString = "Server=db42264.public.databaseasp.net; Database=db42264; User Id=db42264; Password=2t#AQ4s%!B3x; Encrypt=True; TrustServerCertificate=True; MultipleActiveResultSets=True;";
-        public static string connectionString = "Server=.;Database=TestDVLD;User Id=sa;Password=sa123456;";
+        //public static string connectionString = "Server=db43093.public.databaseasp.net; Database=db43093; User Id=db43093; Password=4d_MgJ6+?jS3; Encrypt=True; TrustServerCertificate=True; MultipleActiveResultSets=True;   ";
+        public static string connectionString = "Server=.;Database=DVLD;User Id=sa;Password=sa123456;";
 
     }
 }
