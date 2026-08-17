@@ -545,7 +545,7 @@ A visual overview of the DVLD system, showcasing some of its main screens and co
 
 ### 🏠 Main Dashboard
 
-<img src="Screenshots/MainDashboard.png" width="80%" alt="DVLD Main Dashboard"/>
+<img src="Screenshots/Main.png" width="80%" alt="DVLD Main Dashboard"/>
 
 ---
 
