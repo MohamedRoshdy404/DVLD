@@ -512,7 +512,7 @@ Before running the project, make sure you have:
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/MohamedRoshdy404/DVLD.git
+git clone https://github.com/MohamedRoshdy404/DVLD
 ```
 
 ```bash
@@ -537,26 +537,33 @@ After restoring the database, verify that the database is available from your SQ
 
 ## 3. Configure the Connection String
 
-Open:
+The database connection string is configured in the **Data Access Layer** through the following class:
 
 ```text
-ProjectDVLD/App.config
+DVLD_DataAccess/clsSettingsConnectoinStrinng.cs
 ```
 
-Update the SQL Server connection string according to your local environment.
+Update the connection string according to your local SQL Server environment:
 
-Example:
-
-```xml
-<connectionStrings>
-    <add
-        name="DVLD"
-        connectionString="Server=YOUR_SERVER;Database=DVLD;Integrated Security=True;"
-        providerName="System.Data.SqlClient" />
-</connectionStrings>
+```csharp
+namespace DVLD_DataAccess
+{
+    public class clsSettingsConnectoinStrinng
+    {
+        public static string connectionString =
+            "Server=YOUR_SERVER;Database=DVLD;User Id=YOUR_USERNAME;Password=YOUR_PASSWORD;";
+    }
+}
 ```
 
-> Replace `YOUR_SERVER` with your SQL Server instance name.
+Replace the following values with your local SQL Server configuration:
+
+* `YOUR_SERVER` → Your SQL Server instance name.
+* `DVLD` → Your database name.
+* `YOUR_USERNAME` → Your SQL Server username.
+* `YOUR_PASSWORD` → Your SQL Server password.
+
+> **Security Note:** Never commit real database credentials or passwords to a public repository.
 
 ---
 
